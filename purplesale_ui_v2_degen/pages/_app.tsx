@@ -73,13 +73,14 @@ import {
   arbitrum,
   zora,
   polygonMumbai,
+  avalanche,
 } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import DefaultNav from "@/components/Navbar/DefaultNav";
 import FormProvider from "@/contexts/create/FormProvider";
 import { SnackbarProvider } from "notistack";
 const { chains, publicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum, zora, polygonMumbai],
+  [mainnet, arbitrum, polygon, avalanche],
   [
     alchemyProvider({ apiKey: "64Bhe8uZTKyZc7rOCgS5lpKvKO3TXRxU" }),
     publicProvider(),

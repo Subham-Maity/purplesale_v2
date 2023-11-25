@@ -1,8 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
-
-import FormContext from "@/contexts/create/FormContext";
-
+import React, { useState } from "react";
 import VerifyToken from "@/pages/airdrop/create";
 import AddAdditional from "@/pages/airdrop/section/AddAdditional";
 import HorizontalLinearStepper from "@/components/stepper2";

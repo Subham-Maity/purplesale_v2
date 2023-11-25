@@ -1,36 +1,45 @@
 import React from "react";
-import Tab from "@/components/Tabs/Tabs";
-import { AiOutlineFire, AiOutlineRocket } from "react-icons/ai";
-import Advanced from "@/pages/launchpads/list/Advanced";
-import All from "@/pages/launchpads/list/All";
-import { LiaHandsHelpingSolid } from "react-icons/lia";
-import Navbar from "@/components/Navbar/NewNavbar";
-import LaunchPadListTab from "@/components/Tabs/SubComponent/LaunchPadListTab";
-import LauchPadTab from "@/components/Tabs/SubComponent/LaunchpadTab";
-import Alls from "@/pages/launchpads/list/Alpha/All";
-import Advanceds from "@/pages/launchpads/list/Alpha/Advanced";
+import { useNetwork } from "wagmi";
+import PolygonList from "@/pages/launchpads/MultichainList/PolygonList";
+import EthereumList from "@/pages/launchpads/MultichainList/EthList";
+import dynamic from "next/dynamic";
+import ArbitrumList from "@/pages/launchpads/MultichainList/ArbitrumList";
+import AvalancheList from "@/pages/launchpads/MultichainList/AvalancheList";
 
 const Index = () => {
-  const names = ["All launchpads", "Advanced Mode"];
-  const mainTabNames = ["DEGEN MODE", "ALPHA MODE"];
-  const icons = [AiOutlineRocket, AiOutlineFire, LiaHandsHelpingSolid];
-
+  const { chain } = useNetwork();
   return (
     <div>
-      <div className="mt-20">
-        <LaunchPadListTab tabs={mainTabNames}>
-          <LauchPadTab tabs={names} icons={icons}>
-            <All />
-            <Advanced />
-          </LauchPadTab>
-          <LauchPadTab tabs={names} icons={icons}>
-            <Alls />
-            <Advanceds />
-          </LauchPadTab>
-        </LaunchPadListTab>
-      </div>
+      {!chain?.name && (
+        <>
+          <EthereumList />
+        </>
+      )}
+      {chain?.name === "Ethereum" && (
+        <>
+          <EthereumList />
+        </>
+      )}
+
+      {chain?.name === "Arbitrum One" && (
+        <>
+          <ArbitrumList />
+        </>
+      )}
+
+      {chain?.name === "Polygon" && (
+        <>
+          <PolygonList />
+        </>
+      )}
+
+      {chain?.name === "Avalanche" && (
+        <>
+          <AvalancheList />
+        </>
+      )}
     </div>
   );
 };
 
-export default Index;
+export default dynamic(() => Promise.resolve(Index), { ssr: false });

@@ -1,24 +1,45 @@
 import React from "react";
-import Tab from "@/components/Tabs/Tabs";
-import { AiOutlineFire, AiOutlineRocket } from "react-icons/ai";
-import Advanced from "@/pages/private-sale/list/Advanced";
-import All from "@/pages/private-sale/list/All";
-import Contributions from "@/pages/private-sale/list/Contributions";
-import { LiaHandsHelpingSolid } from "react-icons/lia";
+import { useNetwork } from "wagmi";
+import PolygonList from "@/pages/private-sale/MultichainList/PolygonList";
+import EthereumList from "@/pages/private-sale/MultichainList/EthList";
+import dynamic from "next/dynamic";
+import ArbitrumList from "@/pages/private-sale/MultichainList/ArbitrumList";
+import AvalancheList from "@/pages/private-sale/MultichainList/AvalancheList";
 
 const Index = () => {
-  const names = ["All Private Sales", "My Private Sale", "Created By You"];
-  const icons = [AiOutlineRocket, AiOutlineFire, LiaHandsHelpingSolid];
-
+  const { chain } = useNetwork();
   return (
     <div>
-      <Tab tabs={names} icons={icons}>
-        <All />
-        <Advanced />
-        <Contributions />
-      </Tab>
+      {!chain?.name && (
+        <>
+          <EthereumList />
+        </>
+      )}
+      {chain?.name === "Ethereum" && (
+        <>
+          <EthereumList />
+        </>
+      )}
+
+      {chain?.name === "Arbitrum One" && (
+        <>
+          <ArbitrumList />
+        </>
+      )}
+
+      {chain?.name === "Polygon" && (
+        <>
+          <PolygonList />
+        </>
+      )}
+
+      {chain?.name === "Avalanche" && (
+        <>
+          <AvalancheList />
+        </>
+      )}
     </div>
   );
 };
 
-export default Index;
+export default dynamic(() => Promise.resolve(Index), { ssr: false });

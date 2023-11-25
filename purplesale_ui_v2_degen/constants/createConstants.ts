@@ -7192,4 +7192,5 @@ export const createBuyBackBabyTokenAddress =
 export const pinkLockAddress = "0xac77513661ac662A46c27218be28cA36FBB468Dd";
 
 // export const BASE_URL = "https://purplesale-server.onrender.com/";
-export const BASE_URL = "https://layer2.fun/";
+// export const BASE_URL = "https://layer2.fun/";
+export const BASE_URL = "http://localhost:5000/";

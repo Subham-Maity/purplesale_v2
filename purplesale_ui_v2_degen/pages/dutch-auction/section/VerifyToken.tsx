@@ -2,7 +2,7 @@ import BgInput from "@/components/TailwindWrapper/InputBg/BgInput";
 import { ERC20Abi } from "@/constants/createConstants";
 import FormContext from "@/contexts/create/FormContext";
 import React, { useState, ChangeEvent, useEffect, useContext } from "react";
-import { useContractRead } from "wagmi";
+import { useContractRead, useNetwork } from "wagmi";
 import Image from "next/image";
 
 type VerifyTokenProps = {
@@ -10,6 +10,7 @@ type VerifyTokenProps = {
 };
 
 const VerifyToken: React.FC<VerifyTokenProps> = ({ onStepValidation }) => {
+  const { chain } = useNetwork();
   const [isValidAddress, setIsValidAddress] = useState(false);
   const [affiliateChangePercent, setAffiliateChangePercent] =
     useState<number>(0);
@@ -122,166 +123,873 @@ const VerifyToken: React.FC<VerifyTokenProps> = ({ onStepValidation }) => {
   ]);
 
   return (
-    <div>
-      <BgInput>
-        <div>
-          <p className="flex">
-            <Image
-              src={"/Line.svg"}
-              alt={"Line"}
-              width={3}
-              height={2}
-              className="inputImageBar"
-            />
+    <>
+      {!chain?.name && (
+        <>
+          <div>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
 
-            <label className="inputHeading" htmlFor="tokenAddress">
-              Token address <span className="inputRequired">*</span>
-            </label>
-          </p>
-          <input
-            id="tokenAddress"
-            type="text"
-            className="input "
-            value={tokenAddress}
-            onChange={handleChangeTokenAddress}
-            onBlur={checkTokenAddressValidity}
-            required
-          />
-          {!isValidAddress && tokenAddress.trim() !== "" && (
-            <p className="inputAlert">Invalid/Network token address</p>
-          )}
-        </div>
+                  <label className="inputHeading" htmlFor="tokenAddress">
+                    Token address <span className="inputRequired">*</span>
+                  </label>
+                </p>
+                <input
+                  id="tokenAddress"
+                  type="text"
+                  className="input "
+                  value={tokenAddress}
+                  onChange={handleChangeTokenAddress}
+                  onBlur={checkTokenAddressValidity}
+                  required
+                />
+                {!isValidAddress && tokenAddress.trim() !== "" && (
+                  <p className="inputAlert">Invalid/Network token address</p>
+                )}
+              </div>
 
-        {isValidAddress && (
-          <div>
-            <p className="inputAlert">Name: {tokenDetails.name}</p>
-            <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
-            <p className="inputAlert">Decimals: {tokenDetails.decimals}</p>
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Name: {tokenDetails.name}</p>
+                  <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
+                  <p className="inputAlert">
+                    Decimals: {tokenDetails.decimals}
+                  </p>
+                </div>
+              )}
+              {!isValidAddress && tokenAddress.trim() === "" && (
+                <div>
+                  <p className="inputAlert">Token address cannot be blank</p>
+                </div>
+              )}
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Correct</p>
+                </div>
+              )}
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="currency">
+                    Currency
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="maticCurrency"
+                      name="currency"
+                      value="ETH"
+                      checked={currency === "ETH"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="maticCurrency">
+                      ETH
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdtCurrency"
+                      name="currency"
+                      value="USDT"
+                      checked={currency === "USDT"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdtCurrency">
+                      USDT
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdcCurrency"
+                      name="currency"
+                      value="USDC"
+                      checked={currency === "USDC"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdcCurrency">
+                      USDC
+                    </label>
+                  </div>
+                </div>
+                <p className="inputAlert">
+                  Users will pay with {currency} for your token
+                </p>
+              </div>
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="feeOptions">
+                    Fee Options
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="feeOption1"
+                      name="feeOptions"
+                      className="input"
+                      checked={
+                        feeOption === `5% ${currency} raised only (Recommended)`
+                      }
+                      onChange={() =>
+                        setFeeOption(`5% ${currency} raised only (Recommended)`)
+                      }
+                    />
+                    <label
+                      className="ml-2 whitespace-nowrap"
+                      htmlFor="feeOption1"
+                    >
+                      5% {currency} raised only (Recommended)
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="feeOption2"
+                      name="feeOptions"
+                      className="input"
+                      checked={feeOption === `2% ${currency} + 2% token sold`}
+                      onChange={() =>
+                        setFeeOption(`2% ${currency} + 2% token sold`)
+                      }
+                    />
+                    <label
+                      className="ml-2 whitespace-nowrap"
+                      htmlFor="feeOption2"
+                    >
+                      2% {currency} + 2% token sold
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </BgInput>
           </div>
-        )}
-        {!isValidAddress && tokenAddress.trim() === "" && (
+        </>
+      )}
+      {chain?.name === "Ethereum" && (
+        <>
           <div>
-            <p className="inputAlert">Token address cannot be blank</p>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+
+                  <label className="inputHeading" htmlFor="tokenAddress">
+                    Token address <span className="inputRequired">*</span>
+                  </label>
+                </p>
+                <input
+                  id="tokenAddress"
+                  type="text"
+                  className="input "
+                  value={tokenAddress}
+                  onChange={handleChangeTokenAddress}
+                  onBlur={checkTokenAddressValidity}
+                  required
+                />
+                {!isValidAddress && tokenAddress.trim() !== "" && (
+                  <p className="inputAlert">Invalid/Network token address</p>
+                )}
+              </div>
+
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Name: {tokenDetails.name}</p>
+                  <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
+                  <p className="inputAlert">
+                    Decimals: {tokenDetails.decimals}
+                  </p>
+                </div>
+              )}
+              {!isValidAddress && tokenAddress.trim() === "" && (
+                <div>
+                  <p className="inputAlert">Token address cannot be blank</p>
+                </div>
+              )}
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Correct</p>
+                </div>
+              )}
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="currency">
+                    Currency
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="maticCurrency"
+                      name="currency"
+                      value="ETH"
+                      checked={currency === "ETH"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="maticCurrency">
+                      ETH
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdtCurrency"
+                      name="currency"
+                      value="USDT"
+                      checked={currency === "USDT"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdtCurrency">
+                      USDT
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdcCurrency"
+                      name="currency"
+                      value="USDC"
+                      checked={currency === "USDC"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdcCurrency">
+                      USDC
+                    </label>
+                  </div>
+                </div>
+                <p className="inputAlert">
+                  Users will pay with {currency} for your token
+                </p>
+              </div>
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="feeOptions">
+                    Fee Options
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="feeOption1"
+                      name="feeOptions"
+                      className="input"
+                      checked={
+                        feeOption === `5% ${currency} raised only (Recommended)`
+                      }
+                      onChange={() =>
+                        setFeeOption(`5% ${currency} raised only (Recommended)`)
+                      }
+                    />
+                    <label
+                      className="ml-2 whitespace-nowrap"
+                      htmlFor="feeOption1"
+                    >
+                      5% {currency} raised only (Recommended)
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="feeOption2"
+                      name="feeOptions"
+                      className="input"
+                      checked={feeOption === `2% ${currency} + 2% token sold`}
+                      onChange={() =>
+                        setFeeOption(`2% ${currency} + 2% token sold`)
+                      }
+                    />
+                    <label
+                      className="ml-2 whitespace-nowrap"
+                      htmlFor="feeOption2"
+                    >
+                      2% {currency} + 2% token sold
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </BgInput>
           </div>
-        )}
-        {isValidAddress && (
+        </>
+      )}
+
+      {chain?.name === "Arbitrum One" && (
+        <>
           <div>
-            <p className="inputAlert">Correct</p>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+
+                  <label className="inputHeading" htmlFor="tokenAddress">
+                    Token address <span className="inputRequired">*</span>
+                  </label>
+                </p>
+                <input
+                  id="tokenAddress"
+                  type="text"
+                  className="input "
+                  value={tokenAddress}
+                  onChange={handleChangeTokenAddress}
+                  onBlur={checkTokenAddressValidity}
+                  required
+                />
+                {!isValidAddress && tokenAddress.trim() !== "" && (
+                  <p className="inputAlert">Invalid/Network token address</p>
+                )}
+              </div>
+
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Name: {tokenDetails.name}</p>
+                  <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
+                  <p className="inputAlert">
+                    Decimals: {tokenDetails.decimals}
+                  </p>
+                </div>
+              )}
+              {!isValidAddress && tokenAddress.trim() === "" && (
+                <div>
+                  <p className="inputAlert">Token address cannot be blank</p>
+                </div>
+              )}
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Correct</p>
+                </div>
+              )}
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="currency">
+                    Currency
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="maticCurrency"
+                      name="currency"
+                      value="ETH"
+                      checked={currency === "ETH"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="maticCurrency">
+                      ETH
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdtCurrency"
+                      name="currency"
+                      value="USDT"
+                      checked={currency === "USDT"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdtCurrency">
+                      USDT
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdcCurrency"
+                      name="currency"
+                      value="USDC"
+                      checked={currency === "USDC"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdcCurrency">
+                      USDC
+                    </label>
+                  </div>
+                </div>
+                <p className="inputAlert">
+                  Users will pay with {currency} for your token
+                </p>
+              </div>
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="feeOptions">
+                    Fee Options
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="feeOption1"
+                      name="feeOptions"
+                      className="input"
+                      checked={
+                        feeOption === `5% ${currency} raised only (Recommended)`
+                      }
+                      onChange={() =>
+                        setFeeOption(`5% ${currency} raised only (Recommended)`)
+                      }
+                    />
+                    <label
+                      className="ml-2 whitespace-nowrap"
+                      htmlFor="feeOption1"
+                    >
+                      5% {currency} raised only (Recommended)
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="feeOption2"
+                      name="feeOptions"
+                      className="input"
+                      checked={feeOption === `2% ${currency} + 2% token sold`}
+                      onChange={() =>
+                        setFeeOption(`2% ${currency} + 2% token sold`)
+                      }
+                    />
+                    <label
+                      className="ml-2 whitespace-nowrap"
+                      htmlFor="feeOption2"
+                    >
+                      2% {currency} + 2% token sold
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </BgInput>
           </div>
-        )}
-      </BgInput>
-      <BgInput>
+        </>
+      )}
+
+      {chain?.name === "Polygon" && (
         <div>
-          <p className="flex">
-            <Image
-              src={"/Line.svg"}
-              alt={"Line"}
-              width={3}
-              height={2}
-              className="inputImageBar"
-            />
-            <label className="inputHeading" htmlFor="currency">
-              Currency
-            </label>
-          </p>
-          <div className="flex flex-col space-y-2 items-start">
-            <div className="flex items-center">
+          <BgInput>
+            <div>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+
+                <label className="inputHeading" htmlFor="tokenAddress">
+                  Token address <span className="inputRequired">*</span>
+                </label>
+              </p>
               <input
-                type="radio"
-                id="maticCurrency"
-                name="currency"
-                value="MATIC"
-                checked={currency === "MATIC"}
-                onChange={handleCurrencyChange}
-                className="input"
+                id="tokenAddress"
+                type="text"
+                className="input "
+                value={tokenAddress}
+                onChange={handleChangeTokenAddress}
+                onBlur={checkTokenAddressValidity}
+                required
               />
-              <label className="ml-2" htmlFor="maticCurrency">
-                MATIC
-              </label>
+              {!isValidAddress && tokenAddress.trim() !== "" && (
+                <p className="inputAlert">Invalid/Network token address</p>
+              )}
             </div>
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="usdtCurrency"
-                name="currency"
-                value="USDT"
-                checked={currency === "USDT"}
-                onChange={handleCurrencyChange}
-                className="input"
-              />
-              <label className="ml-2" htmlFor="usdtCurrency">
-                USDT
-              </label>
+
+            {isValidAddress && (
+              <div>
+                <p className="inputAlert">Name: {tokenDetails.name}</p>
+                <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
+                <p className="inputAlert">Decimals: {tokenDetails.decimals}</p>
+              </div>
+            )}
+            {!isValidAddress && tokenAddress.trim() === "" && (
+              <div>
+                <p className="inputAlert">Token address cannot be blank</p>
+              </div>
+            )}
+            {isValidAddress && (
+              <div>
+                <p className="inputAlert">Correct</p>
+              </div>
+            )}
+          </BgInput>
+          <BgInput>
+            <div>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="currency">
+                  Currency
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="maticCurrency"
+                    name="currency"
+                    value="MATIC"
+                    checked={currency === "MATIC"}
+                    onChange={handleCurrencyChange}
+                    className="input"
+                  />
+                  <label className="ml-2" htmlFor="maticCurrency">
+                    MATIC
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="usdtCurrency"
+                    name="currency"
+                    value="USDT"
+                    checked={currency === "USDT"}
+                    onChange={handleCurrencyChange}
+                    className="input"
+                  />
+                  <label className="ml-2" htmlFor="usdtCurrency">
+                    USDT
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="usdcCurrency"
+                    name="currency"
+                    value="USDC"
+                    checked={currency === "USDC"}
+                    onChange={handleCurrencyChange}
+                    className="input"
+                  />
+                  <label className="ml-2" htmlFor="usdcCurrency">
+                    USDC
+                  </label>
+                </div>
+              </div>
+              <p className="inputAlert">
+                Users will pay with {currency} for your token
+              </p>
             </div>
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="usdcCurrency"
-                name="currency"
-                value="USDC"
-                checked={currency === "USDC"}
-                onChange={handleCurrencyChange}
-                className="input"
-              />
-              <label className="ml-2" htmlFor="usdcCurrency">
-                USDC
-              </label>
+          </BgInput>
+          <BgInput>
+            <div>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="feeOptions">
+                  Fee Options
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="feeOption1"
+                    name="feeOptions"
+                    className="input"
+                    checked={
+                      feeOption === `5% ${currency} raised only (Recommended)`
+                    }
+                    onChange={() =>
+                      setFeeOption(`5% ${currency} raised only (Recommended)`)
+                    }
+                  />
+                  <label
+                    className="ml-2 whitespace-nowrap"
+                    htmlFor="feeOption1"
+                  >
+                    5% {currency} raised only (Recommended)
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="feeOption2"
+                    name="feeOptions"
+                    className="input"
+                    checked={feeOption === `2% ${currency} + 2% token sold`}
+                    onChange={() =>
+                      setFeeOption(`2% ${currency} + 2% token sold`)
+                    }
+                  />
+                  <label
+                    className="ml-2 whitespace-nowrap"
+                    htmlFor="feeOption2"
+                  >
+                    2% {currency} + 2% token sold
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-          <p className="inputAlert">
-            Users will pay with {currency} for your token
-          </p>
+          </BgInput>
         </div>
-      </BgInput>
-      <BgInput>
+      )}
+
+      {chain?.name === "Avalanche" && (
         <div>
-          <p className="flex">
-            <Image
-              src={"/Line.svg"}
-              alt={"Line"}
-              width={3}
-              height={2}
-              className="inputImageBar"
-            />
-            <label className="inputHeading" htmlFor="feeOptions">
-              Fee Options
-            </label>
-          </p>
-          <div className="flex flex-col space-y-2 items-start">
-            <div className="flex items-center">
+          <BgInput>
+            <div>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+
+                <label className="inputHeading" htmlFor="tokenAddress">
+                  Token address <span className="inputRequired">*</span>
+                </label>
+              </p>
               <input
-                type="radio"
-                id="feeOption1"
-                name="feeOptions"
-                className="input"
-                checked={
-                  feeOption === `5% ${currency} raised only (Recommended)`
-                }
-                onChange={() =>
-                  setFeeOption(`5% ${currency} raised only (Recommended)`)
-                }
+                id="tokenAddress"
+                type="text"
+                className="input "
+                value={tokenAddress}
+                onChange={handleChangeTokenAddress}
+                onBlur={checkTokenAddressValidity}
+                required
               />
-              <label className="ml-2 whitespace-nowrap" htmlFor="feeOption1">
-                5% {currency} raised only (Recommended)
-              </label>
+              {!isValidAddress && tokenAddress.trim() !== "" && (
+                <p className="inputAlert">Invalid/Network token address</p>
+              )}
             </div>
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="feeOption2"
-                name="feeOptions"
-                className="input"
-                checked={feeOption === `2% ${currency} + 2% token sold`}
-                onChange={() => setFeeOption(`2% ${currency} + 2% token sold`)}
-              />
-              <label className="ml-2 whitespace-nowrap" htmlFor="feeOption2">
-                2% {currency} + 2% token sold
-              </label>
+
+            {isValidAddress && (
+              <div>
+                <p className="inputAlert">Name: {tokenDetails.name}</p>
+                <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
+                <p className="inputAlert">Decimals: {tokenDetails.decimals}</p>
+              </div>
+            )}
+            {!isValidAddress && tokenAddress.trim() === "" && (
+              <div>
+                <p className="inputAlert">Token address cannot be blank</p>
+              </div>
+            )}
+            {isValidAddress && (
+              <div>
+                <p className="inputAlert">Correct</p>
+              </div>
+            )}
+          </BgInput>
+          <BgInput>
+            <div>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="currency">
+                  Currency
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="maticCurrency"
+                    name="currency"
+                    value="AVAX"
+                    checked={currency === "AVAX"}
+                    onChange={handleCurrencyChange}
+                    className="input"
+                  />
+                  <label className="ml-2" htmlFor="maticCurrency">
+                    AVAX
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="usdtCurrency"
+                    name="currency"
+                    value="USDT"
+                    checked={currency === "USDT"}
+                    onChange={handleCurrencyChange}
+                    className="input"
+                  />
+                  <label className="ml-2" htmlFor="usdtCurrency">
+                    USDT
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="usdcCurrency"
+                    name="currency"
+                    value="USDC"
+                    checked={currency === "USDC"}
+                    onChange={handleCurrencyChange}
+                    className="input"
+                  />
+                  <label className="ml-2" htmlFor="usdcCurrency">
+                    USDC
+                  </label>
+                </div>
+              </div>
+              <p className="inputAlert">
+                Users will pay with {currency} for your token
+              </p>
             </div>
-          </div>
+          </BgInput>
+          <BgInput>
+            <div>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="feeOptions">
+                  Fee Options
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="feeOption1"
+                    name="feeOptions"
+                    className="input"
+                    checked={
+                      feeOption === `5% ${currency} raised only (Recommended)`
+                    }
+                    onChange={() =>
+                      setFeeOption(`5% ${currency} raised only (Recommended)`)
+                    }
+                  />
+                  <label
+                    className="ml-2 whitespace-nowrap"
+                    htmlFor="feeOption1"
+                  >
+                    5% {currency} raised only (Recommended)
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="feeOption2"
+                    name="feeOptions"
+                    className="input"
+                    checked={feeOption === `2% ${currency} + 2% token sold`}
+                    onChange={() =>
+                      setFeeOption(`2% ${currency} + 2% token sold`)
+                    }
+                  />
+                  <label
+                    className="ml-2 whitespace-nowrap"
+                    htmlFor="feeOption2"
+                  >
+                    2% {currency} + 2% token sold
+                  </label>
+                </div>
+              </div>
+            </div>
+          </BgInput>
         </div>
-      </BgInput>
-    </div>
+      )}
+    </>
   );
 };
 
