@@ -1,31 +1,47 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
+import { useNetwork } from "wagmi";
+import EthMulti from "@/pages/multi-sender/Multichain/Ethereum";
+import ArbitrumMulti from "@/pages/multi-sender/Multichain/Arbitrum";
+import PolygonMulti from "@/pages/multi-sender/Multichain/Polygon";
+import AvalancheMulti from "@/pages/multi-sender/Multichain/Avalanche";
+import dynamic from "next/dynamic";
 
-import MultiSender from "@/pages/multi-sender/section/AddYourAllocation";
-import Finish from "@/pages/multi-sender/section/Finish";
-import HorizontalLinearStepper3 from "@/components/stepper3";
+const Index = () => {
+  const { chain } = useNetwork();
 
-const Page = () => {
-  const [isValidate, setIsValidate] = useState(0);
-  const [isFormValid, setIsFormValid] = useState(false);
-  const changeVal = () => {
-    setIsValidate(1);
-    console.log(isValidate);
-  };
-
-  const steps = ["Add Your Allocation", ""];
-
-  const handleStepValidation = (isValid: boolean) => {
-    setIsFormValid(isValid);
-  };
   return (
     <div>
-      <HorizontalLinearStepper3 steps={steps}>
-        <MultiSender onStepValidation={handleStepValidation} />
-        <Finish />
-      </HorizontalLinearStepper3>
+      {!chain?.name && (
+        <>
+          {" "}
+          <EthMulti />
+        </>
+      )}
+      {chain?.name === "Ethereum" && (
+        <>
+          <EthMulti />
+        </>
+      )}
+
+      {chain?.name === "Arbitrum One" && (
+        <>
+          <ArbitrumMulti />
+        </>
+      )}
+
+      {chain?.name === "Polygon" && (
+        <>
+          <PolygonMulti />
+        </>
+      )}
+
+      {chain?.name === "Avalanche" && (
+        <>
+          <AvalancheMulti />
+        </>
+      )}
     </div>
   );
 };
 
-export default Page;
+export default dynamic(() => Promise.resolve(Index), { ssr: false });

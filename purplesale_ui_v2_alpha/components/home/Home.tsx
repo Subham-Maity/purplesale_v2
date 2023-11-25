@@ -8,11 +8,12 @@ import { useAccount } from "wagmi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Switcher from "@/components/Navbar/mode/Switcher";
-
+import { useNetwork } from "wagmi";
 const HomeMain = () => {
   const router = useRouter();
   const { address, isConnected } = useAccount();
   const [isLoading, setIsLoading] = useState(false);
+
   // Show warning if not connected to MetaMask
   useEffect(() => {
     if (!isConnected) {
@@ -53,7 +54,6 @@ const HomeMain = () => {
   return (
     <div>
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
-
       <BgBox>
         <Image
           className="pt-4 pb-4"

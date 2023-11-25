@@ -12,7 +12,6 @@ const DefaultNav = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Provider>
-        {/*<div className="bg-[url('/bg.svg')] bg-[#30344a] h-fit bg-cover bg-no-repeat bg-center lg:p-8 ">*/}
         <div className="bg-gradient-to-r from-[#2a282b] via-[#1d1c1c] to-[#1c2037] select-animate bg-cover bg-no-repeat bg-center h-screen lg:p-8 ">
           <div className=" overflow-hidden max-h-screen ">
             <div className="flex">
