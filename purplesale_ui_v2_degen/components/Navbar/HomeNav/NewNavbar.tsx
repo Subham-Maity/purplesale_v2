@@ -17,14 +17,20 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
   const { chain } = useNetwork();
   return (
     <div>
-      {!chain?.name && (
-        <>
-          <Ethereum
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-          />
-        </>
-      )}
+      <div
+        className={
+          chain?.name ||
+          chain?.name === "Ethereum" ||
+          chain?.name === "Arbitrum One" ||
+          chain?.name === "Polygon" ||
+          chain?.name === "Avalanche"
+            ? "hidden"
+            : "block"
+        }
+      >
+        <Ethereum isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      </div>
+
       {chain?.name === "Ethereum" && (
         <>
           <Ethereum

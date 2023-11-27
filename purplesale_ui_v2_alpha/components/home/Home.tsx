@@ -55,6 +55,7 @@ const HomeMain = () => {
     <div>
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
       <BgBox>
+
         <Image
           className="pt-4 pb-4"
           src="/Home/HomeBg.svg"
