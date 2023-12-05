@@ -63,15 +63,15 @@ const TokenMetrics: React.FC<TokenMetricsProps> = ({
   }, [labels, data, darkTheme]);
 
   return (
-      <DetailsFinishWrapper>
-        <h1 className="text-xl font-bold dark:text-gray-200 text-gray-700">
-          Token Metrics
-        </h1>
-        <hr className="mt-8 mb-8 h-px mx-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-        <div>
-          <canvas ref={chartRef} />
-        </div>
-      </DetailsFinishWrapper>
+    <DetailsFinishWrapper>
+      <h1 className="text-xl font-bold dark:text-gray-200 text-gray-300">
+        Token Metrics
+      </h1>
+      <hr className="mt-8 mb-8 h-px mx-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+      <div>
+        <canvas ref={chartRef} />
+      </div>
+    </DetailsFinishWrapper>
   );
 };
 

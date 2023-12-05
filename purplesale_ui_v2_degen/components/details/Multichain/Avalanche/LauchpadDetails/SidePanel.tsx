@@ -35,7 +35,7 @@ const ProgressStep = ({
     <div className="flex-1">
       <p
         className={`text-sm font-medium ${
-          isCompleted ? "text-[#aca4ff]" : "dark:text-gray-200 text-gray-700"
+          isCompleted ? "text-[#aca4ff]" : "dark:text-gray-200 text-gray-300"
         }`}
       >
         {title}
@@ -188,35 +188,35 @@ const SidePanel = ({
       )}
 
       <div className="flex mt-4 justify-between">
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           Status
         </p>
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           <SaleStatus startDate={preSaleStartTime} endDate={preSaleEndTime} />
         </p>
       </div>
       <div className="flex justify-between">
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           Sales Type
         </p>
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           Public
         </p>
       </div>
 
       <div className="flex justify-between">
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           Minimum Buy
         </p>
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           {minimumBuy} {currency}
         </p>
       </div>
       <div className="flex justify-between">
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           Maximum Buy
         </p>
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-medium text-gray-300 dark:text-white">
           {maximumBuy} {currency}
         </p>
       </div>

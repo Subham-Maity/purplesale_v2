@@ -153,7 +153,7 @@ const CountdownTimer = ({ startDate, endDate }: CountdownProps) => {
   }, [startDate, endDate]);
 
   return (
-    <span className="text-gray-800 dark:text-gray-300">
+    <span className="text-gray-300 dark:text-gray-300">
       {timeLeft || "Presale"}
     </span>
   );
@@ -230,7 +230,7 @@ const PreSaleCards = ({
       </div>
 
       <div className="px-3 mb-8 ">
-        <h5 className="mb-2 text-2xl flex justify-start font-semibold whitespace-nowrap tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl flex justify-start font-semibold whitespace-nowrap tracking-tight text-gray-300 dark:text-white">
           {name}
         </h5>
         <p className=" flex justify-start mb-3 font-normal text-lg text-gray-200 dark:text-gray-200">
@@ -238,7 +238,7 @@ const PreSaleCards = ({
         </p>
       </div>
       <div className="px-4">
-        <p className="mb-1 flex justify-start text-sm font-bold text-gray-700 dark:text-white">
+        <p className="mb-1 flex justify-start text-sm font-bold text-gray-300 dark:text-white">
           Progress ({moneyRaised / hardCapCurrency}%)
         </p>
         <div className="w-full bg-gray-300 rounded-full">
@@ -251,10 +251,10 @@ const PreSaleCards = ({
         </div>
 
         <div className="flex justify-between mb-4">
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {moneyRaised ? `${moneyRaised}${currency}` : `0${currency}`}
           </p>
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {hardCapCurrency}
             {currency}
           </p>
@@ -328,22 +328,22 @@ const PreSaleCards = ({
         </div>
         <hr className="border-t border-gray-300/75 mt-4 "></hr>
         <h3 className="flex justify-between mt-4 mb-4">
-          <p className="text-xl font-normal text-gray-700 dark:text-gray-100">
+          <p className="text-xl font-normal text-gray-300 dark:text-gray-100">
             Lockup Time:
           </p>
-          <p className=" text-xl font-normal text-gray-700 dark:text-gray-100">
-            <span className="text-gray-800 dark:text-gray-300">
+          <p className=" text-xl font-normal text-gray-300 dark:text-gray-100">
+            <span className="text-gray-300 dark:text-gray-300">
               {Math.floor(LockupTime / (60 * 60 * 24))} Days
             </span>
           </p>
         </h3>
         <div className="flex justify-between">
           <div>
-            <p className="text-sm font-normal text-gray-700 dark:text-gray-100">
+            <p className="text-sm font-normal text-gray-300 dark:text-gray-100">
               Sale Starts In
             </p>
-            <p className="text-sm flex justify-start font-normal text-gray-700 dark:text-gray-100">
-              <span className="text-gray-800 dark:text-gray-300">
+            <p className="text-sm flex justify-start font-normal text-gray-300 dark:text-gray-100">
+              <span className="text-gray-300 dark:text-gray-300">
                 <CountdownTimer startDate={SalesStartIn} endDate={SalesEndIn} />
               </span>
             </p>
@@ -361,7 +361,7 @@ const PreSaleCards = ({
               View
             </button>
             <button
-              className="flex mt-8 rounded-lg text-gray-700 dark:text-gray-100 cursor-pointer"
+              className="flex mt-8 rounded-lg text-gray-300 dark:text-gray-100 cursor-pointer"
               onClick={() => {
                 handleHeartButtonClick(name, symbol, id, address, imgHref);
               }}

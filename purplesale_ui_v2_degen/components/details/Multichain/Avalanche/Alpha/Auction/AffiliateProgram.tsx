@@ -22,7 +22,7 @@ const AffiliateProgram: React.FC<AffiliateProgramProps> = ({
   return (
     <div className="mt-4 flex justify-left items-center">
       <div className=" w-[370px] lg:w-[640px] md:w-[368px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
-        <h1 className="text-xl font-bold dark:text-gray-200 text-gray-700">
+        <h1 className="text-xl font-bold dark:text-gray-200 text-gray-300">
           Affiliate Program
         </h1>
         <div className="flex items-center space-x-2 text-sm">

@@ -64,7 +64,7 @@ const TokenMetrics: React.FC<TokenMetricsProps> = ({
   return (
     <div className="mt-4 flex justify-left items-center">
       <div className="w-[370px] lg:w-[640px] md:w-[368px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
-        <h1 className="text-xl font-bold dark:text-gray-200 text-gray-700">
+        <h1 className="text-xl font-bold dark:text-gray-200 text-gray-300">
           Token Metrics
         </h1>
         <hr className="mt-8 mb-8 h-px mx-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>

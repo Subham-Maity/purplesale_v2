@@ -127,7 +127,7 @@ const CountdownTimer = ({ startDate, endDate }: CountdownProps) => {
   }, [startDate, endDate]);
 
   return (
-    <span className="text-gray-800 dark:text-gray-300">
+    <span className="text-gray-300">
       {timeLeft || "Presale"} {/* Default to Presale text */}
     </span>
   );
@@ -197,16 +197,16 @@ const SubscriptionCards = ({
         </div>
       </div>
       <div className="px-3 mb-8">
-        <h5 className="mb-2 flex justify-start text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 flex justify-start text-2xl font-bold tracking-tight text-white">
           {name}
         </h5>
-        <p className="mb-3 flex justify-start font-normal text-gray-700 dark:text-gray-400">
+        <p className="mb-3 flex justify-start font-normal text-gray-400">
           Subscription
         </p>
       </div>
 
       <div className="px-4">
-        <p className="mb-3 flex justify-start text-sm font-bold text-gray-700 dark:text-white">
+        <p className="mb-3 flex justify-start text-sm font-bold text-white">
           Progress ({(moneyRaised / hardCapCurrency) * 100}%)
         </p>
         <div className="w-full bg-gray-300 rounded-full">
@@ -218,10 +218,10 @@ const SubscriptionCards = ({
           ></div>
         </div>
         <div className="flex justify-between mb-4">
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-400">
             {moneyRaised ? `${moneyRaised}${currency}` : `0${currency}`}
           </p>
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal ttext-gray-400">
             {hardCapCurrency} {currency}
           </p>
         </div>
@@ -273,11 +273,9 @@ const SubscriptionCards = ({
         </div>
         <hr className="border-t border-gray-300/75 mt-4 "></hr>
         <h3 className="flex justify-between mt-4 mb-4">
-          <p className="text-xl font-normal text-gray-700 dark:text-gray-100">
-            Lockup Time:
-          </p>
-          <p className=" text-xl font-normal text-gray-700 dark:text-gray-100">
-            <span className="text-gray-800 dark:text-gray-300">
+          <p className="text-xl font-normal text-gray-100">Lockup Time:</p>
+          <p className=" text-xl font-normal text-gray-100">
+            <span className="text-gray-300">
               {Math.floor(lockupTime / (60 * 60 * 24))} Days
             </span>
           </p>
@@ -285,11 +283,9 @@ const SubscriptionCards = ({
 
         <div className="flex justify-between">
           <div>
-            <p className="text-sm font-normal text-gray-700 dark:text-gray-100">
-              Sale Starts In
-            </p>
-            <p className="text-sm flex justify-start font-normal text-gray-700 dark:text-gray-100">
-              <span className="text-gray-800 dark:text-gray-300">
+            <p className="text-sm font-normal text-gray-100">Sale Starts In</p>
+            <p className="text-sm flex justify-start font-normal text-gray-100">
+              <span className="text-gray-300">
                 <CountdownTimer startDate={salesStartIn} endDate={salesEndIn} />
               </span>
             </p>
@@ -307,16 +303,14 @@ const SubscriptionCards = ({
               View
             </button>
             <button
-              className="flex mt-8 rounded-lg text-gray-700 dark:text-gray-100 cursor-pointer"
+              className="flex mt-8 rounded-lg text-gray-100 cursor-pointer"
               onClick={() => {
                 handleHeartButtonClick(name, symbol, id, address, imgHref);
               }}
             >
               <BiLike
                 className={`text-2xl ${
-                  isCardAdded
-                    ? "text-purple-300 "
-                    : "text-slate-200 dark:text-slate-200"
+                  isCardAdded ? "text-purple-300 " : "text-slate-200"
                 }`}
               />
             </button>

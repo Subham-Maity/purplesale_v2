@@ -108,7 +108,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <RainbowKitProvider chains={chains} theme={darkTheme()}>
             {lock ? (
               <DefaultNav>
-                <Component className="dark:bg-black" {...pageProps} />
+                <Component className="bg-black" {...pageProps} />
               </DefaultNav>
             ) : (
               frontendResponse

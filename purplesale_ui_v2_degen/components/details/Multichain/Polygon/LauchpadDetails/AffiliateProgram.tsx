@@ -22,7 +22,7 @@ const AffiliateProgram: React.FC<AffiliateProgramProps> = ({
 
   return (
     <DetailsFinishWrapper>
-      <h1 className="text-xl font-bold dark:text-gray-200 text-gray-700">
+      <h1 className="text-xl font-bold dark:text-gray-200 text-gray-300">
         Affiliate Program
       </h1>
       <div className="flex items-center space-x-2 text-sm">

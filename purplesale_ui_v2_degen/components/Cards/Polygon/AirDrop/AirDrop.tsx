@@ -107,7 +107,7 @@ const CountdownTimer = ({ startDate }: CountdownProps) => {
   }, [startDate]);
 
   return (
-    <span className="text-gray-800 dark:text-gray-300">
+    <span className="text-gray-300 dark:text-gray-300">
       {timeLeft === "Ongoing" ? "Ongoing" : timeLeft || "Upcoming"}{" "}
       {/* Default to Upcoming text */}
     </span>
@@ -151,7 +151,7 @@ const AirDropCard = ({
         </div>
       </div>
       <div className="px-3 mb-8">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-300 dark:text-white">
           {title}
         </h5>
       </div>
@@ -207,11 +207,11 @@ const AirDropCard = ({
         <hr className="border-t mb-32 border-gray-300/75 mt-4 "></hr>
         <div className="flex justify-between">
           <div>
-            <p className="text-sm font-normal text-gray-700 dark:text-gray-100">
+            <p className="text-sm font-normal text-gray-300 dark:text-gray-100">
               Sale Starts In
             </p>
-            <p className="text-sm font-normal text-gray-700 dark:text-gray-100">
-              <span className="text-gray-800 dark:text-gray-300">
+            <p className="text-sm font-normal text-gray-300 dark:text-gray-100">
+              <span className="text-gray-300 dark:text-gray-300">
                 <CountdownTimer startDate={starTime} />
               </span>
             </p>

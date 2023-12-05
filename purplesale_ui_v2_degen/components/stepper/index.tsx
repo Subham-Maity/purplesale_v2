@@ -157,15 +157,15 @@ const HorizontalLinearStepper = ({
         )}
 
         {/*//Comment this out to remove skip button*/}
-        {showSkip && activeStep !== steps.length - 1 && (
-          <button
-            onClick={handleSkip}
-            className="flex items-center space-x-2 px-4 py-2 rounded-md bg-red-500 text-white border"
-          >
-            <span>(Testing) Skip</span>
-            <MdSkipNext />
-          </button>
-        )}
+        {/*{showSkip && activeStep !== steps.length - 1 && (*/}
+        {/*  <button*/}
+        {/*    onClick={handleSkip}*/}
+        {/*    className="flex items-center space-x-2 px-4 py-2 rounded-md bg-red-500 text-white border"*/}
+        {/*  >*/}
+        {/*    <span>(Testing) Skip</span>*/}
+        {/*    <MdSkipNext />*/}
+        {/*  </button>*/}
+        {/*)}*/}
       </div>
     </div>
   );

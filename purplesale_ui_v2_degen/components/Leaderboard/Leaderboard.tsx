@@ -32,8 +32,8 @@ const Tabs: React.FC<{
           key={tab.name}
           className={`px-1 cursor-pointer ${
             selectedTab === index
-              ? "text-[#9E9CF3] dark:text-[#9E9CF3] font-bold border-b-2 bg-[#4a4545] py-1 border-[#9E9CF3] rounded-t-lg"
-              : "dark:text-gray-400 text-black font-bold  py-1 rounded-t-lg "
+              ? "text-[#9E9CF3] font-bold border-b-2 bg-[#4a4545] py-1 border-[#9E9CF3] rounded-t-lg"
+              : "text-gray-400  font-bold  py-1 rounded-t-lg "
           }`}
           onClick={() => onTabClick(index)}
         >
@@ -98,7 +98,7 @@ const CardList: React.FC<{ cards: Card[] }> = ({ cards }) => {
                 <div className="relative w-12 h-12">
                   <svg className="w-full h-full" viewBox="0 0 36 36">
                     <path
-                      className="text-gray-300 dark:text-gray-700 stroke-current"
+                      className=" text-gray-700 stroke-current"
                       strokeWidth="4"
                       fill="none"
                       d="M18 2.0845

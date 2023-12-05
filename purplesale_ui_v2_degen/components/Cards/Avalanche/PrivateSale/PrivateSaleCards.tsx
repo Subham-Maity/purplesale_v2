@@ -119,7 +119,7 @@ const CountdownTimer = ({ startDate, endDate }: CountdownProps) => {
   }, [startDate, endDate]);
 
   return (
-    <span className="text-gray-800 dark:text-gray-300">
+    <span className="text-gray-300 dark:text-gray-300">
       {timeLeft || "Presale"} {/* Default to Presale text */}
     </span>
   );
@@ -166,22 +166,22 @@ const PrivateSaleCards = ({
         </div>
       </div>
       <div className="px-3 mb-8">
-        <h5 className="mb-2 text-2xl flex justify-start font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl flex justify-start font-bold tracking-tight text-gray-300 dark:text-white">
           {title}
         </h5>
 
-        <p className="mb-3 font-normal flex justify-start text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal flex justify-start text-gray-300 dark:text-gray-400">
           Project will receive {vestingFirstReleasePercent}% at first release
         </p>
       </div>
-      {/*<h5 className="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">*/}
+      {/*<h5 className="mb-2 text-sm font-bold tracking-tight text-gray-300 dark:text-white">*/}
       {/*  Soft/Hard*/}
       {/*</h5>*/}
       {/*<p className="mb-3 font-normal text-2xl text-green-700 dark:text-green-400">*/}
       {/* - {hardCapCurrency} {currency}*/}
       {/*</p>*/}
       <div className="px-4">
-        <p className="mb-3 text-sm font-bold text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-bold text-gray-300 dark:text-white">
           Progress ({(moneyRaised / hardCapCurrency) * 100}%)
         </p>
         <div className="w-full bg-gray-300 rounded-full">
@@ -194,10 +194,10 @@ const PrivateSaleCards = ({
         </div>
 
         <div className="flex justify-between mb-4">
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {moneyRaised ? `${moneyRaised}${currency}` : `0${currency}`}
           </p>
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {hardCapCurrency} {currency}
           </p>
         </div>
@@ -233,11 +233,11 @@ const PrivateSaleCards = ({
         <hr className="border-t border-gray-300/75 mt-4 "></hr>
         <div className="flex justify-between mt-16">
           <div>
-            <p className="text-sm font-normal text-gray-700 dark:text-gray-100">
+            <p className="text-sm font-normal text-gray-300 dark:text-gray-100">
               Sale Starts In
             </p>
-            <p className="text-sm flex justify-start font-normal text-gray-700 dark:text-gray-100">
-              <span className="text-gray-800 dark:text-gray-300">
+            <p className="text-sm flex justify-start font-normal text-gray-300 dark:text-gray-100">
+              <span className="text-gray-300 dark:text-gray-300">
                 <CountdownTimer startDate={startTime} endDate={endTime} />
               </span>
             </p>

@@ -27,8 +27,8 @@ interface SubBoxProps {
 export function SubBox({ title, number }: SubBoxProps) {
   return (
     <div className="flex flex-col items-center text-center p-3 w-[370px] sm:w-[970px] md:w-[880px] lg:w-[560px] xl:w-[900px] 2xl:w-[1440px]">
-      <div className="text-black dark:text-gray-300 text-lg">{title}</div>
-      <div className="text-black dark:text-white text-3xl font-bold">
+      <div className="text-gray-300 text-lg">{title}</div>
+      <div className="text-white text-3xl font-bold">
         {parseFloat(number.toString()).toLocaleString()}
       </div>
     </div>
@@ -324,7 +324,7 @@ const LeaderboardPage: React.FC<any> = ({ weeksData }) => {
   ) {
     return (
       <div className="flex justify-center items-center">
-        <div className="lg:w-[1060px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
+        <div className="lg:w-[1060px] bg-[#242525] rounded-md p-6 ">
           <InfinitySpin width="200" color="#4fa94d" />
         </div>
       </div>
@@ -348,7 +348,7 @@ const LeaderboardPage: React.FC<any> = ({ weeksData }) => {
   if (!web2DataPresale) {
     return (
       <div className="flex justify-center items-center">
-        <div className="lg:w-[1060px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
+        <div className="lg:w-[1060px] bg-[#242525]  rounded-md p-6 ">
           <p>Metamask is not connected</p>
           <InfinitySpin width="200" color="#4fa94d" />
         </div>
@@ -404,7 +404,7 @@ const LeaderboardPage: React.FC<any> = ({ weeksData }) => {
   if (!web2DataSubscription) {
     return (
       <div className="flex justify-center items-center">
-        <div className="lg:w-[1060px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
+        <div className="lg:w-[1060px] bg-[#242525] rounded-md p-6 ">
           <p>Metamask is not connected</p>
           <InfinitySpin width="200" color="#4fa94d" />
         </div>
@@ -456,7 +456,7 @@ const LeaderboardPage: React.FC<any> = ({ weeksData }) => {
   if (!web2DataAuction) {
     return (
       <div className="flex justify-center items-center">
-        <div className="lg:w-[1060px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
+        <div className="lg:w-[1060px] bg-[#242525] rounded-md p-6 ">
           <p>Metamask is not connected</p>
           <InfinitySpin width="200" color="#4fa94d" />
         </div>
@@ -516,7 +516,7 @@ const LeaderboardPage: React.FC<any> = ({ weeksData }) => {
   if (!web2DataFair) {
     return (
       <div className="flex justify-center items-center">
-        <div className="lg:w-[1060px] dark:bg-[#242525] bg-stone-50 rounded-md p-6 ">
+        <div className="lg:w-[1060px] bg-[#242525] rounded-md p-6 ">
           <p>Metamask is not connected</p>
           <InfinitySpin width="200" color="#4fa94d" />
         </div>

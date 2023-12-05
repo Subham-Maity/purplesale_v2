@@ -278,7 +278,7 @@ const FinishDetails: React.FC<FinishDetailsProps> = ({
           </div>
           <div className="flex gap-2">
             <button
-              className="flex rounded-lg text-gray-700 dark:text-gray-100 cursor-pointer"
+              className="flex rounded-lg text-gray-300 dark:text-gray-100 cursor-pointer"
               onClick={() => {
                 handleHeartButtonClick(
                   dataIndex,

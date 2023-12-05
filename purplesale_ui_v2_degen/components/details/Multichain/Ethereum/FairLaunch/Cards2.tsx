@@ -163,17 +163,17 @@ const Cards: React.FC<CardProps> = ({
         </p>
       </div>
       <div className="lg:ml-32 ml-20">
-        <p className="ml-4 mt-3 text-sm font-bold mb-2 text-gray-700 dark:text-gray-100">
+        <p className="ml-4 mt-3 text-sm font-bold mb-2 text-gray-300 dark:text-gray-100">
           Presale Starts In
         </p>
-        <div className="text-sm font-normal text-gray-700 dark:text-gray-100">
+        <div className="text-sm font-normal text-gray-300 dark:text-gray-100">
           <div>
             <CountdownTimer timestamp={EndTime} />
           </div>
         </div>
       </div>
       <div className="mt-8">
-        <p className="mb-3 text-sm font-bold text-gray-700 dark:text-white">
+        <p className="mb-3 text-sm font-bold text-gray-300 dark:text-white">
           Progress ({moneyRaised / softCapCurrency}%)
         </p>
         <div className="w-full bg-gray-300 rounded-full">
@@ -183,10 +183,10 @@ const Cards: React.FC<CardProps> = ({
           ></div>
         </div>
         <div className="flex justify-between">
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             0 {currency}
           </p>
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {softCapCurrency} {currency}
           </p>
         </div>

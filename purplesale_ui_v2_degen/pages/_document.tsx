@@ -18,7 +18,7 @@ export default function Document() {
         {lock ? (
           <Html lang="en">
             <Head />
-            <body className=" bg-stone-200 dark:bg-stone-900">
+            <body>
               <Main />
               <NextScript />
             </body>

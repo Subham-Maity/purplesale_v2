@@ -157,10 +157,10 @@ const Cards: React.FC<CardProps> = ({
   return (
     <RightSideDetailsWrapper>
       <div className="lg:ml-32 ml-20">
-        <p className="ml-4 mt-3 text-sm font-bold mb-2 text-gray-700 dark:text-gray-100">
+        <p className="ml-4 mt-3 text-sm font-bold mb-2 text-gray-300 dark:text-gray-100">
           Live Now
         </p>
-        <div className="text-sm font-normal text-gray-700 dark:text-gray-100">
+        <div className="text-sm font-normal text-gray-300 dark:text-gray-100">
           <div>
             <CountdownTimer timestamp={EndTime} />
           </div>
@@ -174,36 +174,36 @@ const Cards: React.FC<CardProps> = ({
           ></div>
         </div>
         <div className="flex justify-between">
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             0 {currency}
           </p>
-          <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {hardCapCurrency} {currency}
           </p>
         </div>
       </div>
       <div className="flex justify-between border-gray-400 border-b-2 dark:border-gray-500/25"></div>
       <div className="flex justify-between mt-6">
-        <p className="mb-3 font-normal text-gray-700 text-md dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-300 text-md dark:text-gray-400">
           Start Time
         </p>
-        <p className="mb-3 font-normal text-md text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal text-md text-gray-300 dark:text-gray-400">
           {formattedDate}
         </p>
       </div>
       <div className="flex justify-between ">
-        <p className="mb-3 font-normal text-gray-700 text-md dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-300 text-md dark:text-gray-400">
           Your Allocation
         </p>
-        <p className="mb-3 font-normal text-md text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal text-md text-gray-300 dark:text-gray-400">
           {allocation}
         </p>
       </div>
       <div className="flex justify-between ">
-        <p className="mb-3 font-normal text-gray-700 text-md dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-300 text-md dark:text-gray-400">
           Your Claimed
         </p>
-        <p className="mb-3 font-normal text-md text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal text-md text-gray-300 dark:text-gray-400">
           {claimed}
         </p>
       </div>

@@ -93,8 +93,8 @@ const TrendingBar: React.FC<TrendingBarProps> = ({
   return (
     <div className="hidden md:block lg:block">
       <div className="flex h-16 items-center justify-between">
-        <div className="dark:text-white flex space-x-1 text-black mr-2 py-1">
-          <h1 className="text-3xl dark:text-gray-100 font-medium tracking-tight text-gray-900 border-r-2 border-gray-400 mb-2 pr-4">
+        <div className="text-white flex space-x-1  mr-2 py-1">
+          <h1 className="text-3xl text-gray-100 font-medium tracking-tightborder-r-2 border-gray-400 mb-2 pr-4">
             Trending
           </h1>
           <button
@@ -115,8 +115,8 @@ const TrendingBar: React.FC<TrendingBarProps> = ({
                 <div
                   className={`font-light my-auto flex items-center bg-[#333333] rounded-3xl px-3 py-2${
                     index <= 3
-                      ? " text-yellow-900 dark:text-yellow-500"
-                      : " text-gray-900 dark:text-gray-200"
+                      ? " text-yellow-900 text-yellow-500"
+                      : " text-gray-900 text-gray-200"
                   }`}
                 >
                   <Image

@@ -147,14 +147,14 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                     isNavOpen
                         ? "w-auto fixed lg:relative "
                         : "w-[330px] fixed lg:relative"
-                } z-40 border lg:block dark:bg-[url('/Home/sideNav.svg')] dark:bg-black/95 lg:dark:bg-transparent h-[670px] lg:h-[870px] mt-20 lg:mt-0 border-gray-400/75 w-[360px] bg-no-repeat bg-cover dark:text-white text-black flex flex-col justify-between rounded-2xl`}
+                } z-40 border lg:block bg-[url('/Home/sideNav.svg')] bg-black/95 lg:bg-transparent h-[670px] lg:h-[870px] mt-20 lg:mt-0 border-gray-400/75 w-[360px] bg-no-repeat bg-cover text-white text-black flex flex-col justify-between rounded-2xl`}
             >
               <div className="p-2">
                 <div className="flex flex-col items-center  overflow-y-auto h-[670px] lg:h-[880px] ">
                   <div className=" mb-10 mt-4 flex">
                     <Link
                         href="/"
-                        className=" dark:text-white text-left text-black ml-2 font-bold whitespace-nowrap text-2xl"
+                        className=" text-white text-left text-black ml-2 font-bold whitespace-nowrap text-2xl"
                     >
                       Purple Sale
                     </Link>
@@ -175,11 +175,11 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                               <div
                                   className={`group flex items-center px-4 py-3 ${
                                       item.href === "/"
-                                          ? "bg-gray-200 dark:bg-transparent"
+                                          ? "bg-gray-200 bg-transparent"
                                           : ""
                                   } ${
                                       activeSubNav === item.title
-                                          ? "dark:bg-gradient-to-r dark:from-transparent dark:to-yellow-400/25 dark:bg-transparent text-yellow-300 border-r-2 dark:border-r-yellow-400/75 cursor-pointer"
+                                          ? "bg-gradient-to-r from-transparent to-yellow-400/25 bg-transparent text-yellow-300 border-r-2 border-r-yellow-400/75 cursor-pointer"
                                           : ""
                                   }`}
                                   onClick={() => handleSubNavToggle(item.title)}
@@ -197,11 +197,11 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                                   href={item.href}
                                   className={`group flex items-center px-4 py-3  ${
                                       item.href === "/"
-                                          ? "bg-gray-200 dark:bg-transparent"
+                                          ? "bg-gray-200 bg-transparent"
                                           : ""
                                   } ${
                                       selectedNoSubNav === item.title
-                                          ? "dark:bg-gradient-to-r dark:from-transparent dark:to-yellow-400/25 dark:bg-transparent text-yellow-300 border-r-2 dark:border-r-yellow-400/75 cursor-pointer"
+                                          ? "bg-gradient-to-r from-transparent to-yellow-400/25 bg-transparent text-yellow-300 border-r-2 border-r-yellow-400/75 cursor-pointer"
                                           : ""
                                   }`}
                                   onClick={() => handleNoSubNavClick(item.title)}
@@ -223,9 +223,9 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                                           href={subItem.href}
                                           className={`flex items-center px-4 py-2 whitespace-nowrap ${
                                               activeSubNavItem === subItem.title
-                                                  ? "dark:bg-gradient-to-r dark:from-transparent dark:to-yellow-400/25 dark:bg-transparent text-yellow-300 border-r-2 dark:border-r-yellow-400/75 cursor-pointer"
+                                                  ? "bg-gradient-to-r from-transparent to-yellow-400/25 bg-transparent text-yellow-300 border-r-2 border-r-yellow-400/75 cursor-pointer"
                                                   : ""
-                                          } hover:dark:bg-gradient-to-r dark:from-transparent dark:to-yellow-400/25 dark:bg-transparent `}
+                                          } hover:bg-gradient-to-r from-transparent to-yellow-400/25 bg-transparent `}
                                           onClick={() =>
                                               handleSubNavItemClick(subItem.title)
                                           }

@@ -46,7 +46,7 @@ const ChartComponent = ({
   return (
     <RightSideDetailsWrapper>
       <>
-        <h1 className="dark:text-gray-400 text-gray-700 font-bold pl-6 mt-2 border-b pb-1 dark:border-gray-400/30 border-gray-700 ">
+        <h1 className="dark:text-gray-400 text-gray-300 font-bold pl-6 mt-2 border-b pb-1 dark:border-gray-400/30 border-gray-700 ">
           Price History
         </h1>
 
