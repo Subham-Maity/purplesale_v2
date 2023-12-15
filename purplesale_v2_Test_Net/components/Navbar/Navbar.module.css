@@ -1,0 +1,27 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    .connectbtn {
+        @apply w-20 h-12;
+    }
+
+
+    @screen md {
+        .connectbtn {
+            @apply w-56 h-12;
+        }
+    }
+
+    @screen lg {
+        .connectbtn {
+            @apply w-96 ;
+        }
+
+    }
+    .dark .connectbtn button {
+        @apply text-pink-400 bg-pink-900;
+    }
+
+}
