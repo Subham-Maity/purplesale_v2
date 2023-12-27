@@ -1,0 +1,1 @@
+{"version":3,"file":"pinklockWeb3Model.js","sourceRoot":"","sources":["../../../../../model/Multichain/Avalanche/PinkLock/pinklockWeb3Model.ts"],"names":[],"mappings":"AAAA,OAAO,EAAQ,KAAK,EAAE,MAAM,EAAE,MAAM,UAAU,CAAC;AAG/C,MAAM,2BAA2B,GAAU,IAAI,MAAM,CAAiB;IAClE,KAAK,EAAE,MAAM;CAChB,CAAC,CAAC;AAEH,MAAM,qBAAqB,GAA0B,KAAK,CAAgB,uBAAuB,EAAE,2BAA2B,CAAC,CAAC;AAEhI,eAAe,qBAAqB,CAAC"}

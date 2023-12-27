@@ -1,0 +1,1 @@
+{"version":3,"file":"pinklockWeb3Model.js","sourceRoot":"","sources":["../../../../../model/Multichain/Arbitrum/PinkLock/pinklockWeb3Model.ts"],"names":[],"mappings":"AAAA,OAAO,EAAQ,KAAK,EAAE,MAAM,EAAE,MAAM,UAAU,CAAC;AAG/C,MAAM,0BAA0B,GAAU,IAAI,MAAM,CAAiB;IACjE,KAAK,EAAE,MAAM;CAChB,CAAC,CAAC;AAEH,MAAM,oBAAoB,GAA0B,KAAK,CAAgB,sBAAsB,EAAE,0BAA0B,CAAC,CAAC;AAE7H,eAAe,oBAAoB,CAAC"}

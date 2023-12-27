@@ -1,0 +1,1 @@
+{"version":3,"file":"pinklockWeb3Model.js","sourceRoot":"","sources":["../../../../../model/Multichain/Polygon/PinkLock/pinklockWeb3Model.ts"],"names":[],"mappings":"AAAA,OAAO,EAAQ,KAAK,EAAE,MAAM,EAAE,MAAM,UAAU,CAAC;AAG/C,MAAM,yBAAyB,GAAU,IAAI,MAAM,CAAiB;IAChE,KAAK,EAAE,MAAM;CAChB,CAAC,CAAC;AAEH,MAAM,mBAAmB,GAA0B,KAAK,CAAgB,qBAAqB,EAAE,yBAAyB,CAAC,CAAC;AAE1H,eAAe,mBAAmB,CAAC"}

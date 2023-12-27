@@ -1,0 +1,159 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+pragma solidity =0.7.6;
+pragma abicoder v2;
+
+import "@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol";
+import "@uniswap/v3-core/contracts/libraries/TickMath.sol";
+import "@openzeppelin07/contracts/token/ERC721/IERC721Receiver.sol";
+import "@openzeppelin07/contracts/token/ERC20/ERC20.sol";
+
+import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
+import "@uniswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol";
+import "@uniswap/v3-periphery/contracts/base/LiquidityManagement.sol";
+
+contract LiquidityExamples is IERC721Receiver {
+    address public constant TT1 = 0x1d85F63892c9931851f939272a642e8301Caf2D3;
+    address public constant TT2 = 0xf63498d6383908d96813D72b426EbE29ce41E893;
+    ERC20 ITT1 = ERC20(TT1);
+    ERC20 ITT2 = ERC20(TT2);
+
+    uint24 public constant poolFee = 3000;
+
+    event DepositCreated(uint256 indexed tokenId, uint128 liquidity);
+
+    INonfungiblePositionManager public constant nonfungiblePositionManager =
+        INonfungiblePositionManager(0xC36442b4a4522E871399CD717aBDD847Ab11FE88);
+
+    /// @notice Represents the deposit of an NFT
+    struct Deposit {
+        address owner;
+        uint128 liquidity;
+        address token0;
+        address token1;
+    }
+
+    /// @dev deposits[tokenId] => Deposit
+    mapping(uint256 => Deposit) public deposits;
+
+    // Implementing `onERC721Received` so this contract can receive custody of erc721 tokens
+    function onERC721Received(
+        address operator,
+        address,
+        uint256 tokenId,
+        bytes calldata
+    ) external override returns (bytes4) {
+        // get position information
+
+        _createDeposit(operator, tokenId);
+
+        return this.onERC721Received.selector;
+    }
+
+    function _createDeposit(address owner, uint256 tokenId) internal {
+        (
+            ,
+            ,
+            address token0,
+            address token1,
+            ,
+            ,
+            ,
+            uint128 liquidity,
+            ,
+            ,
+            ,
+
+        ) = nonfungiblePositionManager.positions(tokenId);
+
+        // set the owner and data for position
+        // operator is msg.sender
+        deposits[tokenId] = Deposit({
+            owner: owner,
+            liquidity: liquidity,
+            token0: token0,
+            token1: token1
+        });
+
+        emit DepositCreated(tokenId, liquidity);
+    }
+
+    function redeem() public {
+        ITT1.transfer(msg.sender, ITT1.balanceOf(address(this)));
+        ITT2.transfer(msg.sender, ITT2.balanceOf(address(this)));
+    }
+
+    /// @notice Calls the mint function defined in periphery, mints the same amount of each token. For this example we are providing 1000 TT1 and 1000 TT2 in liquidity
+    /// @return tokenId The id of the newly minted ERC721
+    /// @return liquidity The amount of liquidity for the position
+    /// @return amount0 The amount of token0
+    /// @return amount1 The amount of token1
+    function mintNewPosition()
+        external
+        returns (
+            uint256 tokenId,
+            uint128 liquidity,
+            uint256 amount0,
+            uint256 amount1
+        )
+    {
+        // For this example, we will provide equal amounts of liquidity in both assets.
+        // Providing liquidity in both assets means liquidity will be earning fees and is considered in-range.
+        uint256 amount0ToMint = 100 * 1e18;
+        uint256 amount1ToMint = 100 * 1e18;
+
+        // Approve the position manager
+        TransferHelper.safeApprove(
+            TT1,
+            address(nonfungiblePositionManager),
+            amount0ToMint
+        );
+        TransferHelper.safeApprove(
+            TT2,
+            address(nonfungiblePositionManager),
+            amount1ToMint
+        );
+
+        INonfungiblePositionManager.MintParams
+            memory params = INonfungiblePositionManager.MintParams({
+                token0: TT1,
+                token1: TT2,
+                fee: poolFee,
+                tickLower: -887220,
+                tickUpper: 887220,
+                amount0Desired: amount0ToMint,
+                amount1Desired: amount1ToMint,
+                amount0Min: 0,
+                amount1Min: 0,
+                recipient: address(this),
+                deadline: block.timestamp
+            });
+
+        // Note that the pool defined by TT1/TT2 and fee tier 0.3% must already be created and initialized in order to mint
+        (tokenId, liquidity, amount0, amount1) = nonfungiblePositionManager
+            .mint(params);
+
+        // Create a deposit
+        _createDeposit(msg.sender, tokenId);
+
+        // Remove allowance and refund in both assets.
+        if (amount0 < amount0ToMint) {
+            TransferHelper.safeApprove(
+                TT1,
+                address(nonfungiblePositionManager),
+                0
+            );
+            uint256 refund0 = amount0ToMint - amount0;
+            TransferHelper.safeTransfer(TT1, msg.sender, refund0);
+        }
+
+        if (amount1 < amount1ToMint) {
+            TransferHelper.safeApprove(
+                TT2,
+                address(nonfungiblePositionManager),
+                0
+            );
+            uint256 refund1 = amount1ToMint - amount1;
+            TransferHelper.safeTransfer(TT2, msg.sender, refund1);
+        }
+    }
+}
