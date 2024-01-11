@@ -9,6 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Switcher from "@/components/Navbar/mode/Switcher";
 import { useNetwork } from "wagmi";
+import { BsBarChartFill } from "react-icons/bs";
 const HomeMain = () => {
   const router = useRouter();
   const { address, isConnected } = useAccount();
@@ -52,7 +53,7 @@ const HomeMain = () => {
     }
   };
   return (
-    <div>
+    <div className="px-4">
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
       <BgBox>
         <div style={{ position: "relative" }}>
@@ -107,47 +108,181 @@ const HomeMain = () => {
             </div>
           </div>
         </div>
-
-        <BoxHome />
-        <hr className="lg:mt-20 lg:mb-20 mb-5 mt-5 mx-16 dark:border-gray-400/50 " />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-col-2 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-2 whitespace-nowrap justify-items-center sm:gap-12 sm:px-4 md:gap-20">
-          <div className="bg-[url('/Home/b1.svg')] flex lg:h-[254px] lg:w-[665px] h-[127px] w-[332px] bg-cover bg-no-repeat mb-10 bg-center items-center justify-center transform transition duration-500 ease-in-out hover:scale-105 shadow-lg hover:shadow-xl">
-            <div className="flex flex-col items-center justify-center">
-              <span className="block text-xl sm:text-lg md:text-2xl lg:text-3xl font-normal subpixel-antialiased">
-                REVV Racing Launches
+        <BoxHome />{" "}
+        <h2 className="text-4xl mt-16 mb-8 font-bold text-white flex justify-center">
+          A Suite of Tools for Token Sales.{" "}
+        </h2>
+        <p className="text-gray-400 text-lg mb-8 text-center break-all ">
+          A suite of tools were built to help you create your own tokens and
+          launchpads in a fast, simple and <br />
+          cheap way, with no prior code knowledge required and 100%
+          decentralized!
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 whitespace-nowrap justify-items-center md:gap-20 p-10 gap-8">
+          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-4">
+              <Image
+                src="/Home/icons/standard.svg"
+                height={200}
+                width={200}
+                alt="pot"
+                className="h-16 w-16"
+              />
+              <span className="flex flex-col">
+                <p className="font-medium  text-3xl whitespace-nowrap">
+                  Standard
+                </p>
+                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
+                  Standard Mint standard tokens
+                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                </p>
               </span>
-              <span className="block text-xl sm:text-2xl md:text-2xl lg:text-4xl font-bold subpixel-antialiased">
-                $ 150,000 Play-to-Earn
-              </span>
-              <span className="block text-2xl font-normal subpixel-antialiased">
-                Tournament
-              </span>
-            </div>
+            </span>
           </div>
-
-          <div className="bg-[url('/Home/b2.svg')] flex lg:h-[254px] lg:w-[665px] h-[127px] w-[332px] bg-cover bg-no-repeat mb-10 bg-center items-center justify-center transform transition duration-500 ease-in-out hover:scale-105 shadow-lg hover:shadow-xl">
-            <div className="flex  items-center gap-4 justify-center">
-              <span className="block text-6xl font-bold subpixel-antialiased">
-                JUL
+          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-4">
+              <Image
+                src="/Home/icons/punch.svg"
+                height={200}
+                width={200}
+                alt="pot"
+                className="h-16 w-16"
+              />
+              <span className="flex flex-col">
+                <p className="font-medium  text-3xl whitespace-nowrap">
+                  Deflationary
+                </p>
+                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
+                  Mint standard tokens on ETH, BSC,
+                  <br /> AVAX, Fantom, Polygon.
+                </p>
               </span>
-              <p className="flex flex-col">
-                <span className="block text-4xl font-medium subpixel-antialiased">
-                  Industry
-                </span>
-                <span className="block text-4xl font-medium subpixel-antialiased">
-                  Report
-                </span>
-              </p>
-            </div>
+            </span>
           </div>
+          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-4">
+              <Image
+                src="/Home/icons/pot.svg"
+                height={200}
+                width={200}
+                alt="pot"
+                className="h-16 w-16"
+              />
+              <span className="flex flex-col">
+                <p className="font-medium text-3xl whitespace-nowrap">
+                  Customization
+                </p>
+                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
+                  Mint standard tokens on ETH, BSC,
+                  <br /> BSC, AVAX, Fantom, Polygon.
+                </p>
+              </span>
+            </span>
+          </div>
+          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-4">
+              <Image
+                src="/Home/icons/flower.svg"
+                height={200}
+                width={200}
+                alt="pot"
+                className="h-16 w-16"
+              />
+              <span className="flex flex-col">
+                <p className="font-medium text-3xl whitespace-nowrap">
+                  Standard
+                </p>
+                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
+                  Standard Mint standard tokens
+                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                </p>
+              </span>
+            </span>
+          </div>
+          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-4">
+              <Image
+                src="/Home/icons/punch2.svg"
+                height={200}
+                width={200}
+                alt="pot"
+                className="h-16 w-16"
+              />
+              <span className="flex flex-col">
+                <p className="font-medium text-3xl whitespace-nowrap">
+                  Deflationary
+                </p>
+                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
+                  Standard Mint standard tokens
+                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                </p>
+              </span>
+            </span>
+          </div>
+          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-4">
+              <Image
+                src="/Home/icons/pot2.svg"
+                height={200}
+                width={200}
+                alt="pot"
+                className="h-16 w-16"
+              />
+              <span className="flex flex-col">
+                <p className="font-medium text-3xl whitespace-nowrap">
+                  Customization
+                </p>
+                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
+                  Standard Mint standard tokens
+                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                </p>
+              </span>
+            </span>
+          </div>
+        </div>
+        <h2 className="text-4xl mt-16 mb-2 font-bold text-white flex justify-center">
+          Our Partners{" "}
+        </h2>
+        <div className="flex justify-between px-10">
+          <Image
+            src="/Home/partner/1.svg"
+            height={1200}
+            width={1200}
+            alt="pot"
+            className="h-48 w-48"
+          />
+          <Image
+            src="/Home/partner/2.svg"
+            height={1200}
+            width={1200}
+            alt="pot"
+            className="h-48 w-48"
+          />
+          <Image
+            src="/Home/partner/3.svg"
+            height={1200}
+            width={1200}
+            alt="pot"
+            className="h-48 w-48"
+          />
+          <Image
+            src="/Home/partner/4.svg"
+            height={1200}
+            width={1200}
+            alt="pot"
+            className="h-48 w-48"
+          />
+          <Image
+            src="/Home/partner/5.svg"
+            height={1200}
+            width={1200}
+            alt="pot"
+            className="h-48 w-48"
+          />
         </div>
       </BgBox>
 
       <p className="text-[#BA9999] text-center mt-4 lg:mt-20 mb-10 text-md px-4 lg:px-0 lg:text-xl font-light">
-        <span className="block">
-          Disclaimer: PinkSale will never endorse or encourage that you invest
-          in any of the projects listed
-        </span>
         <span className="block">
           and therefore, accept no liability for any loss occasioned. It is the
           user(s) responsibility to do

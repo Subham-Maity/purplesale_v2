@@ -25,6 +25,7 @@ import {
 import { GiParachute } from "react-icons/gi";
 import { FaAddressCard, FaChartLine, FaUserSecret } from "react-icons/fa";
 import { BiPaperPlane } from "react-icons/bi";
+import Image from "next/image";
 export interface NavItem {
   title: string;
   href: string;
@@ -221,7 +222,15 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                 }}
               >
                 <div className="flex w-full justify-between py-2">
-                  {open && <span className="text-xl font-bold">Title</span>}
+                  {open && (
+                    <Image
+                      src="/logo.png"
+                      alt={"logo"}
+                      width={200}
+                      height={200}
+                      className="h-1/2 w-1/2"
+                    />
+                  )}
                   <AiOutlineMenuUnfold
                     className={`text-gray-900 dark:text-gray-300  ${
                       open ? "text-2xl " : "text-2xl text-center mx-auto"
