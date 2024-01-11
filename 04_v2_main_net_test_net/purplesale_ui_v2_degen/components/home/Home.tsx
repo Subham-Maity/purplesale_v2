@@ -281,18 +281,40 @@ const HomeMain = () => {
           />
         </div>
       </BgBox>
-
-      <p className="text-[#BA9999] text-center mt-4 lg:mt-20 mb-10 text-md px-4 lg:px-0 lg:text-xl font-light">
-        <span className="block">
-          and therefore, accept no liability for any loss occasioned. It is the
-          user(s) responsibility to do
-        </span>
-        <span className="block">
-          their own research and seek financial advice from a professional. More
-          information about
-        </span>
-        <span className="block">(DYOR) can be found via Clone</span>
-      </p>
+      <footer className="bg-white rounded-2xl shadow m-4 dark:bg-gray-800/50">
+        <div className="w-full mx-auto max-w-screen-xl py-8  md:flex md:items-center md:justify-between">
+          <span className="text-lg text-gray-500 sm:text-center dark:text-gray-400">
+            © 2024{" "}
+            <a href="https://flowbite.com/" className="text-lg hover:underline">
+              Purple Sale™
+            </a>
+            . All Rights Reserved.
+          </span>
+          <Image src="/footer/logo.svg" alt={"logo"} width={150} height={150} />
+          <ul className="flex flex-wrap items-center mt-3 text-lg font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+              <a href="#" className="hover:underline me-4 md:me-6">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline me-4 md:me-6">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline me-4 md:me-6">
+                Licensing
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </div>
   );
 };
