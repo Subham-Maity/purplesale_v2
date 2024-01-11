@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-color: #212431;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3b3b3b;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: transparent !important;
+    border-radius: 20px;
+    border: 3px solid transparent;
+}
+
+.input {
+    @apply w-full border border-gray-400/25 ml-3 py-2 px-4 whitespace-nowrap outline-0 bg-[#181A22] text-white rounded-lg;
+}
+
+.inputAlert {
+    @apply text-blue-400 text-sm mt-2 mb-2 ml-3;
+}
+
+.inputImageBar {
+    @apply mr-2 shadow-md shadow-white;
+}
+
+.inputRequired {
+    @apply text-red-500 ml-0.5;
+}
+.inputHeading {
+    @apply block text-xl font-medium mb-2 text-white whitespace-nowrap;
+}
+.finishButton{
+    @apply bg-[#9e9cf3] flex justify-between whitespace-nowrap text-sm w-auto rounded-lg lg:px-3 lg:py-1 px-2 py-0.5 text-white border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse;
+}
+
+#disqus_thread { color-scheme: none; }
+
+/*.select-animate{*/
+
+/*    background-image: linear-gradient(-45deg, #d7d7da, #34393a, #2a292d, #000000);*/
+/*    background-size: 400% 400%;*/
+/*    animation: gradient 4s ease infinite;*/
+/*}*/
+
+/*@keyframes gradient {*/
+/*    0% {*/
+/*        background-position: 0% 50%;*/
+/*    }*/
+/*    50% {*/
+/*        background-position: 100% 50%;*/
+/*    }*/
+/*    100% {*/
+/*        background-position: 0% 50%;*/
+/*    }*/
+/*}*/
