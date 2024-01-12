@@ -201,21 +201,22 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
     setActiveSubNav(null);
     setSelectedNoSubNav(title);
   };
-  const activeNavItemClasses = "bg-[#3E4163] rounded-md";
+  const activeNavItemClasses =
+    "dark:bg-[#07112D] bg-[#424550] rounded-xl border-l-4 border-[#7BFE88] ";
   return (
     <>
       {isNavOpen !== null ? (
         <SidebarWrapper>
           <nav
-            className={`overflow-hidden hidden z-40 bg-transparent bg-no-repeat bg-cover dark:text-white text-black lg:flex flex-col justify-between fixed duration-300 top-0 bg-stone-100 `}
+            className={`overflow-hidden hidden z-40 bg-transparent bg-no-repeat bg-cover text-white lg:flex flex-col justify-between fixed duration-300 top-0 bg-stone-100 `}
           >
             <div
               className={`${
                 open ? "w-[16rem] fixed h-full" : "w-[4rem]"
-              }   bg-[url('/Rectangle2.png')] bg-cover bg-no-repeat fixed h-full bg-opacity-10 bg-transparent border shadow-xl dark:shadow-sm dark:border-gray-400/25 border-gray-800/25 text-gray-900 dark:text-gray-300 duration-300 left-0 flex flex-col overflow-y-auto`}
+              }   bg-[url('/Rectangle2.png')] bg-cover bg-no-repeat fixed h-full bg-opacity-10 bg-transparent border shadow-xl dark:shadow-sm border-gray-400/25 text-gray-300 duration-300 left-0 flex flex-col overflow-y-auto`}
             >
               <div
-                className={` z-50 cursor-pointer  dark:bg-[#2b313a] dark:bg-transparent m-2 text-gray-900 dark:text-gray-300 flex items-center justify-center bg-sidebar rounded-full `}
+                className={` z-50 cursor-pointer  dark:bg-[#2b313a] dark:bg-transparent m-2 text-gray-300 flex items-center justify-center bg-sidebar rounded-full `}
                 onClick={() => {
                   setOpen(!open);
                   toggleSidebar(!open);
@@ -232,7 +233,7 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                     />
                   )}
                   <AiOutlineMenuUnfold
-                    className={`text-gray-900 dark:text-gray-300  ${
+                    className={`text-gray-300  ${
                       open ? "text-2xl " : "text-2xl text-center mx-auto"
                     }`}
                   />

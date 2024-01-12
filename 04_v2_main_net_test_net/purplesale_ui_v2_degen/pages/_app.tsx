@@ -106,13 +106,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <SnackbarProvider maxSnack={3}>
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains} theme={darkTheme()}>
-            {lock ? (
-              <DefaultNav>
-                <Component className="bg-black" {...pageProps} />
-              </DefaultNav>
-            ) : (
-              frontendResponse
-            )}
+            <DefaultNav>
+              <Component {...pageProps} />
+            </DefaultNav>
           </RainbowKitProvider>
         </WagmiConfig>
       </SnackbarProvider>

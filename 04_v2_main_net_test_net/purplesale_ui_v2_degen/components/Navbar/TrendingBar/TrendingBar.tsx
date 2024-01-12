@@ -88,56 +88,49 @@ const TrendingBar: React.FC<TrendingBarProps> = ({
     };
   }, [loop]);
 
-  const itemsToShow = width < 600 ? 0 : width < 1024 ? 3 : 8;
+  const itemsToShow = width < 600 ? 0 : width < 1024 ? 3 : 20;
 
   return (
-    <div className="hidden md:block lg:block">
-      <div className="flex h-16 items-center justify-between">
-        <div className="text-white flex space-x-1  mr-2 py-1">
-          <h1 className="text-3xl text-gray-100 font-medium tracking-tightborder-r-2 border-gray-400 mb-2 pr-4">
-            Trending
-          </h1>
-          <button
-            className="mb-4 text-gray-500 hover:text-white hover:font-bold "
-            onClick={() => scroll(-100)}
-          >
-            <FiChevronLeft />
-          </button>
-          <div
-            ref={scrollContainer}
-            className="flex items-center space-x-2 overflow-x-auto"
-            style={{
-              width: `calc(${itemsToShow} * 100px)`,
-            }}
-          >
-            {Trending?.map((item, index) => (
-              <Link key={index} href={item.href}>
-                <div
-                  className={`font-light my-auto flex items-center bg-[#333333] rounded-3xl px-3 py-2${
-                    index <= 3
-                      ? " text-yellow-900 text-yellow-500"
-                      : " text-gray-900 text-gray-200"
-                  }`}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    height={100}
-                    width={100}
-                    className="h-5 w-5 rounded-full space-x-1"
-                  />
-                  <span className="mx-4 text-sm font-medium ">{item.name}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <button
-            className="mb-4 text-gray-500 hover:text-white hover:font-bold "
-            onClick={() => scroll(100)}
-          >
-            <FiChevronRight />
-          </button>
+    <div className="hidden md:block lg:block bg-gray-700/25 rounded-2xl">
+      <div className="text-white flex space-x-1 mr-2 py-1">
+        <button
+          className="text-gray-500 hover:text-white hover:font-bold "
+          onClick={() => scroll(-100)}
+        >
+          <FiChevronLeft />
+        </button>
+        <div
+          ref={scrollContainer}
+          className="flex items-center space-x-2 overflow-x-auto"
+          style={{
+            width: `calc(${itemsToShow} * 100px)`,
+          }}
+        >
+          {Trending?.map((item, index) => (
+            <Link key={index} href={item.href}>
+              <div
+                className={`font-light my-auto flex items-center bg-gray-700/75 rounded-lg px-4 py-2${
+                  index <= 3 ? " text-yellow-200" : " text-gray-200"
+                }`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  height={100}
+                  width={100}
+                  className="h-5 w-5 rounded-full space-x-1"
+                />
+                <span className="mx-4 text-sm font-medium ">{item.name}</span>
+              </div>
+            </Link>
+          ))}
         </div>
+        <button
+          className="mb-4 text-gray-500 hover:text-white hover:font-bold "
+          onClick={() => scroll(100)}
+        >
+          <FiChevronRight />
+        </button>
       </div>
     </div>
   );

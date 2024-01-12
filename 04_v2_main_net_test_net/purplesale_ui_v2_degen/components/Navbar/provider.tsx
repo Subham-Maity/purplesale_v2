@@ -6,7 +6,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
   const [mounted, setMounted] = React.useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return <>{children}</>;
-  return <ThemeProvider forcedTheme="dark">{children}</ThemeProvider>;
+  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
 };
 
 export default Providers;

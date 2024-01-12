@@ -10,22 +10,16 @@ export default function Document() {
       mode: mode ? "dark" : "light",
     },
   });
-  const lock = true;
-  const frontendResponse = "Loading...";
   return (
     <>
       <ThemeProvider theme={theme}>
-        {lock ? (
-          <Html lang="en">
-            <Head />
-            <body className="dark:bg-[url('/Background.png')] bg-no-repeat bg-cover bg-fixed">
-              <Main />
-              <NextScript />
-            </body>
-          </Html>
-        ) : (
-          frontendResponse
-        )}
+        <Html lang="en">
+          <Head />
+          <body className="dark:bg-[url('/Background.png')] bg-[#121416] bg-no-repeat bg-cover bg-fixed">
+            <Main />
+            <NextScript />
+          </body>
+        </Html>
       </ThemeProvider>
     </>
   );

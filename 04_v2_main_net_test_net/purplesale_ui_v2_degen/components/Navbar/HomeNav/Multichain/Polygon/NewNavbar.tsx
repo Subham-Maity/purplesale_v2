@@ -919,7 +919,7 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
   let allData = presaleData.concat(auctionData, fairData, subData);
   const dummyData = [
     {
-      name: "MATIC",
+      name: "ETH",
       image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
       href: "/",
     },
@@ -958,6 +958,86 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
       image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
       href: "/",
     },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
+    {
+      name: "Bitcoin",
+      image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+      href: "/",
+    },
   ];
   // Check if allData is empty, and if it is, assign dummyData to it
   if (allData.length === 0) {
@@ -965,68 +1045,10 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
   }
 
   //Navigation
-  const navigation = [
-    {
-      id: 1,
-      name: "Trending",
-      component: <TrendingBar loop={false} Trending={allData} />,
-      current: false,
-    },
-    {
-      id: 2,
-      name: "Settings",
-      component: (
-        <button
-          onClick={() => {
-            router.push("/me");
-          }}
-        >
-          <RiUserSettingsLine className="text-2xl lg:mb-2 text-white hover:text-gray-400 shadow-2xl shadow-white" />
-        </button>
-      ),
-      current: false,
-    },
-    // {
-    //   id: 3,
-    //   name: "Switch",
-    //   component: <Switcher />,
-    //   current: false,
-    // },
-    {
-      id: 3,
-      name: "Connect",
-      component: (
-        <div className="lg:mb-4">
-          <ConnectButton />
-        </div>
-      ),
-      current: false,
-    },
-  ];
 
   return (
-    <div className="w-[340px] sm:w-[670px] md:w-[945px] lg:w-[960px] xl:w-[1050px] 2xl:w-[1440px] z-50  max-w-8xl px-4 sm:px-6 lg:px-4 py-2 sm:py-2 lg:py-2 ">
-      <div className="flex h-12 items-center justify-between">
-        <div>
-          <div className=" flex  items-center space-x-4 gap-0 lg:gap-0">
-            <div>
-              <RiMenu2Fill
-                size={25}
-                className={`hover:cursor-pointer lg:hidden `}
-                onClick={() => {
-                  toggleSidebar();
-                }}
-              />
-            </div>
-            <h1 className="dark:text-white text-left text-black ml-2 font-bold whitespace-nowrap text-2xl lg:hidden block">
-              Purple Sale
-            </h1>
-            {navigation.map((item) =>
-              item.component ? <div key={item.id}>{item.component}</div> : null,
-            )}
-          </div>
-        </div>
-      </div>
+    <div className="px-10">
+      <TrendingBar loop={false} Trending={allData} />
     </div>
   );
 };

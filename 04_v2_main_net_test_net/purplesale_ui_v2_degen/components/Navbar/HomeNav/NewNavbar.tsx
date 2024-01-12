@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useNetwork } from "wagmi";
 
 import dynamic from "next/dynamic";
-
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Avalanche from "@/components/Navbar/HomeNav/Multichain/Avalanche/NewNavbar";
 import Arbitrum from "@/components/Navbar/HomeNav/Multichain/Arbitrum/NewNavbar";
 import Polygon from "@/components/Navbar/HomeNav/Multichain/Polygon/NewNavbar";
 import Ethereum from "@/components/Navbar/HomeNav/Multichain/Ethereum/NewNavbar";
+import { RiUserSettingsLine } from "react-icons/ri";
+import { useRouter } from "next/router";
+import Switcher from "@/components/Navbar/mode/Switcher";
 
 interface NavbarProps {
   isSidebarOpen: boolean;
@@ -15,57 +18,76 @@ interface NavbarProps {
 
 const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
   const { chain } = useNetwork();
+  const router = useRouter();
   return (
-    <div>
-      <div
-        className={
-          chain?.name ||
-          chain?.name === "Ethereum" ||
-          chain?.name === "Arbitrum One" ||
-          chain?.name === "Polygon" ||
-          chain?.name === "Avalanche"
-            ? "hidden"
-            : "block"
-        }
-      >
-        <Ethereum isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    <div className="flex flex-col">
+      <div className="border-b pb-3 border-gray-400/20 mb-3">
+        <div className="flex justify-end gap-5">
+          <Switcher />
+          <button
+            onClick={() => {
+              router.push("/me");
+            }}
+          >
+            <RiUserSettingsLine className="text-2xl lg:mb-2 text-white hover:text-gray-400 shadow-2xl shadow-white" />
+          </button>
+          <ConnectButton />
+        </div>
       </div>
-
-      {chain?.name === "Ethereum" && (
-        <>
+      <div>
+        <div
+          className={
+            chain?.name ||
+            chain?.name === "Ethereum" ||
+            chain?.name === "Arbitrum One" ||
+            chain?.name === "Polygon" ||
+            chain?.name === "Avalanche"
+              ? "hidden"
+              : "block"
+          }
+        >
           <Ethereum
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
           />
-        </>
-      )}
+        </div>
 
-      {chain?.name === "Arbitrum One" && (
-        <>
-          <Arbitrum
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-          />
-        </>
-      )}
+        {chain?.name === "Ethereum" && (
+          <>
+            <Ethereum
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={toggleSidebar}
+            />
+          </>
+        )}
 
-      {chain?.name === "Polygon" && (
-        <>
-          <Polygon
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-          />
-        </>
-      )}
+        {chain?.name === "Arbitrum One" && (
+          <>
+            <Arbitrum
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={toggleSidebar}
+            />
+          </>
+        )}
 
-      {chain?.name === "Avalanche" && (
-        <>
-          <Avalanche
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-          />
-        </>
-      )}
+        {chain?.name === "Polygon" && (
+          <>
+            <Polygon
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={toggleSidebar}
+            />
+          </>
+        )}
+
+        {chain?.name === "Avalanche" && (
+          <>
+            <Avalanche
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={toggleSidebar}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -10,11 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 import Switcher from "@/components/Navbar/mode/Switcher";
 import { useNetwork } from "wagmi";
 import { BsBarChartFill } from "react-icons/bs";
+import FormContext from "@/contexts/create/FormContext";
 const HomeMain = () => {
   const router = useRouter();
   const { address, isConnected } = useAccount();
   const [isLoading, setIsLoading] = useState(false);
-
+  const { isDarkTheme } = useContext(FormContext);
   // Show warning if not connected to MetaMask
   useEffect(() => {
     if (!isConnected) {
@@ -55,16 +56,33 @@ const HomeMain = () => {
   return (
     <div className="px-4">
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
+
+      <div className="border border-[#FDB149] bg-gray-600/25 items-center mx-96 rounded-2xl py-2">
+        <p className="text-[#FDB149] text-center font-bold">
+          You are currently in Alpha mode, Please click Degen mode to switch in
+          Degen
+        </p>
+      </div>
       <BgBox>
         <div style={{ position: "relative" }}>
           <div>
-            <Image
-              className="pt-4 pb-4"
-              src="/homebackground.svg"
-              alt="Hey"
-              height={2000}
-              width={2000}
-            />
+            {isDarkTheme ? (
+              <Image
+                className="pt-4 pb-4"
+                src="/bendwhite.svg"
+                alt="Hey"
+                height={2000}
+                width={2000}
+              />
+            ) : (
+              <Image
+                className="pt-4 pb-4"
+                src="/bend.svg"
+                alt="Hey"
+                height={2000}
+                width={2000}
+              />
+            )}
             <div
               style={{
                 position: "absolute",
@@ -95,15 +113,6 @@ const HomeMain = () => {
                 >
                   CREATE NOW
                 </button>
-              </div>
-              <div style={{ marginLeft: "auto" }}>
-                <Image
-                  className="pt-4 pb-4"
-                  src="/demon.svg"
-                  alt="Hey"
-                  height={600}
-                  width={600}
-                />
               </div>
             </div>
           </div>
@@ -280,41 +289,49 @@ const HomeMain = () => {
             className="h-48 w-48"
           />
         </div>
+        <footer className="rounded-2xl shadow m-4 bg-gray-800/50">
+          <div className="w-full mx-auto max-w-screen-xl py-8  md:flex md:items-center md:justify-between">
+            <span className="text-lg text-gray-500 sm:text-center dark:text-gray-400">
+              © 2024{" "}
+              <a
+                href="https://flowbite.com/"
+                className="text-lg hover:underline"
+              >
+                Purple Sale™
+              </a>
+              . All Rights Reserved.
+            </span>
+            <Image
+              src="/footer/logo.svg"
+              alt={"logo"}
+              width={150}
+              height={150}
+            />
+            <ul className="flex flex-wrap items-center mt-3 text-lg font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+              <li>
+                <a href="#" className="hover:underline me-4 md:me-6">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline me-4 md:me-6">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline me-4 md:me-6">
+                  Licensing
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
       </BgBox>
-      <footer className="bg-white rounded-2xl shadow m-4 dark:bg-gray-800/50">
-        <div className="w-full mx-auto max-w-screen-xl py-8  md:flex md:items-center md:justify-between">
-          <span className="text-lg text-gray-500 sm:text-center dark:text-gray-400">
-            © 2024{" "}
-            <a href="https://flowbite.com/" className="text-lg hover:underline">
-              Purple Sale™
-            </a>
-            . All Rights Reserved.
-          </span>
-          <Image src="/footer/logo.svg" alt={"logo"} width={150} height={150} />
-          <ul className="flex flex-wrap items-center mt-3 text-lg font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Licensing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
     </div>
   );
 };
