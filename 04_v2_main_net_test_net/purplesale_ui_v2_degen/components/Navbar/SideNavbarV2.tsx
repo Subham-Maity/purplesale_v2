@@ -9,13 +9,8 @@ import {
   AiOutlineUnlock,
 } from "react-icons/ai";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
-import { RiComputerLine, RiFileLine } from "react-icons/ri";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-import { LuCircle, LuShoppingCart } from "react-icons/lu";
-import { MdDashboard } from "react-icons/md";
-import SidebarWrapper from "@/components/TailwindWrapper/Sidenav/Sidebar";
+import { LuShoppingCart } from "react-icons/lu";
+import { RiFileLine } from "react-icons/ri";
 import {
   BsFacebook,
   BsFillShieldFill,
@@ -25,6 +20,11 @@ import {
 import { GiParachute } from "react-icons/gi";
 import { FaAddressCard, FaChartLine, FaUserSecret } from "react-icons/fa";
 import { BiPaperPlane } from "react-icons/bi";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import SidebarWrapper from "@/components/TailwindWrapper/Sidenav/Sidebar";
+
 import Image from "next/image";
 export interface NavItem {
   title: string;
