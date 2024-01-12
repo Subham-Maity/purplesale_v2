@@ -33,27 +33,26 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
       }
       className={` rounded-md w-full  `}
     >
-      <div>
-        {openMobileNav && (
-          <MobileSidebar
-            onClose={(value) => setOpenMobileNav(value)}
-            isSidebarOpen={openMobileNav}
-          />
-        )}
-      </div>
-
-      <div>
-        <RiMenu2Fill
-          size={25}
-          className="hover:cursor-pointer lg:hidden"
-          onClick={() => {
-            setOpenMobileNav(true);
-          }}
-        />
-      </div>
-
       <div className="flex flex-col">
-        <div className="border-b pb-3 border-gray-400/20 mb-3">
+        <div className="border-b pb-3 border-gray-400/20 mb-3 flex justify-between">
+          <div>
+            {openMobileNav && (
+              <MobileSidebar
+                onClose={(value) => setOpenMobileNav(value)}
+                isSidebarOpen={openMobileNav}
+              />
+            )}
+          </div>
+
+          <div>
+            <RiMenu2Fill
+              size={25}
+              className="hover:cursor-pointer text-white lg:hidden"
+              onClick={() => {
+                setOpenMobileNav(true);
+              }}
+            />
+          </div>
           <div className="flex justify-end gap-5">
             <Switcher />
             <button

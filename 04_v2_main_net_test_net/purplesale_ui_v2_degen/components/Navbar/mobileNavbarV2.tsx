@@ -24,6 +24,8 @@ import { BiPaperPlane } from "react-icons/bi";
 import Link from "next/link";
 import { MdDashboard } from "react-icons/md";
 import { NavItem } from "@/components/Navbar/SideNavbarV2";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navConfig: NavItem[] = [
   {
@@ -165,8 +167,10 @@ const MobileSidebar = (props: Props) => {
   const [selectedNoSubNav, setSelectedNoSubNav] = useState<string | null>(null);
   const [isNavOpen, setIsNavOpen] = useState(props.isSidebarOpen);
   const [open, setOpen] = useState(props.isSidebarOpen);
+  const [selectedSubNav, setSelectedSubNav] = useState<string | null>(null);
   const handleSubNavItemClick = (title: string) => {
     setActiveSubNavItem(title);
+    setSelectedSubNav(title);
     setSelectedNoSubNav(null);
   };
   useEffect(() => {
@@ -182,6 +186,8 @@ const MobileSidebar = (props: Props) => {
     setActiveSubNav(null);
     setSelectedNoSubNav(title);
   };
+  const activeNavItemClasses =
+    "dark:bg-[#07112D] bg-[#424550] rounded-xl border-l-4 border-[#7BFE88] text-green-400 text-white ";
   return (
     <aside>
       <motion.div
@@ -192,16 +198,20 @@ const MobileSidebar = (props: Props) => {
           animate={{ x: 0 }}
           transition={{ duration: 0.5 }}
           exit={{ x: "-100%" }}
-          className={`fixed top-0 left-0 w-64 h-full bg-white dark:bg-[#2E3248] z-50`}
+          className={`fixed top-0 left-0 w-64 h-full bg-[#1b2e50]  z-50 overflow-y-auto`}
         >
           <div className="flex flex-col justify-between items-center p-4 ">
             <div className="flex items-center justify-between w-full">
-              <span className="dark:text-white text-2xl font-semibold ml-2">
-                Admin
-              </span>
+              <Image
+                src="/logo.png"
+                alt={"logo"}
+                width={200}
+                height={200}
+                className="h-1/2 w-1/2"
+              />
               <button
                 onClick={() => props.onClose(false)}
-                className="dark:text-white focus:outline-none lg:hidden"
+                className="text-white focus:outline-none lg:hidden"
               >
                 <AiOutlineMenuUnfold size={25} />
               </button>
@@ -217,16 +227,16 @@ const MobileSidebar = (props: Props) => {
                   <div
                     className={`${
                       open
-                        ? "flex items-center justify-between px-2 py-1"
+                        ? `flex items-center justify-between px-2 py-2 ${
+                            activeSubNav === item.title && activeNavItemClasses
+                          } `
                         : "flex items-center justify-center py-1"
                     }`}
                   >
                     <div
-                      className={`flex ${
-                        activeSubNav === item.title && "dark:bg-[#3E4163]"
-                      } items-center ${
+                      className={`flex  items-center ${
                         open ? "justify-start" : "justify-center"
-                      } w-full p-2 rounded-md`}
+                      } w-full p-1`}
                     >
                       {item.icon}
                       {open && (
@@ -236,7 +246,7 @@ const MobileSidebar = (props: Props) => {
                       )}
                     </div>
                     {item.subNav && (
-                      <div>
+                      <div className={`${!open && "hidden"} `}>
                         {activeSubNav === item.title ? (
                           <FiChevronDown
                             className={`${
@@ -257,18 +267,26 @@ const MobileSidebar = (props: Props) => {
                 {item.subNav && activeSubNav === item.title && (
                   <div className="pl-4">
                     {item.subNav.map((subNavItem, index) => (
-                      <Link href={subNavItem.href} key={index}>
+                      <Link
+                        href={subNavItem.href}
+                        key={index}
+                        onClick={() => handleSubNavItemClick(subNavItem.title)}
+                      >
                         <div
                           className={`${
                             open
-                              ? "flex items-center justify-between"
+                              ? "flex items-center  justify-between"
                               : "flex items-center justify-center"
+                          } ${
+                            selectedSubNav === subNavItem.title
+                              ? activeNavItemClasses
+                              : ""
                           }`}
                         >
                           <div className="flex items-center justify-center px-1">
                             {subNavItem.icon}
                             {open && (
-                              <span className="ml-2 text-sm font-medium">
+                              <span className="ml-2 mb-4 text-white text-sm font-medium">
                                 {subNavItem.title}
                               </span>
                             )}

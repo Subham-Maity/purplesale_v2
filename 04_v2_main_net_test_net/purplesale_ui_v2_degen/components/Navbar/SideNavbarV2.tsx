@@ -177,7 +177,6 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
   const [isNavOpen, setIsNavOpen] = useState(isSidebarOpen);
   const [open, setOpen] = useState(false);
   const [selectedSubNav, setSelectedSubNav] = useState<string | null>(null);
-  const path = usePathname();
 
   const handleSubNavItemClick = (title: string) => {
     setActiveSubNavItem(title);
@@ -202,13 +201,13 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
     setSelectedNoSubNav(title);
   };
   const activeNavItemClasses =
-    "dark:bg-[#07112D] bg-[#424550] rounded-xl border-l-4 border-[#7BFE88] ";
+    "dark:bg-[#07112D] bg-[#424550] rounded-xl border-l-4 border-[#7BFE88] text-green-400 dark:text-white ";
   return (
     <>
       {isNavOpen !== null ? (
         <SidebarWrapper>
           <nav
-            className={`overflow-hidden hidden z-40 bg-transparent bg-no-repeat bg-cover text-white lg:flex flex-col justify-between fixed duration-300 top-0 bg-stone-100 `}
+            className={`overflow-hidden hidden z-40 bg-transparent bg-no-repeat bg-cover text-white dark:text-green-400 lg:flex flex-col justify-between fixed duration-300 top-0 bg-stone-100 `}
           >
             <div
               className={`${
@@ -216,7 +215,7 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
               }   bg-[url('/Rectangle2.png')] bg-cover bg-no-repeat fixed h-full bg-opacity-10 bg-transparent border shadow-xl dark:shadow-sm border-gray-400/25 text-gray-300 duration-300 left-0 flex flex-col overflow-y-auto`}
             >
               <div
-                className={` z-50 cursor-pointer  dark:bg-[#2b313a] dark:bg-transparent m-2 text-gray-300 flex items-center justify-center bg-sidebar rounded-full `}
+                className={` z-50 cursor-pointer  dark:bg-[#2b313a] dark:bg-transparent m-2 text-gray-300  dark:text-green-400 flex items-center justify-center bg-sidebar rounded-full `}
                 onClick={() => {
                   setOpen(!open);
                   toggleSidebar(!open);
@@ -233,7 +232,7 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                     />
                   )}
                   <AiOutlineMenuUnfold
-                    className={`text-gray-300  ${
+                    className={`text-gray-300 dark:text-green-400  ${
                       open ? "text-2xl " : "text-2xl text-center mx-auto"
                     }`}
                   />
@@ -300,7 +299,7 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                             <div
                               className={`${
                                 open
-                                  ? "flex items-center justify-between"
+                                  ? "flex items-center  justify-between"
                                   : "flex items-center justify-center"
                               } ${
                                 selectedSubNav === subNavItem.title
@@ -315,7 +314,7 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                               >
                                 {subNavItem.icon}
                                 {open && (
-                                  <span className="ml-2 text-sm font-medium">
+                                  <span className="ml-2 text-sm  font-medium">
                                     {subNavItem.title}
                                   </span>
                                 )}
@@ -362,7 +361,7 @@ const SideNavbar = ({ isSidebarOpen, toggleSidebar }: SidebarProps) => {
                                           <div className="flex items-center justify-center px-1 my-1">
                                             {subNavItem.icon}
                                             {open && (
-                                              <span className="ml-2 text-sm font-medium">
+                                              <span className="ml-2 text-sm font-medium text-green-400 dark:text-white">
                                                 {subNavItem.title}
                                               </span>
                                             )}
