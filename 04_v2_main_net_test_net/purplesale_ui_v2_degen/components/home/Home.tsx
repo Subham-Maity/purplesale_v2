@@ -16,6 +16,7 @@ const HomeMain = () => {
   const { address, isConnected } = useAccount();
   const [isLoading, setIsLoading] = useState(false);
   const { isDarkTheme } = useContext(FormContext);
+  const { activeTab, setActiveTab } = useContext(FormContext);
   // Show warning if not connected to MetaMask
   useEffect(() => {
     if (!isConnected) {
@@ -37,30 +38,40 @@ const HomeMain = () => {
     }
   }, [isConnected]);
 
-  const handleCreateNow = async () => {
-    setIsLoading(true);
-    // isConnected is used here
-    setIsLoading(false);
-    if (isConnected) {
-      toast.success("Success! Your operation was completed successfully.", {
-        position: "bottom-right",
-        autoClose: 200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  };
   return (
     <div className="px-4">
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
-
+      <div className="px-10">
+        <div className="bg-gray-700/50 h-18 mb-8 flex p-2 rounded-2xl justify-between gap-5">
+          <button
+            className={`w-full h-14 px-6 text-4xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
+              activeTab === 1
+                ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
+                : "text-indigo-100 border-yellow-700"
+            }`}
+            onClick={() => setActiveTab(1)}
+          >
+            ALPHA MODE
+          </button>
+          <button
+            className={`w-full h-14 px-6 text-4xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
+              activeTab === 0
+                ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
+                : "text-indigo-100 border-yellow-700"
+            }`}
+            onClick={() => setActiveTab(0)}
+          >
+            🔥🔥DEGEN MODE🔥🔥
+          </button>
+        </div>
+      </div>
       <div className="border border-[#FDB149] bg-gray-600/25 items-center mx-96 rounded-2xl py-2">
         <p className="text-[#FDB149] text-center font-bold">
-          You are currently in Alpha mode, Please click Degen mode to switch in
-          Degen
+          {`You are currently in ${
+            activeTab === 1 ? "Alpha" : "Degen"
+          } mode, Please click ${
+            activeTab === 1 ? "Degen" : "Alpha"
+          } mode to switch`}
         </p>
       </div>
       <BgBox>

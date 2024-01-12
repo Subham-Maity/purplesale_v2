@@ -96,6 +96,7 @@ const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
   const [isAffiliateEnabled, setIsAffiliateEnabled] = useState<number>(0);
   const [currency, setCurrency] = useState<string>("");
   const [feeOption, setFeeOption] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<number>(0);
   const [selectedListingOption, setSelectedListingOption] =
     useState<string>("auto");
   const [tokenDetails, setTokenDetails] = useState<TokenDetails>({
@@ -229,6 +230,7 @@ const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
     youtube,
     airDrop,
     title,
+    activeTab,
   };
 
   const formContextDispatch: FormContextDispatch = {
@@ -259,6 +261,7 @@ const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
     setYoutube,
     setAirdrop,
     setTitle,
+    setActiveTab,
   };
 
   return (

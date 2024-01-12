@@ -116,6 +116,7 @@ export interface FormContextState {
   youtube: string;
   airDrop: string;
   title: string;
+  activeTab: number;
 }
 
 export interface FormContextDispatch {
@@ -146,6 +147,7 @@ export interface FormContextDispatch {
   setYoutube: React.Dispatch<React.SetStateAction<string>>;
   setAirdrop: React.Dispatch<React.SetStateAction<string>>;
   setTitle: React.Dispatch<React.SetStateAction<string>>;
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>;
 }
 
 type FormContextProps = FormContextState & FormContextDispatch;
@@ -266,6 +268,7 @@ const defaultDispatch: FormContextDispatch = {
   setYoutube: () => {},
   setAirdrop: () => {},
   setTitle: () => {},
+  setActiveTab: () => {},
 };
 
 const defaultFormContext: FormContextProps = {
@@ -297,6 +300,7 @@ const defaultFormContext: FormContextProps = {
   youtube: "",
   airDrop: "",
   title: "",
+  activeTab: 0,
 };
 
 const FormContext = React.createContext<FormContextProps>(defaultFormContext);

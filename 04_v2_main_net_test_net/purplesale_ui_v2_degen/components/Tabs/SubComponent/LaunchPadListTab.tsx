@@ -1,6 +1,7 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useContext, useState } from "react";
 import { IconBaseProps } from "react-icons";
 import Link from "next/link";
+import FormContext from "@/contexts/create/FormContext";
 
 interface TabProps {
   tabs: string[];
@@ -9,7 +10,7 @@ interface TabProps {
 }
 
 function LaunchPadListTab({ tabs, icons, children }: TabProps) {
-  const [activeTab, setActiveTab] = useState(0);
+  const { activeTab, setActiveTab } = useContext(FormContext);
 
   return (
     <div className="flex flex-col mt-20 mb-4 justify-center items-center">
