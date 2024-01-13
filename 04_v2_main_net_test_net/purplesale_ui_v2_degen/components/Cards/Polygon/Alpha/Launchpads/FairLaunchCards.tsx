@@ -5,6 +5,7 @@ import axios from "@/constants/axio";
 import { useAccount } from "wagmi";
 import { BiLike } from "react-icons/bi";
 import { FaCircleDot } from "react-icons/fa6";
+import { FaRegStar } from "react-icons/fa";
 interface CountdownProps {
   startDate: number;
   endDate: number;
@@ -170,132 +171,108 @@ const FairLaunchCards = ({
   };
 
   return (
-    <div className=" h-[527px] w-[346px] mb-12 rounded-2xl bg-gradient-to-tr from-[#2020aa] to-[#6161b3] shadow-black shadow-2xl border-blue-600/25 border ">
+    <div className="card-bg">
       <div className="relative">
-        <div className="h-[130px] w-[344px]">
-          <Image
-            height={2000}
-            width={2000}
-            className="rounded-2xl w-full h-full p-1"
-            src={bg}
-            alt="cartImage"
-          />
-        </div>
         <Image
-          height={200}
-          width={200}
-          className="rounded-full w-14 h-14 border border-white/25 ml-2 mt-2 absolute top-2/3 right-4 z-30"
+          height={2000}
+          width={2000}
+          className="bg-card-image"
+          src={bg}
+          alt="cartImage"
+        />
+        <Image
+          height={300}
+          width={300}
+          className="bg-card-profile-image"
           src={imgHref}
           alt="cartImage"
         />
-        <div className="absolute top-0 right-0">
+        <div className="bg-card-status">
           <SaleStatus startDate={SalesStartIn} endDate={SalesEndIn} />
         </div>
       </div>
-      <div className="px-3 mb-8">
-        <h5 className="mb-2 flex justify-start text-2xl font-semibold whitespace-nowrap tracking-tight text-gray-300 dark:text-white">
-          {name}
-        </h5>
-        <p className="mb-3 flex justify-start font-normal text-lg text-gray-200 dark:text-gray-200">
+      <div className="px-3 mb-4 ">
+        <h5 className="card-name">{name}</h5>
+        <p className="card-description">
           {maxBuyFair == 0
             ? "Fair Launch"
             : `Fair Launch - Max buy ${maxBuyFair} ${currency}`}
         </p>
       </div>
       <div className="px-4">
-        <p className="mb-3 flex justify-start text-sm font-bold text-gray-300 dark:text-white">
+        <hr className="card-ruler"></hr>
+        <p className="card-progress">
           Progress ({moneyRaised / softCapCurrency}%)
         </p>
-        <div className="w-full bg-gray-300 rounded-full">
+        <div className="loader-style">
           <div
-            className={`h-2 rounded-full bg-gradient-to-r from-[#9999c5] to-gray-600`}
+            className={`loader-color`}
             style={{ width: `min(${moneyRaised / softCapCurrency}%, 100%)` }}
           ></div>
         </div>
 
-        <div className="flex justify-between mb-4">
-          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
+        <div className="loader-under-value-flex">
+          <p className="loader-under-value">
             {moneyRaised ? `${moneyRaised}${currency}` : `0${currency}`}
           </p>
-          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
+          <p className="loader-under-value">
             {softCapCurrency} {currency}
           </p>
         </div>
 
-        <hr className="border-t border-gray-300/75 mb-4"></hr>
-        <div className="grid grid-cols-5 whitespace-nowrap justify-items-center">
-          <div>
-            <div className="flex flex-col whitespace-nowrap">
-              <span className=" text-gray-300 font-bold text-center">
-                {Liquidity}%
-              </span>
-              <p className="text-white font-light text-center text-sm whitespace-nowrap">
-                Liquidity %
-              </p>
+        <div className="card-value-grid">
+          <div className="card-value-bg">
+            <div className="card-flex">
+              <p className="card-title">Liquidity</p>
+              <p className="card-value">{Liquidity}%</p>
             </div>
           </div>
-          <Image
-            src={"/Card/line.svg"}
-            alt={"line"}
-            width={1}
-            height={20}
-            className="h-10 w-2 py-2"
-          />
-          <div>
-            <div className="flex flex-col whitespace-nowrap">
-              <span className=" text-gray-300 font-bold text-center">
-                {Liquidity}%
-              </span>
-              <p className="text-white font-light text-center text-sm whitespace-nowrap">
-                Liquidity %
-              </p>
-            </div>
-          </div>
-          <Image
-            src={"/Card/line.svg"}
-            alt={"line"}
-            width={1}
-            height={20}
-            className="h-10 w-2 py-2"
-          />
-          <div className="flex gap-2 mr-2">
-            <div className="flex flex-col whitespace-nowrap">
-              <span className=" text-gray-300 font-bold text-center">
+          <div className="card-value-bg">
+            <div className="card-flex">
+              <p className="card-title"> Soft Cap</p>
+              <p className="card-value">
                 {softCapCurrency} {currency}
-              </span>
-              <p className="text-white font-light text-center text-sm whitespace-nowrap">
-                Soft Cap
+              </p>
+            </div>
+          </div>
+          <div className="card-value-bg">
+            <div className="card-flex">
+              <p className="card-title">Lockup Time:</p>
+              <p className="card-value">
+                {Math.floor(LockupTime / (60 * 60 * 24))} Days
               </p>
             </div>
           </div>
         </div>
 
-        <hr className="border-t border-gray-300/75 mt-4 "></hr>
-        <h3 className="flex justify-between mt-4 mb-4">
-          <p className="text-xl font-normal text-gray-300 dark:text-gray-100">
-            Lockup Time:
-          </p>
-          <p className=" text-xl font-normal text-gray-300 dark:text-gray-100">
-            <span className="text-gray-300 dark:text-gray-300">
-              {Math.floor(LockupTime / (60 * 60 * 24))} Days
-            </span>
-          </p>
-        </h3>
+        <hr className="card-ruler"></hr>
 
-        <div className="flex justify-between">
+        <div className="card-flex">
           <div>
-            <p className="text-sm font-normal text-gray-300 dark:text-gray-100">
-              Sale Starts In
-            </p>
-            <p className="text-sm flex justify-start font-normal text-gray-300 dark:text-gray-100">
-              <span className="text-gray-300 dark:text-gray-300">
+            <p className="card-start">Sale Starts In</p>
+            <p className="card-start-bg">
+              <span className="card-start-span">
                 <CountdownTimer startDate={SalesStartIn} endDate={SalesEndIn} />
               </span>
             </p>
           </div>
-          <div className=" flex justify-between gap-3">
+          <div className="card-button-flex">
             <button
-              className=" w-12 mt-6 text-center text-md font-medium px-1 text-white rounded-md hover:bg-[#a6a6c4] bg-[#9494c4] "
+              className="card-button-1"
+              onClick={() => {
+                handleHeartButtonClickFair(id, imgHref, address, name, symbol);
+              }}
+            >
+              <FaRegStar
+                className={`text-3xl${
+                  isCardAdded
+                    ? "text-purple-300 "
+                    : "text-slate-200 dark:text-slate-200"
+                }`}
+              />
+            </button>
+            <button
+              className="card-button-secondary"
               onClick={() => {
                 router.push({
                   pathname: "/details/Alpha/fairlaunch/[id]",
@@ -304,20 +281,6 @@ const FairLaunchCards = ({
               }}
             >
               View
-            </button>
-            <button
-              className="flex mt-8 rounded-lg text-gray-300 dark:text-gray-100 cursor-pointer"
-              onClick={() => {
-                handleHeartButtonClickFair(id, imgHref, address, name, symbol);
-              }}
-            >
-              <BiLike
-                className={`text-2xl ${
-                  isCardAdded
-                    ? "text-purple-300 "
-                    : "text-slate-200 dark:text-slate-200"
-                }`}
-              />
             </button>
           </div>
         </div>

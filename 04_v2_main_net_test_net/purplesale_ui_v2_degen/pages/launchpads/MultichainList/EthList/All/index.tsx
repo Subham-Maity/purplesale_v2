@@ -1549,22 +1549,21 @@ const All = () => {
                   symbolTokenPrivateSales={"60"}
                   bg={"/PlaceholderCardBg.png"}
                 />
-                <PreSaleCards
-                  softCapCurrency={15}
-                  hardCapCurrency={20}
-                  id={1}
-                  name={"Ethereum"}
-                  symbol={"ETH"}
-                  Affiliate={2}
+                <FairLaunchCards
+                  key={12}
+                  maxBuyFair={0}
+                  softCapCurrency={0}
+                  Affiliate={"0"}
                   imgHref={"/PlaceHolder.svg"}
-                  description={"The world's computer"}
-                  Liquidity={5}
-                  LockupTime={10}
-                  SalesStartIn={1987463}
-                  SalesEndIn={2873910}
-                  moneyRaised={100}
+                  Liquidity={0}
+                  LockupTime={0}
+                  SalesStartIn={0}
+                  SalesEndIn={0}
+                  moneyRaised={0}
+                  id={0}
+                  name={"Purple Sale"}
+                  symbol={24}
                   currency={"ETH"}
-                  symbolTokenPrivateSales={"70"}
                   bg={"/PlaceholderCardBg.png"}
                 />
                 <PreSaleCards

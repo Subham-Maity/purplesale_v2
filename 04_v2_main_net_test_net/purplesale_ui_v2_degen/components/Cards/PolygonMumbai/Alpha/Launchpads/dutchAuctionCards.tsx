@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import axios from "@/constants/axio";
 import { useAccount } from "wagmi";
+import axios from "@/constants/axio";
 import { BiLike } from "react-icons/bi";
 import { FaCircleDot } from "react-icons/fa6";
-import { FaRegStar } from "react-icons/fa";
+
 interface CountdownProps {
   startDate: number;
   endDate: number;
@@ -13,18 +13,21 @@ interface CountdownProps {
 interface CardProps {
   maxBuyFair: number;
   softCapCurrency: number;
-  Affiliate: string;
+  id: number;
   imgHref: string;
+  currency: string;
   Liquidity: number;
   LockupTime: number;
   SalesStartIn: number;
   SalesEndIn: number;
   moneyRaised: number;
-  id: number;
   name: string;
-  symbol: number;
-  currency: string;
+  symbol: string;
   bg: string;
+}
+
+interface SwipeTextProps {
+  affiliateValues: string[];
 }
 
 const SaleStatus = ({ startDate, endDate }: CountdownProps) => {
@@ -118,7 +121,7 @@ const CountdownTimer = ({ startDate, endDate }: CountdownProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       calculateTimeLeft();
-    }, 1000);
+    }, 1000); // Update every second
 
     return () => clearInterval(interval);
   }, [startDate, endDate]);
@@ -130,161 +133,174 @@ const CountdownTimer = ({ startDate, endDate }: CountdownProps) => {
   );
 };
 
-const FairLaunchCards = ({
+const DutchAuctionCards = ({
   maxBuyFair,
   softCapCurrency,
-  Affiliate,
+  id,
   imgHref,
+  currency,
   Liquidity,
   LockupTime,
   SalesStartIn,
   SalesEndIn,
   moneyRaised,
-  id,
   name,
   symbol,
-  currency,
   bg,
 }: CardProps) => {
   const router = useRouter();
-
-  const affiliateValues = Affiliate;
   const { address, isConnected } = useAccount();
   const [isCardAdded, setIsCardAdded] = useState(false);
-  const handleHeartButtonClickFair = async (
+  const handleHeartButtonClick = async (
+    name: String,
+    symbol: String,
     id: number,
-    imgHref: string,
     address: any,
-    name: string,
-    symbol: number,
+    imgHref: string,
   ) => {
     const postData = {
       Name: name,
       Symbol: symbol,
-      Link: `/details/fairlaunch/${id}`,
+      Link: `/details/Alpha/auction/${id}`,
       WalletAddress: address,
       imgHref: imgHref,
     };
     try {
-      await axios.post("/cart/Arbitrum", postData);
+      await axios.post("/cart/Polygon", postData);
       setIsCardAdded(true);
       localStorage.setItem("isCardAdded", "true");
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
   };
-
   return (
-    <div className="card-bg">
+    <div className=" h-[527px] w-[346px] mb-12 rounded-2xl bg-gradient-to-tr from-[#2020aa] to-[#6161b3] shadow-black shadow-2xl border-blue-600/25 border ">
       <div className="relative">
+        <div className="h-[130px] w-[344px]">
+          <Image
+            height={2000}
+            width={2000}
+            className="rounded-2xl w-full h-full p-1"
+            src={bg}
+            alt="cartImage"
+          />
+        </div>
         <Image
-          height={2000}
-          width={2000}
-          className="bg-card-image"
-          src={bg}
-          alt="cartImage"
-        />
-        <Image
-          height={300}
-          width={300}
-          className="bg-card-profile-image"
+          height={200}
+          width={200}
+          className="rounded-full w-14 h-14 border border-white/25 ml-2 mt-2 absolute top-2/3 right-4 z-30"
           src={imgHref}
           alt="cartImage"
         />
-        <div className="bg-card-status">
+        <div className="absolute top-0 right-0">
           <SaleStatus startDate={SalesStartIn} endDate={SalesEndIn} />
         </div>
       </div>
-      <div className="px-3 mb-4 ">
-        <h5 className="card-name">{name}</h5>
-        <p className="card-description">
-          {maxBuyFair == 0
-            ? "Fair Launch"
-            : `Fair Launch - Max buy ${maxBuyFair} ${currency}`}
+      <div className="px-3 mb-8">
+        <h5 className="mb-2 flex justify-start text-2xl font-semibold whitespace-nowrap tracking-tight text-gray-300 dark:text-white">
+          {name}
+        </h5>
+        <p className="mb-3 flex justify-start font-normal text-lg text-gray-200 dark:text-gray-200">
+          Dutch Auction
         </p>
       </div>
       <div className="px-4">
-        <hr className="card-ruler"></hr>
-        <p className="card-progress">
+        <p className="mb-3 flex justify-start text-sm font-bold text-gray-300 dark:text-white">
           Progress ({moneyRaised / softCapCurrency}%)
         </p>
-        <div className="loader-style">
+        <div className="w-full bg-gray-300 rounded-full">
           <div
-            className={`loader-color`}
-            style={{ width: `min(${moneyRaised / softCapCurrency}%, 100%)` }}
+            className={`h-2 rounded-full bg-gradient-to-r from-[#9999c5] to-gray-600`}
+            style={{
+              width: `calc(min(${moneyRaised / softCapCurrency}%, 100%))`,
+            }}
           ></div>
         </div>
 
-        <div className="loader-under-value-flex">
-          <p className="loader-under-value">
+        <div className="flex justify-between mb-4">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {moneyRaised ? `${moneyRaised}${currency}` : `0${currency}`}
           </p>
-          <p className="loader-under-value">
+          <p className="mb-3 text-sm font-normal text-gray-300 dark:text-gray-400">
             {softCapCurrency} {currency}
           </p>
         </div>
+        <hr className="border-t border-gray-300/75 mb-4"></hr>
+        <div className="grid grid-cols-3 whitespace-nowrap justify-items-center">
+          <div className="flex flex-col whitespace-nowrap">
+            <span className=" text-gray-300 font-bold text-center">
+              {Liquidity}%
+            </span>
+            <p className="text-white font-light text-center text-sm whitespace-nowrap">
+              Liquidity %
+            </p>
+          </div>
 
-        <div className="card-value-grid">
-          <div className="card-value-bg">
-            <div className="card-flex">
-              <p className="card-title">Liquidity</p>
-              <p className="card-value">{Liquidity}%</p>
-            </div>
-          </div>
-          <div className="card-value-bg">
-            <div className="card-flex">
-              <p className="card-title"> Soft Cap</p>
-              <p className="card-value">
+          <Image
+            src={"/Card/line.svg"}
+            alt={"line"}
+            width={1}
+            height={20}
+            className="h-10 w-2 py-2"
+          />
+          <div className="flex gap-2 mr-2">
+            <div className="flex flex-col whitespace-nowrap">
+              <span className=" text-gray-300 font-bold text-center">
                 {softCapCurrency} {currency}
-              </p>
-            </div>
-          </div>
-          <div className="card-value-bg">
-            <div className="card-flex">
-              <p className="card-title">Lockup Time:</p>
-              <p className="card-value">
-                {Math.floor(LockupTime / (60 * 60 * 24))} Days
+              </span>
+              <p className="text-white font-light text-center text-sm whitespace-nowrap">
+                Soft Cap
               </p>
             </div>
           </div>
         </div>
-
-        <hr className="card-ruler"></hr>
-
-        <div className="card-flex">
+        <hr className="border-t border-gray-300/75 mt-4 "></hr>
+        <h3 className="flex justify-between mt-4 mb-4">
+          <p className="text-xl font-normal text-gray-300 dark:text-gray-100">
+            Lockup Time:
+          </p>
+          <p className=" text-xl font-normal text-gray-300 dark:text-gray-100">
+            <span className="text-gray-300 dark:text-gray-300">
+              {Math.floor(LockupTime / (60 * 60 * 24))} Days
+            </span>
+          </p>
+        </h3>
+        <div className="flex justify-between">
           <div>
-            <p className="card-start">Sale Starts In</p>
-            <p className="card-start-bg">
-              <span className="card-start-span">
+            <p className="text-sm font-normal text-gray-300 dark:text-gray-100">
+              Sale Starts In
+            </p>
+            <p className="text-sm font-normal  flex justify-start text-gray-300 dark:text-gray-100">
+              <span className="text-gray-300 dark:text-gray-300">
                 <CountdownTimer startDate={SalesStartIn} endDate={SalesEndIn} />
               </span>
             </p>
           </div>
-          <div className="card-button-flex">
+          <div className=" flex justify-between gap-3">
             <button
-              className="card-button-1"
-              onClick={() => {
-                handleHeartButtonClickFair(id, imgHref, address, name, symbol);
-              }}
-            >
-              <FaRegStar
-                className={`text-3xl${
-                  isCardAdded
-                    ? "text-purple-300 "
-                    : "text-slate-200 dark:text-slate-200"
-                }`}
-              />
-            </button>
-            <button
-              className="card-button-secondary"
+              className=" w-12 mt-6  text-center text-md font-medium px-1 text-white rounded-md hover:bg-[#a6a6c4] bg-[#9494c4] "
               onClick={() => {
                 router.push({
-                  pathname: "/details/Alpha/fairlaunch/[id]",
+                  pathname: "/details/Alpha/auction/[id]",
                   query: { id: id },
                 });
               }}
             >
               View
+            </button>
+            <button
+              className="flex mt-8 rounded-lg text-gray-300 dark:text-gray-100 cursor-pointer"
+              onClick={() => {
+                handleHeartButtonClick(name, symbol, id, address, imgHref);
+              }}
+            >
+              <BiLike
+                className={`text-2xl ${
+                  isCardAdded
+                    ? "text-purple-300 "
+                    : "text-slate-200 dark:text-slate-200"
+                }`}
+              />
             </button>
           </div>
         </div>
@@ -293,4 +309,4 @@ const FairLaunchCards = ({
   );
 };
 
-export default FairLaunchCards;
+export default DutchAuctionCards;

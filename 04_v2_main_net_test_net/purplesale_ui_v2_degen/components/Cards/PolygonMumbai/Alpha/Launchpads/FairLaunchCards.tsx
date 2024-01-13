@@ -123,11 +123,7 @@ const CountdownTimer = ({ startDate, endDate }: CountdownProps) => {
     return () => clearInterval(interval);
   }, [startDate, endDate]);
 
-  return (
-    <span className="text-gray-300 dark:text-gray-300">
-      {timeLeft || "Presale"}
-    </span>
-  );
+  return <span className="text-gray-300">{timeLeft || "Presale"}</span>;
 };
 
 const FairLaunchCards = ({
@@ -161,12 +157,12 @@ const FairLaunchCards = ({
     const postData = {
       Name: name,
       Symbol: symbol,
-      Link: `/details/fairlaunch/${id}`,
+      Link: `/details/Alpha/fairlaunch/${id}`,
       WalletAddress: address,
       imgHref: imgHref,
     };
     try {
-      await axios.post("/cart/Arbitrum", postData);
+      await axios.post("/cart/Polygon", postData);
       setIsCardAdded(true);
       localStorage.setItem("isCardAdded", "true");
     } catch (error) {
@@ -279,7 +275,7 @@ const FairLaunchCards = ({
               className="card-button-secondary"
               onClick={() => {
                 router.push({
-                  pathname: "/details/Alpha/fairlaunch/[id]",
+                  pathname: "/details/fairlaunch/[id]",
                   query: { id: id },
                 });
               }}

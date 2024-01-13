@@ -80,7 +80,7 @@ import DefaultNav from "@/components/Navbar/DefaultNav";
 import FormProvider from "@/contexts/create/FormProvider";
 import { SnackbarProvider } from "notistack";
 const { chains, publicClient } = configureChains(
-  [mainnet, arbitrum, polygon, avalanche],
+  [mainnet, arbitrum, polygon, avalanche, polygonMumbai],
   [
     alchemyProvider({ apiKey: "64Bhe8uZTKyZc7rOCgS5lpKvKO3TXRxU" }),
     publicProvider(),
