@@ -92,7 +92,7 @@ const TrendingBar: React.FC<TrendingBarProps> = ({
 
   return (
     <div className="hidden md:block lg:block bg-gray-700/25 rounded-2xl">
-      <div className="text-white flex space-x-1 mr-2 py-1">
+      <div className="text-white flex space-x-1 py-1">
         <button
           className="text-gray-500 hover:text-white hover:font-bold "
           onClick={() => scroll(-100)}

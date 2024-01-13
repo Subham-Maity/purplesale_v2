@@ -55,64 +55,48 @@ const HorizontalLinearStepper = ({
           {steps.map((step: string, index: number) => (
             <li
               key={index}
-              className="] w-full  text-center lg:block hidden lg:ml-72 whitespace-nowrap "
-            >
-              <p className="text-sm text-gray-400">{step}</p>
-            </li>
+              className="w-full text-center lg:block hidden  whitespace-nowrap "
+            ></li>
           ))}
         </ol>
         <ol className="flex mb-5 justify-center ml-12 lg:ml-56 ">
           {steps.map((step: string, index: number) => (
-            <li
-              key={index}
-              className={`flex w-full items-center ${
-                index !== steps.length - 1
-                  ? "after:content-[''] after:w-full after:h-1 after:border-dashed after:border-b "
-                  : ""
-              } ${
-                index <= activeStep
-                  ? "text-white after:border-[#9e9cf3]"
-                  : "text-gray-500 after:border-gray-100 after:border-opacity-50"
-              }`}
-            >
-              <span
-                className={`flex items-center justify-center w-10 h-10 animate-pulse shadow-sm shadow-white rounded-full lg:h-10 lg:w-10 ${
-                  index <= activeStep
-                    ? "bg-[#9e9cf3]"
-                    : "bg-white dark:bg-black"
-                } shadow-lg`}
+            <div key={index} className="w-full text-left flex flex-col">
+              <li
+                key={index}
+                className={`flex w-full font-bold items-center ${
+                  index !== steps.length - 1
+                    ? "after:content-[''] after:w-full after:h-1 after:border-dashed after:border-b "
+                    : ""
+                } ${
+                  index === activeStep
+                    ? "text-black after:border-[#7bfe88]"
+                    : "text-white after:border-gray-100 after:border-opacity-50"
+                }`}
               >
-                {index < activeStep ? (
-                  <BsCheckCircle className="text-white w-10 h-10 animate-pulse shadow-lg shadow-white rounded-full lg:h-10 lg:w-10 " />
-                ) : (
-                  <span className="w-10 h-10 text-center mt-4 font-bold">
-                    {index + 1}
-                  </span>
-                )}
-              </span>
-            </li>
+                <span
+                  className={`flex ml-4 mb-2 items-center justify-center w-10 h-10 animate-pulse shadow-sm shadow-white rounded-full lg:h-10 lg:w-10 ${
+                    index === activeStep ? "bg-[#7bfe88]" : "bg-black"
+                  } shadow-lg`}
+                >
+                  {index < activeStep ? (
+                    <BsCheckCircle className="text-white w-10 h-10 animate-pulse shadow-lg shadow-white rounded-full lg:h-10 lg:w-10 " />
+                  ) : (
+                    <span
+                      className={`w-10 h-10 text-center font-bold mt-4 ${
+                        index === activeStep ? "text-black" : "text-white"
+                      }`}
+                    >
+                      {index + 1}
+                    </span>
+                  )}
+                </span>
+              </li>
+              <p className="text-sm text-gray-400 ">{step}</p>
+            </div>
           ))}
         </ol>
       </div>
-      {steps && (
-        <h1 className="text-2xl font-semibold text-center mb-4 lg:mr-12">
-          {steps[activeStep]}
-        </h1>
-      )}
-      <div className="w-[282px] h-[33px] lg:mr-12 dark:bg-[#585858] rounded mb-4 relative border border-gray-400/25 shadow-md shadow-white/25 overflow-hidden">
-        <div
-          style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
-          className="h-full bg-[#9e9cf3] rounded animate-pulse shadow-xl shadow-white"
-        ></div>
-        <p className="text-sm text-white absolute font-light inset-0 flex items-center justify-center transitiona-all duration-1000 group-hover:duration-200 animate-tilt ">{`${
-          ((activeStep + 1) / steps.length) * 100
-        }% DONE`}</p>
-      </div>
-      {description && (
-        <p className="text-sm text-gray-500 text-center mb-4 break-after-all mx-2">
-          {description}
-        </p>
-      )}
 
       <div>
         {React.cloneElement(children[activeStep] as React.ReactElement, {
@@ -125,20 +109,20 @@ const HorizontalLinearStepper = ({
           onClick={handleBack}
           className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
             activeStep === 0
-              ? "bg-[#020202] text-white cursor-not-allowed animate-pulse"
-              : "bg-[#9e9cf3] text-white border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse"
+              ? "bg-[#7afd87] text-black cursor-not-allowed animate-pulse"
+              : "bg-[#7afd87] text-black border transition duration-300 hover:bg-yellow-400 transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse"
           }`}
         >
-          <BiLeftArrowAlt className="w-4 h-4 text-white text-lg" />
-          <span className="hidden sm:inline text-white text-lg">Prev</span>
+          <BiLeftArrowAlt className="w-4 h-4 text-black text-lg" />
+          <span className="hidden sm:inline text-lg text-black">Prev</span>
         </button>
         {activeStep === steps.length - 1 ? (
           <Link
             href="/"
-            className="flex items-center space-x-2 px-4 py-2 rounded-md bg-[#9e9cf3] text-white border transition duration-300 hover:bg-blue-400 transform hover:scale-105 hover:shadow-md hover:shadow-white"
+            className="flex items-center space-x-2 px-4 py-2 text-black rounded-md bg-[#7afd87]  border transition duration-300 hover:bg-blue-400 transform hover:scale-105 hover:shadow-md hover:shadow-white"
           >
             <span>Finish</span>
-            <BsCheckCircle className="w-4 h-4 animate-pulse" />
+            <BsCheckCircle className="w-4 h-4 text-black animate-pulse" />
           </Link>
         ) : (
           <button
@@ -146,26 +130,30 @@ const HorizontalLinearStepper = ({
             className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
               (isStepValid || activeStep === steps.length - 1) &&
               activeStep < children.length - 1
-                ? "bg-[#9e9cf3] text-white border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse"
-                : "bg-[#020202] text-white cursor-not-allowed animate-pulse"
+                ? "bg-[#7afd87] text-black border transition duration-300 hover:bg-yellow-400 transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse"
+                : "bg-[#7afd87] text-white cursor-not-allowed animate-pulse"
             }`}
             disabled={!isStepValid && activeStep !== steps.length - 1}
           >
-            <span className="hidden sm:inline text-white text-lg">Next</span>
-            <BiRightArrowAlt className="w-4 h-4 text-lg text-white" />
+            <span className="hidden sm:inline text-black text-lg">Next</span>
+            <BiRightArrowAlt className="w-4 h-4 text-black text-lg " />
           </button>
         )}
 
-        {/*//Comment this out to remove skip button*/}
-        {/*{showSkip && activeStep !== steps.length - 1 && (*/}
-        {/*  <button*/}
-        {/*    onClick={handleSkip}*/}
-        {/*    className="flex items-center space-x-2 px-4 py-2 rounded-md bg-red-500 text-white border"*/}
-        {/*  >*/}
-        {/*    <span>(Testing) Skip</span>*/}
-        {/*    <MdSkipNext />*/}
-        {/*  </button>*/}
-        {/*)}*/}
+        {showSkip && (
+          <button
+            onClick={handleSkip}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
+              activeStep === steps.length - 1
+                ? "bg-[#7afd87] text-white cursor-not-allowed animate-pulse"
+                : "bg-[#9e9cf3] text-white border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse"
+            }`}
+            disabled={activeStep === steps.length - 1}
+          >
+            <span className="hidden sm:inline text-white text-lg">Skip</span>
+            <MdSkipNext className="w-4 h-4 text-lg text-white" />
+          </button>
+        )}
       </div>
     </div>
   );

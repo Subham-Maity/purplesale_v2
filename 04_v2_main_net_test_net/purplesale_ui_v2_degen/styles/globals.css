@@ -42,16 +42,13 @@ body {
 }
 
 .input {
-    @apply w-full border border-gray-400/25 ml-3 py-2 px-4 whitespace-nowrap outline-0 bg-[#181A22] text-white rounded-lg;
+    @apply w-full border border-gray-400/25 ml-3 py-2 px-4 whitespace-nowrap outline-0 bg-stone-600/25 text-white rounded-lg;
 }
 
 .inputAlert {
     @apply text-blue-400 text-sm mt-2 mb-2 ml-3;
 }
 
-.inputImageBar {
-    @apply mr-2 shadow-md shadow-white;
-}
 
 .inputRequired {
     @apply text-red-500 ml-0.5;
@@ -60,7 +57,7 @@ body {
     @apply block text-xl font-medium mb-2 text-white whitespace-nowrap;
 }
 .finishButton{
-    @apply bg-[#9e9cf3] flex justify-between whitespace-nowrap text-sm w-auto rounded-lg lg:px-3 lg:py-1 px-2 py-0.5 text-white border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse;
+    @apply bg-[#7afd87] flex justify-between whitespace-nowrap text-sm w-auto rounded-lg text-black lg:px-3 lg:py-1 px-2 py-0.5  border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse;
 }
 
 #disqus_thread { color-scheme: none; }

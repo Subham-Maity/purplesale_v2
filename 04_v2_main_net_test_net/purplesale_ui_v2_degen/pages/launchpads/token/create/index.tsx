@@ -4,11 +4,12 @@ import EthToken from "@/pages/launchpads/token/create/MultiChainToken/EthToken";
 import ArbitrumToken from "@/pages/launchpads/token/create/MultiChainToken/ArbitrumToken";
 import PolygonToken from "@/pages/launchpads/token/create/MultiChainToken/PolygonToken";
 import AvalancheToken from "@/pages/launchpads/token/create/MultiChainToken/AvalancheToken";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 const Index = () => {
   const { chain } = useNetwork();
   return (
-    <div>
+    <FormWrapper>
       {!chain?.name && <></>}
       {chain?.name === "Ethereum" && (
         <>
@@ -33,7 +34,7 @@ const Index = () => {
           <AvalancheToken />
         </>
       )}
-    </div>
+    </FormWrapper>
   );
 };
 

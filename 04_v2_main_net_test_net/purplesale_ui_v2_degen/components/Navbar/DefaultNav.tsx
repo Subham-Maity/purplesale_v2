@@ -15,8 +15,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   // The initial value of 'isSidebarOpen' is set to 'false', indicating that the sidebar is not open initially.
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
-  // When this function is called, it sets 'isSidebarOpen' to its opposite value.
-  // If 'isSidebarOpen' is true (sidebar is open), it will be set to false (sidebar will close), and vice versa.
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -29,7 +27,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         />
 
         <motion.div
-          className={`${" m-2"} w-auto  dark:border-0   lg:rounded-lg flex flex-col items-center justify-center`}
+          className={`${" m-0"} w-auto  dark:border-0   lg:rounded-lg flex flex-col items-center justify-center`}
           // Make transition smoother when sidebar is toggled
           transition={{ duration: 0.3 }}
           animate={
@@ -47,7 +45,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               toggleSidebar={toggleSidebar}
             />
           </div>
-          <div className={`${"mt-12"} w-full `}>{children}</div>
+          <div className={` w-full `}>{children}</div>
         </motion.div>
       </Provider>
     </div>

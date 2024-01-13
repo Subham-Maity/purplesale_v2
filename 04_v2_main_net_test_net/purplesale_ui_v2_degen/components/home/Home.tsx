@@ -40,51 +40,7 @@ const HomeMain = () => {
   return (
     <div className="px-4">
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
-      <div className="bg-gray-700/50 h-18 mb-8 flex p-2 rounded-2xl justify-between gap-5">
-        <button
-          className={`w-full h-14 px-6 text-md lg:text-4xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
-            activeTab === 1
-              ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
-              : "text-indigo-100 border-yellow-700"
-          }`}
-          onClick={() => setActiveTab(1)}
-        >
-          {activeTab === 1 ? (
-            "ALPHA MODE"
-          ) : (
-            <>
-              <span className="hidden md:inline">🔥🔥</span>ALPHA MODE
-              <span className="hidden md:inline">🔥🔥</span>
-            </>
-          )}
-        </button>
-        <button
-          className={`w-full h-14 px-6 text-md lg:text-4xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
-            activeTab === 0
-              ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
-              : "text-indigo-100 border-yellow-700"
-          }`}
-          onClick={() => setActiveTab(0)}
-        >
-          {activeTab === 0 ? (
-            "DEGEN MODE"
-          ) : (
-            <>
-              <span className="hidden md:inline">🔥🔥</span>DEGEN MODE
-              <span className="hidden md:inline">🔥🔥</span>
-            </>
-          )}
-        </button>
-      </div>
-      <div className="border border-[#FDB149] bg-gray-600/25 items-center lg:mx-96 rounded-2xl py-2">
-        <p className="text-[#FDB149] text-center font-bold">
-          {`You are currently in ${
-            activeTab === 1 ? "Alpha" : "Degen"
-          } mode, Please click ${
-            activeTab === 1 ? "Degen" : "Alpha"
-          } mode to switch`}
-        </p>
-      </div>
+
       <BgBox>
         <div style={{ position: "relative" }}>
           <div>
@@ -315,7 +271,7 @@ const HomeMain = () => {
             />
           </div>
         </div>
-        <footer className="rounded-2xl shadow bg-gray-800/50 lg:mt-0 mt-8">
+        <footer className="rounded-2xl mb-4 shadow bg-gray-800/50 lg:mt-0 mt-8">
           <div className="w-full mx-auto max-w-screen-xl py-8  md:flex md:items-center md:justify-between">
             <span className="ml-2 lg:ml-0 mb-2 lg:mb-0 text-lg text-gray-500 sm:text-center dark:text-gray-400">
               © 2024{" "}

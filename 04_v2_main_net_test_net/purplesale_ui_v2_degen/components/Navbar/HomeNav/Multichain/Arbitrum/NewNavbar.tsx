@@ -1048,7 +1048,7 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
   //Navigation
 
   return (
-    <div className="px-10">
+    <div className="px-4">
       <TrendingBar loop={false} Trending={allData} />
     </div>
   );

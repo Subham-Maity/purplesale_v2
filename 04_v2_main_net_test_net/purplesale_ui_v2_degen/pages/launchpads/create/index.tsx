@@ -6,6 +6,7 @@ import Finish from "../section/Finish";
 import AddAdditional from "../section/AddAdditional";
 import DeFiLaunchpad from "../section/DeFiLaunchpad";
 import FormContext from "@/contexts/create/FormContext";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 const Page = () => {
   const [isValidate, setIsValidate] = useState(0);
@@ -20,8 +21,8 @@ const Page = () => {
   const steps = [
     "Verify Token",
     "DeFi Launchpad Info",
-    "Add Additional Info",
-    "",
+    "Additional Info",
+    "Finish Page",
   ];
 
   const handleStepValidation = (isValid: boolean) => {
@@ -33,7 +34,7 @@ const Page = () => {
   };
 
   return (
-    <div>
+    <FormWrapper>
       <HorizontalLinearStepper
         steps={steps}
         title={"DeFi Launchpad Info"}
@@ -50,7 +51,7 @@ const Page = () => {
         <AddAdditional onStepValidation={handleStepValidation} />
         <Finish />
       </HorizontalLinearStepper>
-    </div>
+    </FormWrapper>
   );
 };
 

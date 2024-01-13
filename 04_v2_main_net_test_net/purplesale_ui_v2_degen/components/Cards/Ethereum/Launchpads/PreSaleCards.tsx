@@ -206,31 +206,32 @@ const PreSaleCards = ({
   };
 
   return (
-    <div className="h-[527px] w-[346px] mb-12 rounded-2xl bg-gradient-to-tr from-[#2020aa] to-[#6161b3] shadow-black shadow-2xl border-blue-600/25 border ">
+    <div className="h-auto w-[346px] mb-12 rounded-2xl bg-gradient-to-tr from-[#2020aa] to-[#6161b3] shadow-black shadow-2xl border-blue-600/25 border ">
       <div className="relative">
         <div className="h-[130px] w-[344px]">
           <Image
             height={2000}
             width={2000}
-            className="rounded-2xl w-full h-full p-1"
+            className="w-full h-full"
             src={bg}
             alt="cartImage"
           />
         </div>
         <Image
-          height={200}
-          width={200}
-          className="rounded-full w-14 h-14 border border-white/25 ml-2 mt-2 absolute top-2/3 right-4 z-30"
+          height={300}
+          width={300}
+          className="rounded-full w-[80px] h-[80px] border-[6px] border-stone-700/20 absolute bottom-[-30%] left-1/2 transform -translate-x-1/2 z-30"
           src={imgHref}
           alt="cartImage"
         />
+
         <div className="absolute top-0 right-0">
           <SaleStatus startDate={SalesStartIn} endDate={SalesEndIn} />
         </div>
       </div>
 
       <div className="px-3 mb-8 ">
-        <h5 className="mb-2 text-2xl flex justify-start font-semibold whitespace-nowrap tracking-tight text-gray-300 dark:text-white">
+        <h5 className="mb-2 text-2xl flex justify-center mt-8 font-semibold whitespace-nowrap tracking-tight text-gray-300 dark:text-white">
           {name}
         </h5>
         <p className=" flex justify-start mb-3 font-normal text-lg text-gray-200 dark:text-gray-200">

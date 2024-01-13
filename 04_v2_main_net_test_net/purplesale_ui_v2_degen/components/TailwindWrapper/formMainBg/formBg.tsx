@@ -1,7 +1,7 @@
 import { cn } from "@/utils/Tailwind/Tailwind";
 import { ReactNode } from "react";
 
-const BgInput = ({
+const FormWrapper = ({
   className,
   children,
 }: {
@@ -12,7 +12,7 @@ const BgInput = ({
     <div
       className={cn(
         (className =
-          "mt-4 mx-4 p-8  lg:mx-10 w-[370px] sm:w-[970px] md:w-[880px] lg:w-[560px] xl:w-[900px] 2xl:w-[1340px] bg-black/25 border-l-8 border-[#fcd653] h-fit drop-shadow-xl transition-shadow shadow-stone-800 shadow-sm text-white rounded-2xl "),
+          "p-4 rounded-xl mt-8 mb-8 bg-stone-600/25 border border-gray-500/25 lg:ml-4 w-full"),
         className,
       )}
     >
@@ -21,4 +21,4 @@ const BgInput = ({
   );
 };
 
-export default BgInput;
+export default FormWrapper;

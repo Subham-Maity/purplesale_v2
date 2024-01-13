@@ -659,7 +659,7 @@ const DeFiLaunchpad: React.FC<DeFiLaunchpadProps> = ({
                       name="row-radio-buttons-group"
                       type="radio"
                       value="Disable"
-                      className="form-radio "
+                      className="input"
                       onChange={handleWhitelistChange}
                       required
                     />
