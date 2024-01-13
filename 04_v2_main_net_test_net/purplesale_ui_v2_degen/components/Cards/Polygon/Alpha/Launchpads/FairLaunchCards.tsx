@@ -275,7 +275,7 @@ const FairLaunchCards = ({
               className="card-button-secondary"
               onClick={() => {
                 router.push({
-                  pathname: "/details/Alpha/fairlaunch/[id]",
+                  pathname: "/details/fairlaunch/[id]",
                   query: { id: id },
                 });
               }}

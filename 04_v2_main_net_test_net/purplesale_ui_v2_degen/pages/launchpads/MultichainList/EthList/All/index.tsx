@@ -1566,40 +1566,36 @@ const All = () => {
                   currency={"ETH"}
                   bg={"/PlaceholderCardBg.png"}
                 />
-                <PreSaleCards
-                  softCapCurrency={10}
-                  hardCapCurrency={25}
-                  id={2}
-                  name={"Cardano"}
-                  symbol={"ADA"}
-                  Affiliate={3}
+                <DutchAuctionCards
+                  key={0}
+                  maxBuyFair={0}
+                  softCapCurrency={0}
+                  id={0}
                   imgHref={"/PlaceHolder.svg"}
-                  description={"Blockchain for the future"}
-                  Liquidity={6}
-                  LockupTime={12}
-                  SalesStartIn={1425897}
-                  SalesEndIn={2047136}
-                  moneyRaised={90}
-                  currency={"ADA"}
-                  symbolTokenPrivateSales={"75"}
+                  Liquidity={0}
+                  LockupTime={0}
+                  SalesStartIn={0}
+                  SalesEndIn={0}
+                  moneyRaised={0}
+                  name={"Purple Sale"}
+                  symbol={"PURPLE"}
+                  currency={"ETH"}
                   bg={"/PlaceholderCardBg.png"}
                 />
-                <PreSaleCards
-                  softCapCurrency={14}
-                  hardCapCurrency={22}
-                  id={3}
-                  name={"Solana"}
-                  symbol={"SOL"}
-                  Affiliate={4}
+                <SubscriptionCards
+                  key={0}
+                  softCapCurrency={0}
+                  hardCapCurrency={0}
+                  id={0}
                   imgHref={"/PlaceHolder.svg"}
-                  description={"High-performance"}
-                  Liquidity={7}
-                  LockupTime={14}
-                  SalesStartIn={1546321}
-                  SalesEndIn={2219874}
-                  moneyRaised={95}
-                  currency={"SOL"}
-                  symbolTokenPrivateSales={"80"}
+                  moneyRaised={0}
+                  liquidity={0}
+                  lockupTime={0}
+                  salesStartIn={0}
+                  salesEndIn={0}
+                  name={"Purple Sale"}
+                  symbol={"PURPLE"}
+                  currency={"ETH"}
                   bg={"/PlaceholderCardBg.png"}
                 />
                 <PreSaleCards
