@@ -49,7 +49,6 @@ body {
     @apply text-blue-400 text-sm mt-2 mb-2 ml-3;
 }
 
-
 .inputRequired {
     @apply text-red-500 ml-0.5;
 }
@@ -60,6 +59,87 @@ body {
     @apply bg-[#7afd87] flex justify-between whitespace-nowrap text-sm w-auto rounded-lg text-black lg:px-3 lg:py-1 px-2 py-0.5  border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse;
 }
 
+
+
+.card-bg{
+    @apply h-auto w-[346px] mb-12 rounded-2xl bg-stone-950/50 shadow-black shadow-2xl border-blue-600/25 border ;
+}
+
+.bg-card-image{
+    @apply h-[130px] w-full bg-cover bg-center bg-no-repeat;
+}
+.bg-card-profile-image{
+    @apply rounded-full w-[80px] h-[80px] border-[6px] border-stone-700/20 absolute bottom-[-30%] left-1/2 transform -translate-x-1/2 z-30;
+}
+.bg-card-status{
+    @apply absolute top-0 right-0;
+}
+.card-flex {
+    @apply flex whitespace-nowrap gap-2;
+}
+
+.card-title {
+    @apply text-white font-light text-center text-sm whitespace-nowrap;
+}
+
+.card-value {
+    @apply text-white font-normal text-center text-sm whitespace-nowrap;
+}
+
+.card-value-bg {
+    @apply bg-[#39343a] rounded-3xl px-4 w-40 h-8 flex items-center;
+}
+.card-ruler {
+    @apply border-t border-gray-500/75 mb-4 mt-4;
+}
+.card-value-grid {
+    @apply grid grid-cols-2 gap-4 whitespace-nowrap justify-items-center;
+}
+
+.loader-under-value {
+    @apply mb-3 text-sm font-normal text-gray-300 dark:text-gray-400;
+}
+.loader-under-value-flex {
+    @apply flex mt-2 justify-between mb-2;
+}
+.loader-color {
+    @apply h-3 rounded-full bg-green-500;
+}
+
+.loader-style {
+    @apply w-full bg-gray-300 rounded-full;
+}
+.card-progress {
+    @apply mb-2 flex justify-start text-sm font-bold text-gray-300 dark:text-white;
+}
+.card-description {
+    @apply flex justify-center mb-3 font-normal text-lg text-gray-200 dark:text-gray-200;
+}
+.card-name {
+    @apply mb-2 text-2xl flex justify-center mt-8 font-semibold whitespace-nowrap tracking-tight text-gray-300 dark:text-white;
+}
+.card-flex {
+    @apply flex justify-between;
+}
+
+.card-start {
+    @apply text-sm font-normal text-gray-300 dark:text-gray-100;
+}
+.card-start-bg {
+    @apply text-sm flex justify-start font-normal text-gray-300 dark:text-gray-100;
+}
+.card-start-span {
+    @apply text-gray-300 dark:text-gray-300;
+}
+.card-button-secondary {
+    @apply w-16 h-8 text-center text-sm  px-1 text-black font-bold rounded-full hover:bg-green-400 bg-green-500 cursor-pointer;
+}
+.card-button-1 {
+    @apply w-12 h-8 flex items-center justify-center border border-gray-600/75 text-center rounded-full bg-[#39343a] text-gray-300 dark:text-gray-100 cursor-pointer;
+}
+.card-button-flex{
+    @apply flex justify-between gap-3 mb-4;
+}
 #disqus_thread { color-scheme: none; }
 
 /*.select-animate{*/
