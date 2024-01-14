@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import VerifyToken from "@/pages/airdrop/create";
 import AddAdditional from "@/pages/airdrop/section/AddAdditional";
 import HorizontalLinearStepper from "@/components/stepper2";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 const Page = () => {
   const [isValidate, setIsValidate] = useState(0);
@@ -15,12 +16,12 @@ const Page = () => {
   };
 
   return (
-    <div>
+    <FormWrapper>
       <HorizontalLinearStepper steps={steps}>
         <AddAdditional onStepValidation={handleStepValidation} />
         <VerifyToken onStepValidation={handleStepValidation} />
       </HorizontalLinearStepper>
-    </div>
+    </FormWrapper>
   );
 };
 

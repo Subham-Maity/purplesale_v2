@@ -5,11 +5,13 @@ import EthereumList from "@/pages/airdrop/Multichain/Ethereum/list";
 import dynamic from "next/dynamic";
 import ArbitrumList from "@/pages/airdrop/Multichain/Arbitrum/list";
 import AvalancheList from "@/pages/airdrop/Multichain/Avalanche/list";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
+import PolygonMuimbaiList from "@/pages/airdrop/Multichain/PolygonMumbai/list";
 
 const Index = () => {
   const { chain } = useNetwork();
   return (
-    <div>
+    <FormWrapper>
       {!chain?.name && (
         <>
           <EthereumList />
@@ -20,25 +22,27 @@ const Index = () => {
           <EthereumList />
         </>
       )}
-
       {chain?.name === "Arbitrum One" && (
         <>
           <ArbitrumList />
         </>
       )}
-
       {chain?.name === "Polygon" && (
         <>
           <PolygonList />
         </>
       )}
-
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMuimbaiList />
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           <AvalancheList />
         </>
       )}
-    </div>
+    </FormWrapper>
   );
 };
 

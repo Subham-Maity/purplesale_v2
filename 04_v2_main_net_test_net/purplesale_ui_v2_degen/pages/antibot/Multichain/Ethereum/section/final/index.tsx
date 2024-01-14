@@ -5,7 +5,7 @@ import {
   antiBotReadAddress,
   ERC20Abi,
   isAntiBotEnabledAbi,
-} from "@/constants/PolygonMumbai/createConstants";
+} from "@/constants/Ethereum/createConstants";
 import FormContext from "@/contexts/create/FormContext";
 import React, { useState, ChangeEvent, useEffect, useContext } from "react";
 import { useContractRead, useContractWrite } from "wagmi";

@@ -6,11 +6,12 @@ import ArbitrumPinklock from "@/pages/pinklock/create/Multichain/ArbitrumList";
 import PolygonPinklock from "@/pages/pinklock/create/Multichain/PolygonList";
 import AvalanchePinklock from "@/pages/pinklock/create/Multichain/AvalancheList";
 import PolygonMumbaiPinklock from "@/pages/pinklock/create/Multichain/PolygonMumbaiList";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 const Index = () => {
   const { chain } = useNetwork();
   return (
-    <div>
+    <FormWrapper>
       {!chain?.name && (
         <>
           <EthereumPinklock />
@@ -43,7 +44,7 @@ const Index = () => {
           <AvalanchePinklock />
         </>
       )}
-    </div>
+    </FormWrapper>
   );
 };
 

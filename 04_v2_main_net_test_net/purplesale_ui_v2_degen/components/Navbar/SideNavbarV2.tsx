@@ -95,7 +95,7 @@ const navConfig: NavItem[] = [
   },
   {
     title: "Air drop",
-    href: "/air-drop",
+    href: "#",
     icon: <GiParachute size={25} />,
     subNav: [
       { title: "Create Airdrop", href: "/airdrop" },

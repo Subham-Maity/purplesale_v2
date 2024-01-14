@@ -4,6 +4,8 @@ import Arbitrum from "@/pages/airdrop/create/Multichain/Arbitrum";
 import Polygon from "@/pages/airdrop/create/Multichain/Polygon";
 import Avalanche from "@/pages/airdrop/create/Multichain/Avalanche";
 import Ethereum from "@/pages/airdrop/create/Multichain/Ethereum";
+import PolygonMumbai from "@/pages/airdrop/create/Multichain/PolygonMumbai";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 type VerifyTokenProps = {
   onStepValidation: (isValid: boolean) => void;
@@ -19,7 +21,7 @@ const VerifyToken: React.FC<VerifyTokenProps> = ({ onStepValidation }) => {
     setIsFormValid(isValid);
   };
   return (
-    <div>
+    <FormWrapper>
       {!chain?.name && (
         <>
           {" "}
@@ -45,14 +47,19 @@ const VerifyToken: React.FC<VerifyTokenProps> = ({ onStepValidation }) => {
           <Polygon onStepValidation={handleStepValidation} />
         </>
       )}
-
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          {" "}
+          <PolygonMumbai onStepValidation={handleStepValidation} />
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           {" "}
           <Avalanche onStepValidation={handleStepValidation} />
         </>
       )}
-    </div>
+    </FormWrapper>
   );
 };
 
