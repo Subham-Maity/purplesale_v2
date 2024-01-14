@@ -41,6 +41,7 @@ body {
     border: 3px solid #2d4e61;
 }
 
+/*Input Style*/
 .input {
     @apply w-full border border-gray-400/25 ml-3 py-2 px-4 whitespace-nowrap outline-0 bg-stone-600/25 text-white rounded-lg;
 }
@@ -55,21 +56,23 @@ body {
 .inputHeading {
     @apply block text-xl font-medium mb-2 text-white whitespace-nowrap;
 }
+
+/*Button Style*/
 .finishButton{
     @apply bg-[#7afd87] flex justify-between whitespace-nowrap text-sm w-auto rounded-lg text-black lg:px-3 lg:py-1 px-2 py-0.5  border transition duration-300 hover:bg-[#6b68e3] transform hover:scale-105 hover:shadow-md hover:shadow-white hover:animate-pulse;
 }
 
 
-
+/*Card Style*/
 .card-bg{
-    @apply h-auto w-[346px] mb-12 rounded-2xl bg-stone-950/50 shadow-black shadow-2xl border-blue-600/25 border ;
+    @apply h-auto w-[346px] mb-12 rounded-2xl bg-stone-900 dark:bg-[#07112d]/25 shadow-black shadow-2xl border-blue-600/25 border ;
 }
 
 .bg-card-image{
     @apply h-[130px] w-full bg-cover bg-center bg-no-repeat;
 }
 .bg-card-profile-image{
-    @apply rounded-full w-[80px] h-[80px] border-[6px] border-stone-700/20 absolute bottom-[-30%] left-1/2 transform -translate-x-1/2 z-30;
+    @apply rounded-full w-[80px] h-[80px] border-[6px] border-[#07112d]/25 absolute bottom-[-30%] left-1/2 transform -translate-x-1/2 z-30;
 }
 .bg-card-status{
     @apply absolute top-0 right-0;
@@ -87,7 +90,7 @@ body {
 }
 
 .card-value-bg {
-    @apply bg-[#39343a] rounded-3xl px-4 w-40 h-8 flex items-center;
+    @apply bg-[#39343a] dark:bg-[#07112d]/25 rounded-3xl px-4 w-40 h-8 flex items-center;
 }
 .card-ruler {
     @apply border-t border-gray-500/75 mb-4 mt-4;
@@ -135,7 +138,7 @@ body {
     @apply w-16 h-8 text-center text-sm  px-1 text-black font-bold rounded-full hover:bg-green-400 bg-green-500 cursor-pointer;
 }
 .card-button-1 {
-    @apply w-12 h-8 flex items-center justify-center border border-gray-600/75 text-center rounded-full bg-[#39343a] text-gray-300 dark:text-gray-100 cursor-pointer;
+    @apply w-12 h-8 flex items-center justify-center border border-gray-600/75 text-center rounded-full dark:bg-[#07112d]/25 bg-[#39343a] text-gray-300 dark:text-gray-100 cursor-pointer;
 }
 .card-button-flex{
     @apply flex justify-between gap-3 mb-4;
