@@ -6,6 +6,7 @@ import BeforeYouStart from "@/pages/private-sale/section/BeforeYouStart";
 import PrivateSale from "@/pages/private-sale/section/PrivateSale";
 import AddAdditional from "@/pages/private-sale/section/AddAdditional";
 import Finish from "@/pages/private-sale/section/Finish";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 const Page = () => {
   const [isValidate, setIsValidate] = useState(0);
@@ -22,23 +23,25 @@ const Page = () => {
   };
   return (
     <div>
-      <HorizontalLinearStepper
-        steps={steps}
-        description={
-          "ENTER THE LAUNCHPAD INFORMATION THAT YOU WANT TO RAISE, THAT SHOULD BE ENTER ALL DETAILS ABOUT YOUR PRIVATE SALE"
-        }
-      >
-        <BeforeYouStart
-          chngeVal={changeVal}
-          onStepValidation={handleStepValidation}
-        />
-        <PrivateSale
-          chngeVal={changeVal}
-          onStepValidation={handleStepValidation}
-        />
-        <AddAdditional onStepValidation={handleStepValidation} />
-        <Finish />
-      </HorizontalLinearStepper>
+      <FormWrapper>
+        <HorizontalLinearStepper
+          steps={steps}
+          description={
+            "ENTER THE LAUNCHPAD INFORMATION THAT YOU WANT TO RAISE, THAT SHOULD BE ENTER ALL DETAILS ABOUT YOUR PRIVATE SALE"
+          }
+        >
+          <BeforeYouStart
+            chngeVal={changeVal}
+            onStepValidation={handleStepValidation}
+          />
+          <PrivateSale
+            chngeVal={changeVal}
+            onStepValidation={handleStepValidation}
+          />
+          <AddAdditional onStepValidation={handleStepValidation} />
+          <Finish />
+        </HorizontalLinearStepper>
+      </FormWrapper>
     </div>
   );
 };

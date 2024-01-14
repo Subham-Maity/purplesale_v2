@@ -1,9 +1,16 @@
 import {
   ERC20Abi,
+  createAbi,
   createAddress,
   privSaleAbi,
   privSaleAddress,
-} from "@/constants/Polygon/createConstants";
+  fairLaunchAddress,
+  fairLaunchAbi,
+  dutchAuctionAddress,
+  dutchAuctionAbi,
+  subAddress,
+  subAbi,
+} from "@/constants/PolygonMumbai/createConstants";
 import FormContext from "@/contexts/create/FormContext";
 import React, { use, useContext, useEffect, useState } from "react";
 import { useContractRead, useContractWrite } from "wagmi";
@@ -19,7 +26,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import FinishWrapper from "@/components/TailwindWrapper/FinishPage/bgFinish";
 
-const PolygonFinish = () => {
+const Finish = () => {
   const {
     tokenAddress,
     isAffiliateEnabled,
@@ -44,27 +51,13 @@ const PolygonFinish = () => {
   useEffect(() => {
     function updateAltTokenAddress(x: string, altTokenAddress: string): string {
       if (currency == "USDC" && x == "Polygon") {
-        setAltTokenAddress("0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359");
+        setAltTokenAddress("0x2791bca1f2de4661ed88a30c99a7a9449aa84174");
       } else if (currency === "USDT" && x === "Polygon") {
-        setAltTokenAddress("0xc2132D05D31c914a87C6611C10748AEb04B58e8F");
-      }
-
-      if (currency == "USDT" && x == "Avalanche") {
-        setAltTokenAddress("0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7");
-      } else if (currency == "USDC" && x == "Avalanche") {
-        setAltTokenAddress("0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E");
-      }
-
-      if (currency == "USDT" && x == "Arbitrum One") {
-        setAltTokenAddress("0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9");
-      } else if (currency == "USDC" && x == "Arbitrum One") {
-        setAltTokenAddress("0xaf88d065e77c8cC2239327C5EDb3A432268e5831");
-      }
-
-      if (currency == "USDT" && x == "Ethereum") {
-        setAltTokenAddress("0xdAC17F958D2ee523a2206206994597C13D831ec7");
-      } else if (currency == "USDC" && x == "Ethereum") {
-        setAltTokenAddress("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48");
+        setAltTokenAddress("0xc2132d05d31c914a87c6611c10748aeb04b58e8f");
+      } else if (currency === "USDC" && x === "Polygon Mumbai") {
+        setAltTokenAddress("0xe6b8a5CF854791412c1f6EFC7CAf629f5Df1c747");
+      } else if (currency === "USDT" && x === "Polygon Mumbai") {
+        setAltTokenAddress("0xA02f6adc7926efeBBd59Fd43A84f4E0c0c91e832");
       }
 
       return altTokenAddress;
@@ -296,7 +289,7 @@ const PolygonFinish = () => {
       description: description,
     };
     try {
-      await axios.post("/privateSaleInfo/Polygon", postData);
+      await axios.post("/privateSaleInfo", postData);
       toast.dismiss();
       toast.success("Data saved successfully");
     } catch (error) {
@@ -466,4 +459,4 @@ const PolygonFinish = () => {
   );
 };
 
-export default PolygonFinish;
+export default Finish;
