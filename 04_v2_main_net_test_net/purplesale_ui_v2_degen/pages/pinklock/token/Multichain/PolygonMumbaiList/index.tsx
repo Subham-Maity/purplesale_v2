@@ -10,7 +10,7 @@ import {
   ERC20Abi,
   pinkLockABI,
   pinkLockAddress,
-} from "@/constants/Polygon/createConstants";
+} from "@/constants/PolygonMumbai/createConstants";
 import { enqueueSnackbar } from "notistack";
 import { InfinitySpin } from "react-loader-spinner";
 import dynamic from "next/dynamic";
@@ -62,14 +62,14 @@ const Table = ({ columns, rows }: { columns: Column[]; rows: DataRow[] }) => {
         <input
           type="search"
           placeholder="Search by token address..."
-          className="w-full  rounded-md py-2 px-2 dark:text-white  font-bold border border-[#aca4ff]"
+          className="w-full  rounded-md py-2 px-2 text-white PolygonMumbai font-bold border border-[#aca4ff]"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
 
-        <div className="mt-4 overflow-x-auto rounded-lg">
+        <div className="text-white mt-4 overflow-x-auto rounded-lg">
           <table className="min-w-full">
-            <thead className="dark:dark:bg-[#4d4c91]">
+            <thead className=" dark:dark:bg-[#4d4c91]">
               <tr>
                 {columns.map((column) => (
                   <th
@@ -113,7 +113,7 @@ const Table = ({ columns, rows }: { columns: Column[]; rows: DataRow[] }) => {
           </table>
         </div>
 
-        <div className="flex justify-between items-center mt-4 ">
+        <div className="flex justify-between items-center text-white mt-4 ">
           <div className="text-sm ml-3">
             Showing {page * rowsPerPage + 1} to{" "}
             {Math.min((page + 1) * rowsPerPage, filteredRows.length)} of{" "}

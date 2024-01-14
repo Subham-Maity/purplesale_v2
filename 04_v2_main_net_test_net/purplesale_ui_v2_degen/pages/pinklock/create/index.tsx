@@ -5,6 +5,7 @@ import EthereumPinklock from "@/pages/pinklock/create/Multichain/EthList";
 import ArbitrumPinklock from "@/pages/pinklock/create/Multichain/ArbitrumList";
 import PolygonPinklock from "@/pages/pinklock/create/Multichain/PolygonList";
 import AvalanchePinklock from "@/pages/pinklock/create/Multichain/AvalancheList";
+import PolygonMumbaiPinklock from "@/pages/pinklock/create/Multichain/PolygonMumbaiList";
 
 const Index = () => {
   const { chain } = useNetwork();
@@ -32,7 +33,11 @@ const Index = () => {
           <PolygonPinklock />
         </>
       )}
-
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiPinklock />
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           <AvalanchePinklock />

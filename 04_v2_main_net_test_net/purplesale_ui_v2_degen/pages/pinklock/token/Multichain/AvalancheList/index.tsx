@@ -10,7 +10,7 @@ import {
   ERC20Abi,
   pinkLockABI,
   pinkLockAddress,
-} from "@/constants/PolygonMumbai/createConstants";
+} from "@/constants/Avalanche/createConstants";
 import { enqueueSnackbar } from "notistack";
 import { InfinitySpin } from "react-loader-spinner";
 import dynamic from "next/dynamic";
@@ -62,7 +62,7 @@ const Table = ({ columns, rows }: { columns: Column[]; rows: DataRow[] }) => {
         <input
           type="search"
           placeholder="Search by token address..."
-          className="w-full  rounded-md py-2 px-2 dark:text-white text-black font-bold border border-[#aca4ff]"
+          className="w-full  rounded-md py-2 px-2 dark:text-white  font-bold border border-[#aca4ff]"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

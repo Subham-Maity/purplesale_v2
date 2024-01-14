@@ -4,6 +4,7 @@ import EthPinklockToken from "@/pages/pinklock/token/Multichain/EthList";
 import ArbitrumPinklockToken from "@/pages/pinklock/token/Multichain/ArbitrumList";
 import PolygonPinklockToken from "@/pages/pinklock/token/Multichain/PolygonList";
 import AvalanchePinklockToken from "@/pages/pinklock/token/Multichain/AvalancheList";
+import PolygonMumbaiPinklockToken from "@/pages/pinklock/token/Multichain/PolygonMumbaiList";
 const Index = () => {
   const { chain } = useNetwork();
   return (
@@ -30,7 +31,11 @@ const Index = () => {
           <PolygonPinklockToken />
         </>
       )}
-
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiPinklockToken />
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           <AvalanchePinklockToken />
