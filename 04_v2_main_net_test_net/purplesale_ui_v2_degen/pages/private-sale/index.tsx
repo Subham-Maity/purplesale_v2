@@ -6,11 +6,12 @@ import dynamic from "next/dynamic";
 import ArbitrumList from "@/pages/private-sale/MultichainList/ArbitrumList";
 import AvalancheList from "@/pages/private-sale/MultichainList/AvalancheList";
 import PolygonMumbaiList from "@/pages/private-sale/MultichainList/PolygonMumbaiList";
+import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
 
 const Index = () => {
   const { chain } = useNetwork();
   return (
-    <div>
+    <FormWrapper>
       {!chain?.name && (
         <>
           <EthereumList />
@@ -43,7 +44,7 @@ const Index = () => {
           <AvalancheList />
         </>
       )}
-    </div>
+    </FormWrapper>
   );
 };
 
