@@ -4,6 +4,7 @@ import PolygonFinish from "@/pages/fairlaunch/section/MultiChainFinish/PolygonFi
 import EthereumFinish from "@/pages/fairlaunch/section/MultiChainFinish/EthereumFinish";
 import ArbitrumFinish from "@/pages/fairlaunch/section/MultiChainFinish/ArbitrumFinish";
 import AvalancheFinish from "@/pages/fairlaunch/section/MultiChainFinish/AvalancheFinish";
+import PolygonMumbaiFinish from "@/pages/fairlaunch/section/MultiChainFinish/PolygonMumbaiFinish";
 
 const Finish = () => {
   const { chain } = useNetwork();
@@ -25,6 +26,11 @@ const Finish = () => {
       {chain?.name === "Polygon" && (
         <>
           <PolygonFinish />
+        </>
+      )}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiFinish />
         </>
       )}
 

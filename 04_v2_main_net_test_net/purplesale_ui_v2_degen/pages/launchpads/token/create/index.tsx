@@ -5,6 +5,7 @@ import ArbitrumToken from "@/pages/launchpads/token/create/MultiChainToken/Arbit
 import PolygonToken from "@/pages/launchpads/token/create/MultiChainToken/PolygonToken";
 import AvalancheToken from "@/pages/launchpads/token/create/MultiChainToken/AvalancheToken";
 import FormWrapper from "@/components/TailwindWrapper/formMainBg/formBg";
+import PolygonMumbaiToken from "@/pages/launchpads/token/create/MultiChainToken/PolygonMumbaiToken";
 
 const Index = () => {
   const { chain } = useNetwork();
@@ -28,7 +29,11 @@ const Index = () => {
           <PolygonToken />
         </>
       )}
-
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiToken />
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           <AvalancheToken />

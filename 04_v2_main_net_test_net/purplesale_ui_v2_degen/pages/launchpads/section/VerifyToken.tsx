@@ -1214,6 +1214,279 @@ const VerifyToken: React.FC<VerifyTokenProps> = ({ onStepValidation }) => {
           </div>
         </>
       )}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <div>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+
+                  <label className="inputHeading" htmlFor="tokenAddress">
+                    Token address
+                    <span className="inputRequired">*</span>
+                  </label>
+                </p>
+                <input
+                  id="tokenAddress"
+                  type="text"
+                  className="input"
+                  value={tokenAddress}
+                  onChange={handleChangeTokenAddress}
+                  onBlur={checkTokenAddressValidity}
+                  required
+                />
+                {!isValidAddress && tokenAddress.trim() !== "" && (
+                  <p className="inputAlert">Invalid/Network token address</p>
+                )}
+              </div>
+
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Name: {tokenDetails.name}</p>
+                  <p className="inputAlert">Symbol: {tokenDetails.symbol}</p>
+                  <p className="inputAlert">
+                    Decimals: {tokenDetails.decimals}
+                  </p>
+                </div>
+              )}
+              {!isValidAddress && tokenAddress.trim() === "" && (
+                <div>
+                  <p className="inputAlert">Token address cannot be blank</p>
+                </div>
+              )}
+              {isValidAddress && (
+                <div>
+                  <p className="inputAlert">Correct</p>
+                </div>
+              )}
+            </BgInput>
+            <BgInput>
+              <div>
+                <p className="flex">
+                  <Image
+                    src={"/Line.svg"}
+                    alt={"Line"}
+                    width={3}
+                    height={2}
+                    className="inputImageBar"
+                  />
+                  <label className="inputHeading" htmlFor="tokenAddress">
+                    Currency
+                    <span className="inputRequired">*</span>
+                  </label>
+                </p>
+                <div className="flex flex-col space-y-2 items-start">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="maticCurrency"
+                      name="currency"
+                      value="MATIC"
+                      checked={currency === "MATIC"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="maticCurrency">
+                      MATIC
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdtCurrency"
+                      name="currency"
+                      value="USDT"
+                      checked={currency === "USDT"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdtCurrency">
+                      USDT
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="usdcCurrency"
+                      name="currency"
+                      value="USDC"
+                      checked={currency === "USDC"}
+                      onChange={handleCurrencyChange}
+                      className="input"
+                    />
+                    <label className="ml-2" htmlFor="usdcCurrency">
+                      USDC
+                    </label>
+                  </div>
+                </div>
+                <p className="inputAlert">
+                  Users will pay with {currency} for your token
+                </p>
+              </div>
+            </BgInput>
+            <BgInput>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="feeOptions">
+                  Fee Options
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="feeOption1"
+                    name="feeOptions"
+                    className="ml-2 mr-2"
+                    checked={
+                      feeOption === `5% ${currency} raised only (Recommended)`
+                    }
+                    onChange={() =>
+                      setFeeOption(`5% ${currency} raised only (Recommended)`)
+                    }
+                  />
+                  <label htmlFor="feeOption1">
+                    5% {currency} raised only (Recommended)
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="feeOption2"
+                    name="feeOptions"
+                    className="ml-2 mr-2"
+                    checked={feeOption === `2% ${currency} + 2% token sold`}
+                    onChange={() =>
+                      setFeeOption(`2% ${currency} + 2% token sold`)
+                    }
+                  />
+                  <label htmlFor="feeOption2">
+                    2% {currency} + 2% token sold
+                  </label>
+                </div>
+              </div>
+            </BgInput>
+
+            <BgInput>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="listingOptions">
+                  Listing Options
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="listingOption1"
+                    name="listingOptions"
+                    className="ml-2 mr-2"
+                    value="auto"
+                    defaultValue="auto"
+                    checked={selectedListingOption === "auto"}
+                    onChange={handleListingOptionChange}
+                  />
+                  <label htmlFor="listingOption1">Auto Listing</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="listingOption2"
+                    name="listingOptions"
+                    className="ml-2 mr-2"
+                    value="manual"
+                    checked={selectedListingOption === "manual"}
+                    onChange={handleListingOptionChange}
+                  />
+                  <label htmlFor="listingOption2">Manual listing</label>
+                </div>
+              </div>
+            </BgInput>
+
+            <BgInput>
+              <p className="flex">
+                <Image
+                  src={"/Line.svg"}
+                  alt={"Line"}
+                  width={3}
+                  height={2}
+                  className="inputImageBar"
+                />
+                <label className="inputHeading" htmlFor="affiliateProgram">
+                  Affiliate Program
+                </label>
+              </p>
+              <div className="flex flex-col space-y-2 items-start">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="affiliateProgram1"
+                    name="affiliateProgram"
+                    value="disable"
+                    onChange={handleAffiliateChange}
+                    className="ml-2 mr-2"
+                  />
+                  <label htmlFor="affiliateProgram1">Disable Affiliate</label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="affiliateProgram2"
+                    name="affiliateProgram"
+                    value="enable"
+                    onChange={handleAffiliateChange}
+                    className="ml-2 mr-2"
+                  />
+                  <label htmlFor="affiliateProgram2">Enable Affiliate</label>
+                </div>
+              </div>
+
+              {openAffiliate && (
+                <div className="mt-6">
+                  <input
+                    id="affiliateProgram"
+                    type="text"
+                    className="input"
+                    placeholder="Enter reward percentage"
+                    onChange={handleAffiliateChangePercent}
+                  />
+                </div>
+              )}
+
+              <div className="mt-6">
+                {openAffiliate && (
+                  <p className="inputAlert">
+                    Reward percentage must be less than 5
+                  </p>
+                )}
+                <p className="inputAlert">
+                  The amount of raised currency that uses for the affiliate
+                  program.
+                </p>
+              </div>
+            </BgInput>
+          </div>
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           <div>

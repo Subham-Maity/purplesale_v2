@@ -5,6 +5,7 @@ import EthereumList from "@/pages/launchpads/MultichainList/EthList";
 import dynamic from "next/dynamic";
 import ArbitrumList from "@/pages/launchpads/MultichainList/ArbitrumList";
 import AvalancheList from "@/pages/launchpads/MultichainList/AvalancheList";
+import PolygonMumbaiList from "@/pages/launchpads/MultichainList/PolygonMumbaiList";
 
 const Index = () => {
   const { chain } = useNetwork();
@@ -32,7 +33,11 @@ const Index = () => {
           <PolygonList />
         </>
       )}
-
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiList />
+        </>
+      )}
       {chain?.name === "Avalanche" && (
         <>
           <AvalancheList />

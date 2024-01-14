@@ -14,6 +14,7 @@ import Switcher from "@/components/Navbar/mode/Switcher";
 import MobileSidebar from "@/components/Navbar/mobileNavbarV2";
 import FormContext from "@/contexts/create/FormContext";
 import { usePathname } from "next/navigation";
+import PolygonMumbai from "@/components/Navbar/HomeNav/Multichain/PolygonMumbai/NewNavbar";
 
 interface NavbarProps {
   isSidebarOpen: boolean;
@@ -108,6 +109,14 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
           {chain?.name === "Avalanche" && (
             <>
               <Avalanche
+                isSidebarOpen={isSidebarOpen}
+                toggleSidebar={toggleSidebar}
+              />
+            </>
+          )}
+          {chain?.name === "Polygon Mumbai" && (
+            <>
+              <PolygonMumbai
                 isSidebarOpen={isSidebarOpen}
                 toggleSidebar={toggleSidebar}
               />

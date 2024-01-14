@@ -4,6 +4,7 @@ import EthereumFinish from "@/pages/dutch-auction/MultiChainFinish/EthereumFinis
 import ArbitrumFinish from "@/pages/dutch-auction/MultiChainFinish/ArbitrumFinish";
 import PolygonFinish from "@/pages/dutch-auction/MultiChainFinish/PolygonFinish";
 import AvalancheFinish from "@/pages/dutch-auction/MultiChainFinish/AvalancheFinish";
+import PolygonMumbaiFinish from "@/pages/dutch-auction/MultiChainFinish/PolygonMumbaiFinish";
 
 const Finish = () => {
   const { chain } = useNetwork();
@@ -25,6 +26,11 @@ const Finish = () => {
       {chain?.name === "Polygon" && (
         <>
           <PolygonFinish />
+        </>
+      )}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiFinish />
         </>
       )}
 
