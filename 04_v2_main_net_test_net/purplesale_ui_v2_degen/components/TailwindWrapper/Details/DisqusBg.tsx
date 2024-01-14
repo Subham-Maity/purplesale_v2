@@ -12,7 +12,7 @@ const FinishDisqusWrapper = ({
     <div
       className={cn(
         (className =
-          "mt-6 mb-6 mx-4 lg:mx-10 text-xl font-medium py-8 flex flex-col text-white w-[370px] sm:w-[970px] md:w-[880px] lg:w-[560px] xl:w-[900px] 2xl:w-[740px] items-left gap-x-28 dark:bg-stone-800 h-fit drop-shadow-xl transition-shadow shadow-stone-700 shadow-md bg-stone-50 rounded-2xl"),
+          "mt-6 mb-6 mx-4 lg:mx-10 text-xl font-medium py-8 flex flex-col text-white w-full items-left gap-x-28 dark:bg-stone-600/25 h-fit drop-shadow-xl transition-shadow shadow-stone-700 shadow-md bg-stone-600/25 rounded-2xl"),
         className,
       )}
     >

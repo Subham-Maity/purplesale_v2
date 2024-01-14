@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import Avalanche from "@/components/details/Multichain/Avalanche/FairLaunch";
 import Arbitrum from "@/components/details/Multichain/Arbitrum/FairLaunch";
 import Polygon from "@/components/details/Multichain/Polygon/FairLaunch";
-
+import PolygonMumbai from "@/components/details/Multichain/PolygonMumbai/FairLaunch";
 const Index = () => {
   const { chain } = useNetwork();
   return (
@@ -38,6 +38,16 @@ const Index = () => {
       {chain?.name === "Avalanche" && (
         <>
           <Avalanche />
+        </>
+      )}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbai />
+        </>
+      )}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbai />
         </>
       )}
     </div>

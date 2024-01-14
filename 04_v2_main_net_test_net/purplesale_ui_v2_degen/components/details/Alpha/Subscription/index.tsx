@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import Avalanche from "@/components/details/Multichain/Avalanche/Alpha/Subscription";
 import Arbitrum from "@/components/details/Multichain/Arbitrum/Alpha/Subscription";
 import Polygon from "@/components/details/Multichain/Polygon/Alpha/Subscription";
-
+import PolygonMumbai from "@/components/details/Multichain/PolygonMumbai/Alpha/Subscription";
 const Index = () => {
   const { chain } = useNetwork();
   return (
@@ -22,22 +22,24 @@ const Index = () => {
           <Ethereum />
         </>
       )}
-
       {chain?.name === "Arbitrum One" && (
         <>
           <Arbitrum />
         </>
       )}
-
       {chain?.name === "Polygon" && (
         <>
           <Polygon />
         </>
       )}
-
       {chain?.name === "Avalanche" && (
         <>
           <Avalanche />
+        </>
+      )}{" "}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbai />
         </>
       )}
     </div>

@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Avalanche from "@/components/details/Multichain/Avalanche/PinkLock/record";
 import Arbitrum from "@/components/details/Multichain/Arbitrum/PinkLock/record";
 import Polygon from "@/components/details/Multichain/Polygon/PinkLock/record";
+import PolygonMumbai from "@/components/details/Multichain/PolygonMumbai/PinkLock/record";
 
 const Index = () => {
   const { chain } = useNetwork();
@@ -37,6 +38,11 @@ const Index = () => {
       {chain?.name === "Avalanche" && (
         <>
           <Avalanche />
+        </>
+      )}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbai />
         </>
       )}
     </div>

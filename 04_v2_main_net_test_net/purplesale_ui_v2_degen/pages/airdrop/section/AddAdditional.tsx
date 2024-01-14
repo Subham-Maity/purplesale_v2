@@ -2,7 +2,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import FormContext from "@/contexts/create/FormContext";
 import { useContractRead } from "wagmi";
-import { airdropAbi, airdropAddress } from "@/constants/createConstants";
+import {
+  airdropAbi,
+  airdropAddress,
+} from "@/constants/PolygonMumbai/createConstants";
 import { enqueueSnackbar } from "notistack";
 import BgInput from "@/components/TailwindWrapper/InputBg/BgInput";
 import Image from "next/image";

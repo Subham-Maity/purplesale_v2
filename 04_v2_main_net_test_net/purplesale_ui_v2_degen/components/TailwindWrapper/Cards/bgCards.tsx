@@ -12,7 +12,7 @@ const CardsWrapper = ({
     <div
       className={cn(
         (className =
-          "p-4 rounded-xl mt-8 mb-8  w-full bg-stone-600/25  h-fit px-4"),
+          "p-4 rounded-xl mt-8 mb-8  w-auto bg-stone-600/25  h-fit px-4"),
         className,
       )}
     >

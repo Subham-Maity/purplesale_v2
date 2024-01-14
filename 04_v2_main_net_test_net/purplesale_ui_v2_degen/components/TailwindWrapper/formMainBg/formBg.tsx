@@ -12,7 +12,7 @@ const FormWrapper = ({
     <div
       className={cn(
         (className =
-          "p-4 rounded-xl mt-8 mb-8 bg-stone-600/25 border border-gray-500/25 lg:ml-4 w-full"),
+          "p-4 rounded-xl mt-8 mb-8 bg-stone-600/25 border border-gray-500/25 lg:ml-4 lg:mr-4 w-auto"),
         className,
       )}
     >
