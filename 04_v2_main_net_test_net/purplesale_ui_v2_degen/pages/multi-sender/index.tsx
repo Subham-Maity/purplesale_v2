@@ -5,6 +5,7 @@ import ArbitrumMulti from "@/pages/multi-sender/Multichain/Arbitrum";
 import PolygonMulti from "@/pages/multi-sender/Multichain/Polygon";
 import AvalancheMulti from "@/pages/multi-sender/Multichain/Avalanche";
 import dynamic from "next/dynamic";
+import PolygonMumbaiMulti from "@/pages/multi-sender/Multichain/PolygonMumbai";
 
 const Index = () => {
   const { chain } = useNetwork();
@@ -22,19 +23,21 @@ const Index = () => {
           <EthMulti />
         </>
       )}
-
       {chain?.name === "Arbitrum One" && (
         <>
           <ArbitrumMulti />
         </>
       )}
-
       {chain?.name === "Polygon" && (
         <>
           <PolygonMulti />
         </>
+      )}{" "}
+      {chain?.name === "Polygon Mumbai" && (
+        <>
+          <PolygonMumbaiMulti />
+        </>
       )}
-
       {chain?.name === "Avalanche" && (
         <>
           <AvalancheMulti />
