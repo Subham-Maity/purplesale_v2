@@ -221,7 +221,7 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
         )}
         <div className="flex items-center justify-center">
           <div
-              className="border border-[#FDB149] sm:text-sm md:text-sm lg:text-md xl:text-lg sm:w-full flex items-center justify-center w-full md:w-80 lg:w-2/4 xl:w-2/4 mx-4 lg:px-0 xl:whitespace-nowrap md:break-words sm:break-words lg:break-words px-4 bg-gray-600/25 mt-4 rounded-2xl py-2">
+              className="border border-[#FDB149] sm:text-sm md:text-sm lg:text-md xl:text-lg sm:w-full flex items-center justify-center w-full lg:w-full xl:w-full 2xl:w-2/4 mx-4 lg:px-0 xl:whitespace-nowrap md:break-words sm:break-words lg:break-words px-4 bg-gray-600/25 mt-4 rounded-2xl py-2">
             <p className="text-[#FDB149] text-center font-bold">
               {`You are currently in ${
                   activeTab === 1 ? "Alpha" : "Degen"

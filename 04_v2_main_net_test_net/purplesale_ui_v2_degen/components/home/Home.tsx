@@ -7,15 +7,11 @@ import BgBox from "../TailwindWrapper/HomePage/bgBox";
 import { useAccount } from "wagmi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Switcher from "@/components/Navbar/mode/Switcher";
-import { useNetwork } from "wagmi";
-import { BsBarChartFill } from "react-icons/bs";
 import FormContext from "@/contexts/create/FormContext";
 const HomeMain = () => {
   const router = useRouter();
   const { address, isConnected } = useAccount();
   const { isDarkTheme } = useContext(FormContext);
-  const { activeTab, setActiveTab } = useContext(FormContext);
   // Show warning if not connected to MetaMask
   useEffect(() => {
     if (!isConnected) {
@@ -42,77 +38,47 @@ const HomeMain = () => {
       <ToastContainer position="bottom-right" theme="dark" autoClose={1000} />
 
       <BgBox>
-        <div style={{ position: "relative" }}>
-          <div>
-            {isDarkTheme ? (
-              <Image
-                className="pt-4 pb-4 w-full h-full"
-                src="/bendwhite.svg"
-                alt="Hey"
-                height={2000}
-                width={2000}
-              />
-            ) : (
-              <Image
-                className="pt-4 pb-4 w-full h-full"
-                src="/bend.svg"
-                alt="Hey"
-                height={2000}
-                width={2000}
-              />
-            )}
-            <div
-              style={{
-                position: "absolute",
-                top: "0%",
-                left: "0px",
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
+        <div className="flex w-full rounded-xl mt-4 dark:bg-[url('/bendwhite.svg')] bg-[url('/bend.svg')] mb-4 bg-cover bg-no-repeat bg-center">
+          <div className="p-4 md:p-20">
+            <h1 className="font-semibold text-md md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl lg:mt-12 lg:mb-12 text-white">
+              The launchpad <br/> protocol for everyone
+            </h1>
+            <p className="text-sm lg:block hidden lg:mb-12 text-white md:text-2xl">
+              PinkSale helps everyone to create
+              <br className="lg:block hidden"/>their own tokens and token sales in few
+
+              <br className="lg:block hidden"/> seconds.Tokens created on PinkSale will be <br className="md:hidden lg:block hidden"/>
+              verified and published on explorer websites.
+            </p>
+            <button
+                className="bg-[#7BFE88] text-black text-sm lg:text-xl mt-4 lg:mt-0 font-semibold whitespace-nowrap px-4 py-1 lg:px-9 lg:py-3 rounded-3xl transform transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-xl"
+                onClick={() => {
+                  router.push("/launchpads/create");
+                }}
             >
-              <div className="p-4 md:p-20">
-                <h1 className="font-semibold text-md lg:text-6xl lg:mt-12 lg:mb-12 text-white">
-                  The launchpad <br /> protocol for everyone
-                </h1>
-                <p className="text-sm lg:block hidden lg:mb-12 text-white md:text-2xl">
-                  PinkSale helps everyone to create their own tokens and token{" "}
-                  <br className="lg:block hidden" /> sales in few seconds.
-                  Tokens created on PinkSale will be{" "}
-                  <br className="lg:block hidden" /> verified and published on
-                  explorer websites.
-                </p>
-                <button
-                  className="bg-[#7BFE88] text-black text-sm lg:text-xl mt-4 lg:mt-0 font-semibold whitespace-nowrap px-4 py-1 lg:px-9 lg:py-3 rounded-3xl transform transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-xl"
-                  onClick={() => {
-                    router.push("/launchpads/create");
-                  }}
-                >
-                  CREATE NOW
-                </button>
-              </div>
-            </div>
+              CREATE NOW
+            </button>
           </div>
         </div>
-        <BoxHome />{" "}
+        <BoxHome/>{" "}
         <h2 className="text-3xl lg:text-4xl mt-16 mb-8 font-bold text-white text-center flex justify-center">
           A Suite of Tools for Token Sales.{" "}
         </h2>
         <p className="text-gray-400 text-sm lg:text-lg mb-8 text-center break-all ">
           A suite of tools were built to help you create your own tokens and
-          launchpads in a fast, simple and <br />
+          launchpads in a fast, simple and <br/>
           cheap way, with no prior code knowledge required and 100%
           decentralized!
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 whitespace-nowrap justify-items-center md:gap-20  gap-8">
-          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+        <div
+            className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 whitespace-nowrap justify-items-center md:gap-20  gap-8">
+          <div
+              className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
             <span className="flex justify-between gap-4">
               <Image
-                src="/Home/icons/standard.svg"
-                height={200}
-                width={200}
+                  src="/Home/icons/standard.svg"
+                  height={200}
+                  width={200}
                 alt="pot"
                 className="ml-2 lg:ml:0 lg:h-16 lg:w-16 h-12 w-12"
               />
@@ -271,7 +237,7 @@ const HomeMain = () => {
             />
           </div>
         </div>
-        <footer className="rounded-2xl mb-4 shadow bg-gray-800/50 lg:mt-0 mt-8">
+        <footer className="rounded-2xl mb-4 px-2 shadow bg-gray-800/50 lg:mt-0 mt-8">
           <div className="w-full mx-auto max-w-screen-xl py-8  md:flex md:items-center md:justify-between">
             <span className="ml-2 lg:ml-0 mb-2 lg:mb-0 text-lg text-gray-500 sm:text-center dark:text-gray-400">
               © 2024{" "}
