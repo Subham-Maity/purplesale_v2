@@ -29,17 +29,14 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
   return (
     <div className="flex flex-col mt-2">
-      <div className="border-b pb-3 border-gray-400/20 mb-3 flex justify-between">
-        <div>
+      <div className="border-b pb-3 mx-4 border-gray-400/20 mb-3 flex justify-between">
+        <div className="flex mt-2  items-start">
           {openMobileNav && (
-            <MobileSidebar
-              onClose={(value) => setOpenMobileNav(value)}
-              isSidebarOpen={openMobileNav}
-            />
+              <MobileSidebar
+                  onClose={(value) => setOpenMobileNav(value)}
+                  isSidebarOpen={openMobileNav}
+              />
           )}
-        </div>
-
-        <div>
           <RiMenu2Fill
             size={25}
             className="hover:cursor-pointer text-white lg:hidden"
@@ -48,7 +45,7 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
             }}
           />
         </div>
-        <div className="flex justify-end gap-5">
+        <div className="flex justify-end gap-3">
           <Switcher />
           <button
             onClick={() => {

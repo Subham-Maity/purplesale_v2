@@ -13,7 +13,7 @@ const BoxHome = () => {
       <div className="lg:block hidden">
         <div className="mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 whitespace-nowrap justify-items-center md:gap-6">
-            <div className="flex text-white bg-[url('/Rectangle.png')]  bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <div className="flex text-white bg-[url('/Rectangle.svg')]  bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
               <span className="flex justify-between gap-4">
                 <BsBarChartFill className=" lg:text-4xl 2xl:text-5xl text-green-400" />
                 <span className="flex flex-col">
@@ -26,7 +26,7 @@ const BoxHome = () => {
                 </span>
               </span>
             </div>
-            <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <div className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
               <span className="flex justify-between gap-4">
                 <AiOutlineSafetyCertificate className=" lg:text-4xl 2xl:text-5xl text-green-400" />
                 <span className="flex flex-col">
@@ -39,7 +39,7 @@ const BoxHome = () => {
                 </span>
               </span>
             </div>
-            <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <div className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
               <span className="flex justify-between gap-4">
                 <HiOutlineUserGroup className=" lg:text-4xl 2xl:text-5xl text-green-400" />
                 <span className="flex flex-col">
@@ -52,7 +52,7 @@ const BoxHome = () => {
                 </span>
               </span>
             </div>
-            <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <div className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
               <span className="flex justify-between gap-4">
                 <BsBarChartFill className=" lg:text-4xl 2xl:text-5xl text-green-400" />
                 <span className="flex flex-col">
@@ -70,12 +70,13 @@ const BoxHome = () => {
       </div>
 
       <div className="lg:hidden">
-        <div className="mx-auto">
-          <div className="flex flex-wrap gap-2 md:gap-20 justify-center items-center">
-            <div className="w-full md:w-1/2 lg:w-1/4">
-              <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+        <div className="mx-auto ">
+          <div className="flex flex-wrap gap-2 md:gap-10 justify-center items-center">
+            <div className="w-full ">
+              <div
+                  className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
                 <span className="flex justify-between gap-4">
-                  <BsBarChartFill className="text-5xl text-green-400" />
+                  <BsBarChartFill className="text-5xl text-green-400"/>
                   <span className="flex flex-col">
                     <p className="font-extrabold lg:text-4xl md:text-5xl text-3xl whitespace-nowrap">
                       $462.9M
@@ -87,10 +88,11 @@ const BoxHome = () => {
                 </span>
               </div>
             </div>
-            <div className="w-full md:w-1/2 lg:w-1/4">
-              <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <div className="w-full ">
+              <div
+                  className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
                 <span className="flex justify-between gap-4">
-                  <AiOutlineSafetyCertificate className="text-5xl text-green-400" />
+                  <AiOutlineSafetyCertificate className="text-5xl text-green-400"/>
                   <span className="flex flex-col">
                     <p className="font-extrabold lg:text-4xl md:text-5xl text-3xl whitespace-nowrap">
                       20965
@@ -102,10 +104,12 @@ const BoxHome = () => {
                 </span>
               </div>
             </div>
-            <div className="w-full md:w-1/2 lg:w-1/4">
-              <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+
+            <div className="w-full ">
+              <div
+                  className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
                 <span className="flex justify-between gap-4">
-                  <HiOutlineUserGroup className="text-5xl text-green-400" />
+                  <HiOutlineUserGroup className="text-5xl text-green-400"/>
                   <span className="flex flex-col">
                     <p className="font-extrabold lg:text-4xl md:text-5xl text-3xl whitespace-nowrap">
                       2.4M
@@ -117,10 +121,11 @@ const BoxHome = () => {
                 </span>
               </div>
             </div>
-            <div className="w-full md:w-1/2 lg:w-1/4">
-              <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <div className="w-full ">
+              <div
+                  className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 lg:h-[153px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
                 <span className="flex justify-between gap-4">
-                  <BsBarChartFill className="text-5xl text-green-400" />
+                  <BsBarChartFill className="text-5xl text-green-400"/>
                   <span className="flex flex-col">
                     <p className="font-extrabold lg:text-4xl md:text-5xl text-3xl whitespace-nowrap">
                       $462.9M

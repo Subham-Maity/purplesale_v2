@@ -71,16 +71,16 @@ const HomeMain = () => {
           decentralized!
         </p>
         <div
-            className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 whitespace-nowrap justify-items-center md:gap-20  gap-8">
+            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 whitespace-nowrap justify-items-center xl:gap-4 gap-8">
           <div
-              className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
-            <span className="flex justify-between gap-4">
+              className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-2">
               <Image
                   src="/Home/icons/standard.svg"
                   height={200}
                   width={200}
                 alt="pot"
-                className="ml-2 lg:ml:0 lg:h-16 lg:w-16 h-12 w-12"
+                className="ml-2 lg:ml:0 md md:h-14 md:w-14 lg:h-16 lg:w-16 h-12 w-12"
               />
               <span className="flex flex-col">
                 <p className="font-medium  text-3xl whitespace-nowrap">
@@ -88,108 +88,117 @@ const HomeMain = () => {
                 </p>
                 <p className="font-normal text-gray-400 text-sm lg:text-xl text-md break-words lg:mr-0 mr-2 ">
                   Standard Mint standard
-                  <br /> tokens on ETH, BSC, AVAX, Fantom, <br />
+                  <br /> tokens on ETH, BSC, AVAX <br />
                   Polygon.
                 </p>
               </span>
             </span>
           </div>
-          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
-            <span className="flex justify-between gap-4">
+          <div className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+            <span className="flex justify-between gap-2">
               <Image
-                src="/Home/icons/punch.svg"
-                height={200}
-                width={200}
-                alt="pot"
-                className="h-16 w-16"
+                  src="/Home/icons/punch.svg"
+                  height={200}
+                  width={200}
+                  alt="pot"
+                  className="ml-2 lg:ml:0 md md:h-14 md:w-14 lg:h-16 lg:w-16 h-12 w-12"
               />
               <span className="flex flex-col">
-                <p className="font-medium text-3xl whitespace-nowrap">
+                <p className="font-medium  text-3xl whitespace-nowrap">
                   Deflationary
                 </p>
-                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
-                  Mint standard tokens on ETH, BSC,
-                  <br /> AVAX, Fantom, Polygon.
+                  <p className="font-normal text-gray-400 text-sm lg:text-xl text-md break-words lg:mr-0 mr-2 ">
+                  Standard Mint standard
+                  <br/> tokens on ETH, BSC, AVAX <br/>
+                  Polygon.
                 </p>
               </span>
             </span>
           </div>
-          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
-            <span className="flex justify-between gap-4">
+          <div
+              className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+              <span className="flex justify-between gap-2">
               <Image
-                src="/Home/icons/pot.svg"
-                height={200}
-                width={200}
-                alt="pot"
-                className="h-16 w-16"
+                  src="/Home/icons/pot.svg"
+                  height={200}
+                  width={200}
+                  alt="pot"
+                  className="ml-2 lg:ml:0 md md:h-14 md:w-14 lg:h-16 lg:w-16 h-12 w-12"
               />
               <span className="flex flex-col">
-                <p className="font-medium text-3xl whitespace-nowrap">
+                <p className="font-medium  text-3xl whitespace-nowrap">
                   Customization
                 </p>
-                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
-                  Mint standard tokens on ETH, BSC,
-                  <br /> BSC, AVAX, Fantom, Polygon.
+                  <p className="font-normal text-gray-400 text-sm lg:text-xl text-md break-words lg:mr-0 mr-2 ">
+                  Standard Mint standard
+                  <br/> tokens on ETH, BSC, AVAX <br/>
+                  Polygon.
                 </p>
               </span>
             </span>
           </div>
-          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
-            <span className="flex justify-between gap-4">
+          <div
+              className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+             <span className="flex justify-between gap-2">
               <Image
-                src="/Home/icons/flower.svg"
-                height={200}
-                width={200}
-                alt="pot"
-                className="h-16 w-16"
+                  src="/Home/icons/flower.svg"
+                  height={200}
+                  width={200}
+                  alt="pot"
+                  className="ml-2 lg:ml:0 md md:h-14 md:w-14 lg:h-16 lg:w-16 h-12 w-12"
               />
               <span className="flex flex-col">
-                <p className="font-medium text-3xl whitespace-nowrap">
+                <p className="font-medium  text-3xl whitespace-nowrap">
                   Standard
                 </p>
-                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
-                  Standard Mint standard tokens
-                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                  <p className="font-normal text-gray-400 text-sm lg:text-xl text-md break-words lg:mr-0 mr-2 ">
+                  Standard Mint standard
+                  <br/> tokens on ETH, BSC, AVAX <br/>
+                  Polygon.
                 </p>
               </span>
             </span>
           </div>
-          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
-            <span className="flex justify-between gap-4">
+          <div
+              className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+             <span className="flex justify-between gap-2">
               <Image
-                src="/Home/icons/punch2.svg"
-                height={200}
-                width={200}
-                alt="pot"
-                className="h-16 w-16"
+                  src="/Home/icons/punch2.svg"
+                  height={200}
+                  width={200}
+                  alt="pot"
+                  className="ml-2 lg:ml:0 md md:h-14 md:w-14 lg:h-16 lg:w-16 h-12 w-12"
               />
               <span className="flex flex-col">
-                <p className="font-medium text-3xl whitespace-nowrap">
+                <p className="font-medium  text-3xl whitespace-nowrap">
                   Deflationary
                 </p>
-                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
-                  Standard Mint standard tokens
-                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                 <p className="font-normal text-gray-400 text-sm lg:text-xl text-md break-words lg:mr-0 mr-2 ">
+                  Standard Mint standard
+                  <br/> tokens on ETH, BSC, AVAX <br/>
+                  Polygon.
                 </p>
               </span>
             </span>
           </div>
-          <div className="flex text-white bg-[url('/Rectangle.png')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
-            <span className="flex justify-between gap-4">
+          <div
+              className="flex text-white bg-[url('/Rectangle.svg')] bg-cover bg-no-repeat flex-col items-center justify-center gap-4 w-full lg:h-[211px] lg:w-full  border-gray-600/75 border border-primaryButton hover:border-text hover:scale-[1.05] transition-all ease-in-out duration-500 py-5 lg:p-2 shadow-lg aspect-w-1 aspect-h-1 rounded-3xl ">
+             <span className="flex justify-between gap-2">
               <Image
-                src="/Home/icons/pot2.svg"
-                height={200}
-                width={200}
-                alt="pot"
-                className="h-16 w-16"
+                  src="/Home/icons/pot2.svg"
+                  height={200}
+                  width={200}
+                  alt="pot"
+                  className="ml-2 lg:ml:0 md md:h-14 md:w-14 lg:h-16 lg:w-16 h-12 w-12"
               />
               <span className="flex flex-col">
-                <p className="font-medium text-3xl whitespace-nowrap">
+                <p className="font-medium  text-3xl whitespace-nowrap">
                   Customization
                 </p>
-                <p className="font-normal text-gray-400 text-1xl text-md break-words ">
-                  Standard Mint standard tokens
-                  <br /> on ETH, BSC, AVAX, Fantom, Polygon.
+                  <p className="font-normal text-gray-400 text-sm lg:text-xl text-md break-words lg:mr-0 mr-2 ">
+                  Standard Mint standard
+                  <br/> tokens on ETH, BSC, AVAX <br/>
+                  Polygon.
                 </p>
               </span>
             </span>
