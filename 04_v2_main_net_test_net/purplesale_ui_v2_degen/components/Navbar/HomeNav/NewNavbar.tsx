@@ -128,109 +128,112 @@ const Index = ({ toggleSidebar, isSidebarOpen }: NavbarProps) => {
         <div className="px-4">
           <div className="bg-gray-700/50 h-18 mb-4 flex p-2 rounded-2xl justify-between gap-5">
             <button
-              className={`w-full h-14 px-6 text-md lg:text-4xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
-                activeTab === 1
-                  ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
-                  : "text-indigo-100 border-yellow-700"
-              }`}
-              onClick={() => setActiveTab(1)}
+                className={`w-full h-14 px-6 sm:text-sm md:text-xl lg:text-xl xl:text-2xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
+                    activeTab === 1
+                        ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
+                        : "text-indigo-100 border-yellow-700"
+                }`}
+                onClick={() => setActiveTab(1)}
             >
               {activeTab === 1 ? (
-                "ALPHA MODE"
+                  "ALPHA MODE"
               ) : (
-                <>
-                  <span className="hidden md:inline">🔥🔥</span>ALPHA MODE
-                  <span className="hidden md:inline">🔥🔥</span>
-                </>
+                  <>
+                    <span className="hidden md:inline">🔥🔥</span>ALPHA MODE
+                    <span className="hidden md:inline">🔥🔥</span>
+                  </>
               )}
             </button>
             <button
-              className={`w-full h-14 px-6 text-md lg:text-4xl border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
-                activeTab === 0
-                  ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
-                  : "text-indigo-100 border-yellow-700"
-              }`}
-              onClick={() => setActiveTab(0)}
+                className={`w-full h-14 sm:text-sm md:text-xl lg:text-xl xl:text-2xl px-6 text-md border-4 font-bold transition-colors duration-150 rounded-2xl focus:shadow-outline ${
+                    activeTab === 0
+                        ? "text-black border-yellow-400 bg-gradient-to-b from-[#ff7b4c] to-[#fb6e4c]"
+                        : "text-indigo-100 border-yellow-700"
+                }`}
+                onClick={() => setActiveTab(0)}
             >
               {activeTab === 0 ? (
-                "DEGEN MODE"
+                  "DEGEN MODE"
               ) : (
-                <>
-                  <span className="hidden md:inline">🔥🔥</span>DEGEN MODE
-                  <span className="hidden md:inline">🔥🔥</span>
-                </>
+                  <>
+                    <span className="hidden md:inline">🔥🔥</span>DEGEN MODE
+                    <span className="hidden md:inline">🔥🔥</span>
+                  </>
               )}
             </button>
           </div>
         </div>
         {path !== "/" && (
-          <div>
-            <div
-              className={
-                chain?.name ||
-                chain?.name === "Ethereum" ||
-                chain?.name === "Arbitrum One" ||
-                chain?.name === "Polygon" ||
-                chain?.name === "Avalanche"
-                  ? "hidden"
-                  : "block"
-              }
-            >
-              <Ethereum
-                isSidebarOpen={isSidebarOpen}
-                toggleSidebar={toggleSidebar}
-              />
-            </div>
-
-            {chain?.name === "Ethereum" && (
-              <>
+            <div>
+              <div
+                  className={
+                    chain?.name ||
+                    chain?.name === "Ethereum" ||
+                    chain?.name === "Arbitrum One" ||
+                    chain?.name === "Polygon" ||
+                    chain?.name === "Avalanche"
+                        ? "hidden"
+                        : "block"
+                  }
+              >
                 <Ethereum
-                  isSidebarOpen={isSidebarOpen}
-                  toggleSidebar={toggleSidebar}
+                    isSidebarOpen={isSidebarOpen}
+                    toggleSidebar={toggleSidebar}
                 />
-              </>
-            )}
+              </div>
 
-            {chain?.name === "Arbitrum One" && (
-              <>
-                <Arbitrum
-                  isSidebarOpen={isSidebarOpen}
-                  toggleSidebar={toggleSidebar}
-                />
-              </>
-            )}
+              {chain?.name === "Ethereum" && (
+                  <>
+                    <Ethereum
+                        isSidebarOpen={isSidebarOpen}
+                        toggleSidebar={toggleSidebar}
+                    />
+                  </>
+              )}
 
-            {chain?.name === "Polygon" && (
-              <>
-                <Polygon
-                  isSidebarOpen={isSidebarOpen}
-                  toggleSidebar={toggleSidebar}
-                />
-              </>
-            )}
+              {chain?.name === "Arbitrum One" && (
+                  <>
+                    <Arbitrum
+                        isSidebarOpen={isSidebarOpen}
+                        toggleSidebar={toggleSidebar}
+                    />
+                  </>
+              )}
 
-            {chain?.name === "Avalanche" && (
-              <>
-                <Avalanche
-                  isSidebarOpen={isSidebarOpen}
-                  toggleSidebar={toggleSidebar}
-                />
-              </>
-            )}
-          </div>
+              {chain?.name === "Polygon" && (
+                  <>
+                    <Polygon
+                        isSidebarOpen={isSidebarOpen}
+                        toggleSidebar={toggleSidebar}
+                    />
+                  </>
+              )}
+
+              {chain?.name === "Avalanche" && (
+                  <>
+                    <Avalanche
+                        isSidebarOpen={isSidebarOpen}
+                        toggleSidebar={toggleSidebar}
+                    />
+                  </>
+              )}
+            </div>
         )}
-        <div className="border border-[#FDB149] mx-4 bg-gray-600/25 items-center lg:mx-96 mt-4 rounded-2xl py-2">
-          <p className="text-[#FDB149] text-center font-bold">
-            {`You are currently in ${
-              activeTab === 1 ? "Alpha" : "Degen"
-            } mode, Please click ${
-              activeTab === 1 ? "Degen" : "Alpha"
-            } mode to switch`}
-          </p>
+        <div className="flex items-center justify-center">
+          <div
+              className="border border-[#FDB149] sm:text-sm md:text-sm lg:text-md xl:text-lg sm:w-full flex items-center justify-center w-full md:w-80 lg:w-2/4 xl:w-2/4 mx-4 lg:px-0 xl:whitespace-nowrap md:break-words sm:break-words lg:break-words px-4 bg-gray-600/25 mt-4 rounded-2xl py-2">
+            <p className="text-[#FDB149] text-center font-bold">
+              {`You are currently in ${
+                  activeTab === 1 ? "Alpha" : "Degen"
+              } mode, Please click ${
+                  activeTab === 1 ? "Degen" : "Alpha"
+              } mode to switch`}
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default dynamic(() => Promise.resolve(Index), { ssr: false });
+export default dynamic(() => Promise.resolve(Index), {ssr: false});
